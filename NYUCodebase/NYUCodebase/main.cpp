@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
 	ShaderProgram program = ShaderProgram(RESOURCE_FOLDER"vertex_textured.glsl", RESOURCE_FOLDER"fragment_textured.glsl");
 
 	Matrix modelMatrix;
+	Matrix modelMatrix2;
 	Matrix viewMatrix;
 	Matrix projectionMatrix;
 		
@@ -94,7 +95,7 @@ int main(int argc, char *argv[])
 		GLuint grassID = LoadTextureRGB("images/grass.jpg");
 		GLuint brickID = LoadTextureRGB("images/brickwall.jpg");
 		GLuint grayID = LoadTextureRGB("images/gray.jpg");
-		GLuint bladeID = LoadTextureRGBA("images/blades.png");
+		GLuint bladeID = LoadTextureRGBA("images/blade.png");
 
 		//Texture Coords
 		float texCoords[] = { 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f };
@@ -190,8 +191,11 @@ int main(int argc, char *argv[])
 		glDisableVertexAttribArray(program.positionAttribute);
 		glDisableVertexAttribArray(program.texCoordAttribute);
 		
+		
+		program.setModelMatrix(modelMatrix2);
+
 		//Windmill Blades
-		float blade_vertices[] = { -0.15f, -0.3f, 0.8f, -0.3f, 0.8f, 0.7f, 0.8f, 0.7f, -0.15f, 0.7f, -0.15f, -0.3f };
+		float blade_vertices[] = { -0.5f, 0.5f, -0.5f, -0.5f, 0.5f, -0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f, 0.5f};
 		glVertexAttribPointer(program.positionAttribute, 2, GL_FLOAT, false, 0, blade_vertices);
 		glEnableVertexAttribArray(program.positionAttribute);
 
@@ -199,13 +203,14 @@ int main(int argc, char *argv[])
 		glEnableVertexAttribArray(program.texCoordAttribute);
 		glBindTexture(GL_TEXTURE_2D, bladeID);
 
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawArrays(GL_TRIANGLES, 0, 6);	
 		glDisableVertexAttribArray(program.positionAttribute);
 		glDisableVertexAttribArray(program.texCoordAttribute);
 
-		/*modelMatrix.identity();
-		modelMatrix.Rotate(angle);*/
-
+		modelMatrix2.identity();
+		modelMatrix2.Translate(0.35f, 0.1f, 0.0f);
+		modelMatrix2.Rotate(angle);
+		
 		SDL_GL_SwapWindow(displayWindow);
 	}
 
