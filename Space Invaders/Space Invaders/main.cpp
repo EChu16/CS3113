@@ -1,3 +1,8 @@
+/*
+	Space Invaders
+	Erich Chu
+*/
+
 #include "Game.h"
 
 int main(int argc, char *argv[])

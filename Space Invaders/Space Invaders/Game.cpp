@@ -1,3 +1,8 @@
+/*
+	Space Invaders
+	Erich Chu
+*/
+
 #include "Game.h"
 
 Game::Game() :done(false), lastFrameTicks(0.0f), victory(false) {
