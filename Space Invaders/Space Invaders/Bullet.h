@@ -17,6 +17,7 @@ class Bullet {
 			void yTranslate(float amount);
 			void dies();
 
+			Entity* getObject() const;
 			bool isAlive() const;
 			float getxPos() const;
 			float getyPos() const;

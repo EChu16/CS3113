@@ -229,7 +229,7 @@ void Game::Update(float elapsed) {
 		lastMonsterBullet += elapsed;
 		if (lastMonsterBullet > 3.0f) {
 			lastMonsterBullet = 0.0f;
-			while (!enemies[randEnemy]->checkAlive()) {
+			while (enemies[randEnemy]->checkAlive() == false) {
 				randEnemy = floor(rand() % NUM_ALIENS);
 			}
 			enemies[randEnemy]->shootBullet(bullets);
@@ -242,21 +242,24 @@ void Game::Update(float elapsed) {
 				if (bullets[i]->getyPos() > 2.2f || bullets[i]->getyPos() < -2.2f) {
 					bullets[i]->dies();
 				}
-				for (int a = 0; a < enemies.size(); a++) {
-					if (enemies[a]->checkAlive() == true && bullets[i]->collidesWith(enemies[a])) {
-						enemies[a]->dies();
-						bullets[i]->dies();
-						--numEnemiesAlive;
-						if (numEnemiesAlive == 0)
-							victory = true;
-						break;
+				else if (bullets[i]->collidesWith(player)) {
+					bullets[i]->dies();
+					player->dies();
+					break;
+				}
+				else if (bullets[i]->getObject()->getType() == PLAYER) {
+					for (int a = 0; a < enemies.size(); a++) {
+						if (enemies[a]->checkAlive() == true && bullets[i]->collidesWith(enemies[a])) {
+							enemies[a]->dies();
+							bullets[i]->dies();
+							--numEnemiesAlive;
+							if (numEnemiesAlive == 0)
+								victory = true;
+							break;
+						}
 					}
 				}
-			}
-			if (bullets[i]->collidesWith(player)) {
-				player->dies();
-			}
-			
+			}			
 		}
 	}
 }

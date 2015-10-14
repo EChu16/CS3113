@@ -1,33 +1,33 @@
-﻿Build started 10/14/2015 11:44:09 AM.
-     1>Project "C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Space Invaders\Space Invaders.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/14/2015 4:36:24 PM.
+     1>Project "C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Space Invaders\Space Invaders.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SDL2\include /IC:\SDL2_image\include /IC:\glew\include /IC:\SDL2_mixer\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDOWS /D _MBCS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp
          Game.cpp
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(12): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(21): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(46): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(54): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(95): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(149): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(208): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(210): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(220): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(233): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(239): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(245): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\erich\documents\visual studio 2013\projects\space invaders\space invaders\game.cpp(306): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(12): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(21): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(46): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(54): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(95): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(149): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(208): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(210): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(220): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(233): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(239): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(251): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(309): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Debug\Space Invaders.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SDL2_mixer\lib\x86 /LIBPATH:C:\SDL2\lib\x86 /LIBPATH:C:\SDL2_image\lib\x86 /LIBPATH:C:\glew\lib\Release\Win32 SDL2.lib SDL2_mixer.lib glew32.lib SDL2main.lib SDL2_image.lib OpenGL32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Debug\Space Invaders.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Debug\Space Invaders.lib" /MACHINE:X86 Debug\Bullet.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\SDL2_mixer\lib\x86 /LIBPATH:C:\SDL2\lib\x86 /LIBPATH:C:\SDL2_image\lib\x86 /LIBPATH:C:\glew\lib\Release\Win32 SDL2.lib SDL2_mixer.lib glew32.lib SDL2main.lib SDL2_image.lib OpenGL32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.lib" /MACHINE:X86 Debug\Bullet.obj
          Debug\Entity.obj
          Debug\Game.obj
          Debug\main.obj
          Debug\Matrix.obj
          Debug\ShaderProgram.obj
          Debug\SheetSprite.obj
-         Space Invaders.vcxproj -> C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Debug\Space Invaders.exe
-     1>Done Building Project "C:\Users\Erich\documents\visual studio 2013\Projects\Space Invaders\Space Invaders\Space Invaders.vcxproj" (Build target(s)).
+         Space Invaders.vcxproj -> C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.exe
+     1>Done Building Project "C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Space Invaders\Space Invaders.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.28
+Time Elapsed 00:00:02.05
