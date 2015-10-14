@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	//Ball
 	float ballposX = 0.0f;
 	float ballposY = 0.0f;
-	float ballSpeed = 0.001f;
+	float ballSpeed = 0.002f;
 	float ballDirectionX = 1.0f;
 	float ballDirectionY = 1.0f;
 
@@ -93,6 +93,7 @@ int main(int argc, char *argv[])
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+		const Uint8* keys = SDL_GetKeyboardState(NULL);
 		//Controls for the game
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
@@ -100,14 +101,14 @@ int main(int argc, char *argv[])
 			}
 			if (event.type == SDL_KEYDOWN) {
 				//Player 1 Controls
-				if (event.key.keysym.scancode == SDL_SCANCODE_W) {
+				if (keys[SDL_SCANCODE_W]) {
 					if (paddle1posY1 < 2.0f){
 						paddle1posY1 += 0.2f;
 						paddle1posY2 += 0.2f;
 						paddle1Matrix.Translate(0.0f, 0.2f, 0.0f);
 					}
 				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_S) {
+				if (keys[SDL_SCANCODE_S]) {
 					if (paddle1posY2 > -2.0f){
 						paddle1posY1 -= 0.2f;
 						paddle1posY2 -= 0.2f;
@@ -115,14 +116,14 @@ int main(int argc, char *argv[])
 					}
 				}
 				//Player 2 Controls
-				if (event.key.keysym.scancode == SDL_SCANCODE_UP) {
+				if (keys[SDL_SCANCODE_UP]) {
 					if (paddle2posY1 < 2.0f){
 						paddle2posY1 += 0.2f;
 						paddle2posY2 += 0.2f;
 						paddle2Matrix.Translate(0.0f, 0.2f, 0.0f);
 					}
 				}
-				if (event.key.keysym.scancode == SDL_SCANCODE_DOWN) {
+				if (keys[SDL_SCANCODE_DOWN]) {
 					if (paddle2posY2 > -2.0f){
 						paddle2posY1 -= 0.2f;
 						paddle2posY2 -= 0.2f;
