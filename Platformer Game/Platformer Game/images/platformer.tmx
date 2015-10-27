@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="30" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2" tilecount="156">
+  <image source="../../../../../CS3113/assets/graphics/Platformer assets (1330 assets)/Base pack (360 assets)/Tiles/tiles_spritesheet.png" width="914" height="936"/>
+ </tileset>
+ <tileset firstgid="157" name="p1_spritesheet" tilewidth="66" tileheight="92" spacing="8" tilecount="12">
+  <image source="../../../../../CS3113/assets/graphics/Platformer assets (1330 assets)/Base pack (360 assets)/Player/p1_spritesheet.png" width="508" height="288"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1skJACAMBEDLtSW7tQQxeBFnPnlnl0BKAeCWOphZzez9a0ZZ6Ati3A7k4Z5j/IvrjPKR21ktONlDH2/J0kcHLE8Z9g==
+  </data>
+ </layer>
+ <objectgroup name="ObjectLayer">
+  <object id="5" name="Start" type="Start" gid="159" x="117" y="182" width="66" height="92"/>
+ </objectgroup>
+</map>
