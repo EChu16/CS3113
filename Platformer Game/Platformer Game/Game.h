@@ -17,11 +17,10 @@
 #include <sstream>
 #include <string>
 #define TILE_SIZE 1.0f
-#define LEVEL_HEIGHT 1.0f
-#define LEVEL_WIDTH 3.0f
-#define SPRITE_COUNT_X 13
+#define LEVEL_HEIGHT 30.0f
+#define LEVEL_WIDTH 50.0f
+#define SPRITE_COUNT_X 12
 #define SPRITE_COUNT_Y 13
-
 #ifdef _WINDOWS
 #define RESOURCE_FOLDER ""
 #else
@@ -40,12 +39,14 @@ public:
 	void Update(float elapsed);
 	void LoadMap();
 	void RenderGame();
+	void RenderMap();
 	
 	//Map functions
 	bool readHeader(std::ifstream &stream);
 	bool readLayerData(std::ifstream &stream);
 	bool readEntityData(std::ifstream &stream);
 	void placeEntity(std::string type, float xPos, float yPos);
+	void centerMap();
 
 	//External Functions
 	void LoadAllTextures();
@@ -74,7 +75,7 @@ private:
 	unsigned char** levelData;
 
 	//Sprite Sheet
-	int tileID;
+	int sheetID;
 	int tileSprites;
 	int playerSprites;
 

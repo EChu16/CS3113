@@ -58,6 +58,6 @@
     <None Include="vertex_textured.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="platformer_map.txt" />
+    <Text Include="map_platform.txt" />
   </ItemGroup>
 </Project>

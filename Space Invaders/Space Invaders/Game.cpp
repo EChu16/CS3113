@@ -151,13 +151,13 @@ void Game::ProcessEvents(float elapsed) {
 				//Move Left
 				if (keys[SDL_SCANCODE_LEFT]) {
 					if (player->getxPos() + (-1.0 * player->getVelocity() * elapsed) > -3.0f) {
-						player->xTranslate(-1.0 * player->getVelocity() * elapsed);
+						player->xTranslate(-0.2);
 					}
 				}
 				//Move Right
 				else if (keys[SDL_SCANCODE_RIGHT]) {
 					if (player->getxPos() + (player->getVelocity() * elapsed) < 3.0f) {
-						player->xTranslate(player->getVelocity() * elapsed);
+						player->xTranslate(0.2);
 					}
 				}
 				//Shoot bullet

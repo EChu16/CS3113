@@ -24,7 +24,7 @@ void Game::Setup() {
 	program = new ShaderProgram(RESOURCE_FOLDER"vertex_textured.glsl", RESOURCE_FOLDER"fragment_textured.glsl");
 	glUseProgram(program->programID);
 	glViewport(0, 0, 640, 360);
-	projectionMatrix.setOrthoProjection(-6.0f, 6.0f, -4.0f, 4.0f, -1.0f, 1.0f);
+	projectionMatrix.setOrthoProjection(-8.0f, 8.0f, -6.0f, 6.0f, -1.0f, 1.0f);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -39,6 +39,8 @@ void Game::Setup() {
 
 	LoadAllTextures();
 	LoadMap();
+	RenderMap();
+	centerMap();
 	Render();
 
 	SDL_GL_SwapWindow(displayWindow);
@@ -66,6 +68,7 @@ bool Game::UpdateAndRender() {
 void Game::Render() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	RenderGame();
+	centerMap();
 }
 
 void Game::Update(float elapsed) {
@@ -74,22 +77,25 @@ void Game::Update(float elapsed) {
 
 void Game::placeEntity(std::string type, float xPos, float yPos)
 {
-	if (type == "Start") {
+	if (type == "start") {
 		player = new Entity(xPos, yPos, 10.0f, 10.0f, type);
 	}
 }
 
-void Game::RenderGame() {
-	//Draw Player
-	player->Draw(program, gameMatrix, playerImg);
+void Game::centerMap() {
+	viewMatrix.identity();
+	viewMatrix.Translate(-player->getxPos(), -player->getYPos(), 0.0f);
+	program->setViewMatrix(viewMatrix);
+}
 
+void Game::RenderMap() {
 	//Draw Map
 	for (int y = 0; y < LEVEL_HEIGHT; y++) {
 		for (int x = 0; x < LEVEL_WIDTH; x++) {
 			float u = (float)(((int)levelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
 			float v = (float)(((int)levelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
-			float spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
-			float spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
+			float spriteWidth = 0.37f / (float)SPRITE_COUNT_X;
+			float spriteHeight = 0.9f / (float)SPRITE_COUNT_Y;
 			vertexData.insert(vertexData.end(), {
 				TILE_SIZE * x, -TILE_SIZE * y,
 				TILE_SIZE * x, (-TILE_SIZE * y) - TILE_SIZE,
@@ -102,13 +108,16 @@ void Game::RenderGame() {
 				u, v,
 				u, v + (spriteHeight),
 				u + spriteWidth, v + (spriteHeight),
-				u, v,	
+				u, v,
 				u + spriteWidth, v + (spriteHeight),
 				u + spriteWidth, v
 			});
 		}
 	}
+}
 
+void Game::RenderGame() {
+	//Draw Map
 	glUseProgram(program->programID);
 	glVertexAttribPointer(program->positionAttribute, 2, GL_FLOAT, false, 0, vertexData.data());
 	glEnableVertexAttribArray(program->positionAttribute);
@@ -116,14 +125,17 @@ void Game::RenderGame() {
 	glEnableVertexAttribArray(program->texCoordAttribute);
 	gameMatrix.identity();
 	program->setModelMatrix(gameMatrix);
-	glBindTexture(GL_TEXTURE_2D, tileID);
+	glBindTexture(GL_TEXTURE_2D, tileSprites);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * 50 * 30);
 	glDisableVertexAttribArray(program->positionAttribute);
 	glDisableVertexAttribArray(program->texCoordAttribute);
+
+	//Draw Player
+	player->Draw(program, gameMatrix, playerImg);
 }
 
 void Game::LoadMap() {
-	std::ifstream infile("maps/platformer_map.txt");
+	std::ifstream infile("maps/map_platform.txt");
 	while (getline(infile, line)) {
 		if (line == "[header]") {
 			if (!readHeader(infile)) {
@@ -210,8 +222,8 @@ bool Game::readEntityData(std::ifstream &stream) {
 			std::istringstream lineStream(value);
 			getline(lineStream, xPosition, ',');
 			getline(lineStream, yPosition, ',');
-			float placeX = atoi(xPosition.c_str()) / 16 * TILE_SIZE;
-			float placeY = atoi(yPosition.c_str()) / 16 * -TILE_SIZE;
+			float placeX = (float)atoi(xPosition.c_str()) / SPRITE_COUNT_X * TILE_SIZE;
+			float placeY = (float)atoi(yPosition.c_str()) / SPRITE_COUNT_Y * -TILE_SIZE;
 			placeEntity(type, placeX, placeY);
 		}
 	}
@@ -223,7 +235,6 @@ void Game::LoadAllTextures() {
 	tileSprites = LoadTextureRGBA("images/tiles_spritesheet.png");
 	playerSprites = LoadTextureRGBA("images/p1_spritesheet.png");
 	playerImg = SheetSprite(playerSprites, 146.0f / 508.0f, 0.0f / 208.0f, 72.0f / 508.0f, 70.0f / 208.0f, 2.0f);
-	tileID = LoadTextureRGBA("images/sand.png");
 
 }
 //Load JPG files

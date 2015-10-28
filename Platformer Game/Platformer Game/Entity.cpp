@@ -11,7 +11,7 @@ Entity::Entity(float xPos, float yPos, float h, float w, std::string etype) {
 	acceleration_y = 0.0f;
 	direction = 1.0f;
 	isStatic = true;
-	if (etype == "Start") {
+	if (etype == "start") {
 		type = PLAYER;
 	}
 }
