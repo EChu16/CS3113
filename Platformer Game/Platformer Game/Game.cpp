@@ -54,9 +54,11 @@ void Game::ProcessEvents(float elapsed) {
 		}
 		if (keys[SDL_SCANCODE_LEFT]) {
 			player->changeXAcc(-10.0f);
+			player->updateVals(elapsed);
 		}
 		else if (keys[SDL_SCANCODE_RIGHT]) {
 			player->changeXAcc(10.0f);
+			player->updateVals(elapsed);
 		}
 		else {
 			player->changeXAcc(0.0f);
@@ -81,7 +83,7 @@ void Game::Render() {
 }
 
 void Game::Update(float elapsed) {
-	player->updateVals(elapsed);
+
 }
 
 void Game::placeEntity(std::string type, float xPos, float yPos)
@@ -141,6 +143,7 @@ void Game::RenderGame() {
 
 	//Draw Player
 	player->Draw(program, gameMatrix, playerImg);
+	SDL_GL_SwapWindow(displayWindow);
 }
 
 void Game::LoadMap() {
