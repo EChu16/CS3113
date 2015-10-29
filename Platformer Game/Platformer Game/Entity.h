@@ -8,7 +8,7 @@
 #include <string>
 #include <iostream>	
 #include <vector>
-enum TYPE { PLAYER, COIN };
+enum TYPE { PLAYER, BLOCK };
 class Entity {
 	public:
 		Entity(float xPos, float yPos, float h, float w, std::string etype);
@@ -25,6 +25,8 @@ class Entity {
 		void xTranslate(float shiftX);
 		void yTranslate(float shiftY);
 		void changeDirection();
+		void changeXAcc(float acc);
+		void updateVals(float elapsed);
 		void Draw(ShaderProgram* program, Matrix& gameMatrix, SheetSprite& sprite);
 
 	private: float x;
@@ -35,6 +37,7 @@ class Entity {
 			 float velocity_y;
 			 float acceleration_x;
 			 float acceleration_y;
+			 float friction;
 			 bool isStatic;
 			 float direction;
 			 TYPE type;

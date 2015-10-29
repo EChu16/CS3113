@@ -86,4 +86,5 @@ private:
 
 	//Entities for game
 	Entity* player;
+	std::vector<Entity*> solidBlocks;
 };

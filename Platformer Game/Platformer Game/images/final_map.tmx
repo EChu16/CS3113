@@ -13,7 +13,7 @@
  </layer>
  <layer name="Tile Layer 2" width="50" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1jEOACAIQ1Eu66G8rbsDuAhF/0uYtY0hmgH4xXCm4tzbvLz7+VXdKKIH4Ax7owY95+J95+iyT9Tv94Lo/9qp8xlMF+TQQg4t5NBCDh0L57JGpw==
+   eJzt1jEOACAIQ1Eu66G8rbsDsghF/0uYtY0hmgH4xXCm4tzbvLz7+VXdKKIHIIa9UYOec/G+c3TZJ+r3e8Hp/9ql8xmYDsihhRxayKGFHFoW69VMCA==
   </data>
  </layer>
  <objectgroup name="ObjectLayer">

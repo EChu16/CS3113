@@ -52,6 +52,15 @@ void Game::ProcessEvents(float elapsed) {
 		if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
 			done = true;
 		}
+		if (keys[SDL_SCANCODE_LEFT]) {
+			player->changeXAcc(-10.0f);
+		}
+		else if (keys[SDL_SCANCODE_RIGHT]) {
+			player->changeXAcc(10.0f);
+		}
+		else {
+			player->changeXAcc(0.0f);
+		}
 	}
 }
 
@@ -72,7 +81,7 @@ void Game::Render() {
 }
 
 void Game::Update(float elapsed) {
-	
+	player->updateVals(elapsed);
 }
 
 void Game::placeEntity(std::string type, float xPos, float yPos)
@@ -149,6 +158,15 @@ void Game::LoadMap() {
 			readEntityData(infile);
 		}
 	}
+
+	infile.close();
+	for (int y = 0; y < mapHeight; y++) {
+		for (int x = 0; x < mapWidth; x++) {
+			if (levelData[y][x] != 154) {
+				solidBlocks.push_back(new Entity((TILE_SIZE * x) + (TILE_SIZE / 2.0), (-TILE_SIZE * y) - (TILE_SIZE / 2.0), 0.5f, 0.5f, "block"));
+			}
+		}
+	}
 }
 
 //read map headers
@@ -222,8 +240,8 @@ bool Game::readEntityData(std::ifstream &stream) {
 			std::istringstream lineStream(value);
 			getline(lineStream, xPosition, ',');
 			getline(lineStream, yPosition, ',');
-			float placeX = (float)atoi(xPosition.c_str()) / SPRITE_COUNT_X * TILE_SIZE;
-			float placeY = (float)atoi(yPosition.c_str()) / SPRITE_COUNT_Y * -TILE_SIZE;
+			float placeX = (float)atoi(xPosition.c_str()) * TILE_SIZE * 2.0f;
+			float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 0.82f;
 			placeEntity(type, placeX, placeY);
 		}
 	}
@@ -235,7 +253,6 @@ void Game::LoadAllTextures() {
 	tileSprites = LoadTextureRGBA("images/tiles_spritesheet.png");
 	playerSprites = LoadTextureRGBA("images/p1_spritesheet.png");
 	playerImg = SheetSprite(playerSprites, 146.0f / 508.0f, 0.0f / 208.0f, 72.0f / 508.0f, 70.0f / 208.0f, 2.0f);
-
 }
 //Load JPG files
 GLuint Game::LoadTextureRGB(const char *image_path) {
