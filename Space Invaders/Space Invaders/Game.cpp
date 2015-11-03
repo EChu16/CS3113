@@ -28,6 +28,8 @@ Game::Game() :done(false), lastFrameTicks(0.0f), victory(false) {
 }
 
 Game::~Game() {
+	Mix_FreeChunk(playerShoot);
+	Mix_FreeChunk(monsterShoot);
 	delete program;
 }
 
@@ -127,7 +129,7 @@ void Game::Setup() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	LoadAllTextures();
+	LoadAllTexturesandSound();
 	Render();
 
 	SDL_GL_SwapWindow(displayWindow);
@@ -163,6 +165,7 @@ void Game::ProcessEvents(float elapsed) {
 				//Shoot bullet
 				else if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
 					player->shootBullet(bullets);
+					Mix_PlayChannel(-1, playerShoot, 0);
 				}
 			}
 		}
@@ -238,6 +241,7 @@ void Game::Update(float elapsed) {
 				randEnemy = floor(rand() % NUM_ALIENS);
 			}
 			enemies[randEnemy]->shootBullet(bullets);
+			Mix_PlayChannel(-1, monsterShoot, 0);
 		}
 
 		//Move Bullets
@@ -273,12 +277,16 @@ bool Game::gameEnded() const {
 	return numEnemiesAlive == 0 || !player->checkAlive();
 }
 
-void Game::LoadAllTextures() {
+void Game::LoadAllTexturesandSound() {
 	spaceInvaderSprites = LoadTextureRGBA("images/sprites.png");
 	fontSprites = LoadTextureRGBA("images/font1.png");
 	playerImg = SheetSprite(spaceInvaderSprites, 0.0f / 256.0f, 72.0f / 256.0f, 85.0f / 256.0f, 57.0f / 256.0f, 0.3f);
 	monsterImg = SheetSprite(spaceInvaderSprites, 0.0f / 256.0f, 0.0f / 256.0f, 92.0f / 256.0f, 70.0f / 256.0f, 0.3f);
 	bulletImg = SheetSprite(spaceInvaderSprites, 0.0f / 256.0f, 131.0f / 256.0f, 50.0f / 256.0f, 86.0f / 256.0f, 0.1f);
+
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+	playerShoot = Mix_LoadWAV("sounds/playershoot.wav"); 
+	monsterShoot = Mix_LoadWAV("sounds/monstershoot.wav");
 }
 
 //Load JPG files

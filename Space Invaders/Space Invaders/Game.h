@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <vector>
 #include "ShaderProgram.h"
 #include "Matrix.h"
@@ -40,7 +41,7 @@ public:
 	bool gameEnded() const;
 
 	//External Functions
-	void LoadAllTextures();
+	void LoadAllTexturesandSound();
 	void DrawText(int fontTexture, std::string text, float size, float spacing);
 	GLuint LoadTextureRGB(const char *image_path);
 	GLuint LoadTextureRGBA(const char *image_path);
@@ -68,6 +69,10 @@ private:
 	SheetSprite playerImg;
 	SheetSprite monsterImg;
 	SheetSprite bulletImg;
+
+	//Sounds
+	Mix_Chunk *playerShoot;
+	Mix_Chunk *monsterShoot;
 
 	//Game States
 	enum GAME_STATE { TITLESCREEN, GAMEPLAY, GAMEOVER };
