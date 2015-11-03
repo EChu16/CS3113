@@ -254,6 +254,7 @@ void Game::Update(float elapsed) {
 				else if (bullets[i]->collidesWith(player)) {
 					bullets[i]->dies();
 					player->dies();
+					Mix_PlayChannel(-1, playerdead, 0);
 					break;
 				}
 				else if (bullets[i]->getObject()->getType() == PLAYER) {
@@ -261,6 +262,7 @@ void Game::Update(float elapsed) {
 						if (enemies[a]->checkAlive() == true && bullets[i]->collidesWith(enemies[a])) {
 							enemies[a]->dies();
 							bullets[i]->dies();
+							Mix_PlayChannel(-1, destroyed, 0);
 							--numEnemiesAlive;
 							if (numEnemiesAlive == 0)
 								victory = true;
@@ -287,6 +289,8 @@ void Game::LoadAllTexturesandSound() {
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 	playerShoot = Mix_LoadWAV("sounds/playershoot.wav"); 
 	monsterShoot = Mix_LoadWAV("sounds/monstershoot.wav");
+	destroyed = Mix_LoadWAV("sounds/dead.wav");
+	playerdead = Mix_LoadWAV("sounds/playerdead.wav");
 }
 
 //Load JPG files

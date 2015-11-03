@@ -73,6 +73,8 @@ private:
 	//Sounds
 	Mix_Chunk *playerShoot;
 	Mix_Chunk *monsterShoot;
+	Mix_Chunk *destroyed;
+	Mix_Chunk *playerdead;
 
 	//Game States
 	enum GAME_STATE { TITLESCREEN, GAMEPLAY, GAMEOVER };
