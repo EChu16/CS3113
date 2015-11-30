@@ -137,6 +137,23 @@ void Game::Setup() {
 
 void Game::ProcessEvents(float elapsed) {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	if (state == GAMEPLAY){
+		if (event.type == SDL_KEYDOWN) {
+			//Player Controls
+			//Move Left
+			if (keys[SDL_SCANCODE_LEFT]) {
+				if (player->getxPos() + (-1.0 * player->getVelocity() * elapsed) > -3.0f) {
+					player->xTranslate(-0.01 * player->getVelocity() * elapsed);
+				}
+			}
+			//Move Right
+			else if (keys[SDL_SCANCODE_RIGHT]) {
+				if (player->getxPos() + (player->getVelocity() * elapsed) < 3.0f) {
+					player->xTranslate(0.01*player->getVelocity() * elapsed);
+				}
+			}
+		}
+	}
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
 			done = true;
@@ -147,26 +164,10 @@ void Game::ProcessEvents(float elapsed) {
 
 			}
 		}
-		if (state == GAMEPLAY){
-			if (event.type == SDL_KEYDOWN) {
-				//Player Controls
-				//Move Left
-				if (keys[SDL_SCANCODE_LEFT]) {
-					if (player->getxPos() + (-1.0 * player->getVelocity() * elapsed) > -3.0f) {
-						player->xTranslate(-0.2);
-					}
-				}
-				//Move Right
-				else if (keys[SDL_SCANCODE_RIGHT]) {
-					if (player->getxPos() + (player->getVelocity() * elapsed) < 3.0f) {
-						player->xTranslate(0.2);
-					}
-				}
-				//Shoot bullet
-				else if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-					player->shootBullet(bullets);
-					Mix_PlayChannel(-1, playerShoot, 0);
-				}
+		if (state == GAMEPLAY) {
+			if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+				player->shootBullet(bullets);
+				Mix_PlayChannel(-1, playerShoot, 0);
 			}
 		}
 		if (state == GAMEOVER) {

@@ -48,20 +48,27 @@ void Game::Setup() {
 
 void Game::ProcessEvents(float elapsed) {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	if (keys[SDL_SCANCODE_LEFT]) {
+		if (player->getDirection() > 0) {
+			player->changeXAcc(0);
+		}
+		player->changeXAcc(-5.0F);
+		player->updateVals(elapsed);
+	}
+	else if (keys[SDL_SCANCODE_RIGHT]) {
+		if (player->getDirection() < 0) {
+			player->changeXAcc(0);
+		}
+		player->changeXAcc(5.0F);
+		player->updateVals(elapsed);
+	}
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
 			done = true;
 		}
-		if (keys[SDL_SCANCODE_LEFT]) {
-			player->changeXAcc(-10.0f);
-			player->updateVals(elapsed);
-		}
-		else if (keys[SDL_SCANCODE_RIGHT]) {
-			player->changeXAcc(10.0f);
-			player->updateVals(elapsed);
-		}
 		else {
 			player->changeXAcc(0.0f);
+			player->updateVals(elapsed);
 		}
 	}
 }

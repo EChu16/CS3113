@@ -31,6 +31,7 @@ TYPE Entity::getType() const { return type; }
 bool Entity::willCollide(float distance) const{ return (x + distance < -2.7f) || (x - distance > 2.7f); }
 
 void Entity::changeXAcc(float acc) { acceleration_x = acc; }
+void Entity::changeXVel(float vel) { velocity_x = vel; }
 void Entity::updateVals(float elapsed) {
 	velocity_x += acceleration_x * elapsed;
 	if (velocity_x > 0.0)

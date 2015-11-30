@@ -25,6 +25,7 @@ class Entity {
 		void xTranslate(float shiftX);
 		void yTranslate(float shiftY);
 		void changeDirection();
+		void changeXVel(float vel);
 		void changeXAcc(float acc);
 		void updateVals(float elapsed);
 		void Draw(ShaderProgram* program, Matrix& gameMatrix, SheetSprite& sprite);
