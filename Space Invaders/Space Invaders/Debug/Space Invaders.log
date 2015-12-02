@@ -1,1 +1,17 @@
-﻿  Space Invaders.vcxproj -> C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.exe
+﻿  Game.cpp
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(17): warning C4305: 'argument' : truncation from 'double' to 'float'
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(26): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(53): warning C4305: 'argument' : truncation from 'double' to 'float'
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(68): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(102): warning C4305: 'argument' : truncation from 'double' to 'float'
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(146): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(152): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(217): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(219): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(229): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(242): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(249): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(262): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\space invaders\space invaders\game.cpp(327): warning C4018: '<' : signed/unsigned mismatch
+  Space Invaders.vcxproj -> C:\Users\Erich\Documents\GameProgramming\HW\CS3113\Space Invaders\Debug\Space Invaders.exe

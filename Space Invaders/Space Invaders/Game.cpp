@@ -191,19 +191,19 @@ bool Game::UpdateAndRender() {
 void Game::Render() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	switch (state) {
-	case TITLESCREEN:
-	{
-		LoadTitleScreen();
-		break;
-	}
-	case GAMEPLAY: {
-		LoadGamePlay();
-		break;
-	}
-	case GAMEOVER: {
-		GameOver();
-		break;
-	}
+		case TITLESCREEN:
+		{
+			LoadTitleScreen();
+			break;
+		}
+		case GAMEPLAY: {
+			LoadGamePlay();
+			break;
+		}
+		case GAMEOVER: {
+			GameOver();
+			break;
+		}
 	}
 }
 
