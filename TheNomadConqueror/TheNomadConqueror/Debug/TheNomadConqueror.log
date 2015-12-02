@@ -1,4 +1,0 @@
-﻿  Game.cpp
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(168): warning C4305: 'argument' : truncation from 'double' to 'float'
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(293): warning C4018: '<' : signed/unsigned mismatch
-  TheNomadConqueror.vcxproj -> C:\Users\Erich\documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe
