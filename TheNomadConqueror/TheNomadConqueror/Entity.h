@@ -22,13 +22,18 @@ public:
 	float getDirection() const;
 	float getWidth() const;
 	float getHeight() const;
-
+	bool isStatic() const;
+	bool isInAir() const;
 	bool checkAlive() const;
 	TYPE getType() const;
 	bool willCollide(float distance) const;
 	bool collidesWith(Entity* object) const;
 	SheetSprite& getMainSprite();
 	
+	void changeStatic(bool newStatic);
+	void changeInAir(bool newInAir);
+	void changeXVel(float newX);
+	void changeYVel(float newY);
 	void xTranslate(float shiftX);
 	void yTranslate(float shiftY);
 	void changeDirection();
@@ -44,7 +49,7 @@ private: float x;
 		 float yAcc;
 		 float dir;
 		 TYPE type;
-		 bool isStatic;
+		 bool pstatic;
 		 bool inAir;
 		 bool alive;
 

@@ -270,7 +270,7 @@ void Game::RenderGame() {
 	else if (selectedLevel == SNOW_TUNDRA) {
 		glBindTexture(GL_TEXTURE_2D, snowtundraSprites);
 	}
-	glDrawArrays(GL_TRIANGLES, 0, 6 * 140 * 40);
+	glDrawArrays(GL_TRIANGLES, 0, 6 * 150 * 40);
 	glDisableVertexAttribArray(program->positionAttribute);
 	glDisableVertexAttribArray(program->texCoordAttribute);
 
@@ -353,6 +353,54 @@ void Game::LoadSnowTundraMap() {
 }
 void Game::ProcessEvents(float elapsed) {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	if (state == IN_GAME) {
+		if (selectedLevel == FOREST || selectedLevel == CANDYLAND) {
+			//Move left
+			if (keys[SDL_SCANCODE_LEFT]) {
+				//if (player->getXPos() + (-1.0 * player->getXVel() * elapsed) > -6.5f) {
+				player->changeStatic(false);
+				player->changeXVel(-1 * 5.0f);
+				//}
+			}
+			//Move Right
+			else if (keys[SDL_SCANCODE_RIGHT]) {
+				//	if (player->getXPos() + (player->getXVel() * elapsed) < 8.0f) {
+				player->changeStatic(false);
+				player->changeXVel(5.0f);
+				//}
+			}
+			else if (keys[SDL_SCANCODE_SPACE]) {
+				player->changeInAir(true);
+				player->changeYVel(10.0f);
+			}
+			else {
+				player->changeStatic(true);
+				player->changeXVel(0.0f);
+			}
+		}
+		else if (selectedLevel == SNOW_TUNDRA) {
+			//Slippery effect
+			if (keys[SDL_SCANCODE_LEFT]) {
+				/*if (player->getDirection() > 0) {
+				player->changeXAcc(0);
+				}
+				player->changeXAcc(-3.0F);
+				player->updateVals(elapsed);
+				}
+				else if (keys[SDL_SCANCODE_RIGHT]) {
+				if (player->getDirection() < 0) {
+				player->changeXAcc(0);
+				}
+				player->changeXAcc(3.0F);
+				player->updateVals(elapsed);
+				}
+				else {
+				player->changeXAcc(0);
+				player->updateVals(elapsed);
+				}*/
+			}
+		}
+	}
 	while (SDL_PollEvent(&event)) {
 		if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
 			//Exit Game
@@ -439,44 +487,6 @@ void Game::ProcessEvents(float elapsed) {
 				}
 			}
 		}
-		else if (state == IN_GAME) {
-			if (selectedLevel == FOREST || selectedLevel == CANDYLAND) {
-				//Move left
-				if (keys[SDL_SCANCODE_LEFT]) {
-					//if (player->getXPos() + (-1.0 * player->getXVel() * elapsed) > -6.5f) {
-						player->xTranslate(-3.0f * player->getXVel() * elapsed);
-					//}
-				}
-				//Move Right
-				if (keys[SDL_SCANCODE_RIGHT]) {
-				//	if (player->getXPos() + (player->getXVel() * elapsed) < 8.0f) {
-						player->xTranslate(3.0f * player->getXVel() * elapsed);
-					//}
-				}
-			}
-			else if (selectedLevel == SNOW_TUNDRA) {
-				//Slippery effect
-				if (keys[SDL_SCANCODE_LEFT]) {
-					/*if (player->getDirection() > 0) {
-						player->changeXAcc(0);
-						}
-						player->changeXAcc(-3.0F);
-						player->updateVals(elapsed);
-						}
-						else if (keys[SDL_SCANCODE_RIGHT]) {
-						if (player->getDirection() < 0) {
-						player->changeXAcc(0);
-						}
-						player->changeXAcc(3.0F);
-						player->updateVals(elapsed);
-						}
-						else {
-						player->changeXAcc(0);
-						player->updateVals(elapsed);
-						}*/
-				}
-			}
-		}
 	}
 }
 
@@ -519,7 +529,7 @@ void Game::Update(float elapsed) {
 	//UpdateHUD();
 	if (state == IN_GAME) {
 		centerMap();
-
+		player->Update(elapsed);
 	}
 	
 }
