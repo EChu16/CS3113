@@ -34,7 +34,7 @@ void Game::Setup() {
 	program->setViewMatrix(viewMatrix);
 	program->setProjectionMatrix(projectionMatrix);
 
-	glClearColor(0.0f, 0.4f, 0.8f, 1.0f);
+	glClearColor(0.0f, 0.2f, 0.8f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	LoadAllTextures();
@@ -48,18 +48,23 @@ void Game::Setup() {
 
 void Game::ProcessEvents(float elapsed) {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	
 	if (keys[SDL_SCANCODE_LEFT]) {
 		if (player->getDirection() > 0) {
 			player->changeXAcc(0);
 		}
-		player->changeXAcc(-5.0F);
+		player->changeXAcc(-3.0F);
 		player->updateVals(elapsed);
 	}
 	else if (keys[SDL_SCANCODE_RIGHT]) {
 		if (player->getDirection() < 0) {
 			player->changeXAcc(0);
 		}
-		player->changeXAcc(5.0F);
+		player->changeXAcc(3.0F);
+		player->updateVals(elapsed);
+	}
+	else {
+		player->changeXAcc(0);
 		player->updateVals(elapsed);
 	}
 	while (SDL_PollEvent(&event)) {
@@ -215,12 +220,16 @@ bool Game::readLayerData(std::ifstream &stream) {
 		std::istringstream sStream(line);
 		getline(sStream, key, '=');
 		getline(sStream, value);
+		getline(stream, line2);
+		std::istringstream sStream2(line2);
+		getline(sStream2, key2, '=');
+		getline(sStream2, value2);
 		if (key == "data") {
 			for (int y = 0; y < mapHeight; y++) {
 				getline(stream, line);
 				std::istringstream lineStream(line);
-				for (int x = 0; x < mapWidth; x++) {
 					getline(lineStream, tile, ',');
+				for (int x = 0; x < mapWidth; x++) {
 					unsigned char val = (unsigned char)atoi(tile.c_str());
 					if (val > 0) {
 						// be careful, the tiles in this format are indexed from 1 not 0
@@ -251,7 +260,7 @@ bool Game::readEntityData(std::ifstream &stream) {
 			getline(lineStream, xPosition, ',');
 			getline(lineStream, yPosition, ',');
 			float placeX = (float)atoi(xPosition.c_str()) * TILE_SIZE * 2.0f;
-			float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 0.82f;
+			float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 1.0f;
 			placeEntity(type, placeX, placeY);
 		}
 	}

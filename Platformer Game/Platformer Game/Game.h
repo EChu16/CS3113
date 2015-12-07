@@ -70,7 +70,7 @@ private:
 	int mapHeight;
 
 	//Reading map file
-	std::string line, key, value, tile, type, xPosition, yPosition;
+	std::string line, key, value, tile, type, xPosition, yPosition, line2, key2, value2;
 
 	unsigned char** levelData;
 
