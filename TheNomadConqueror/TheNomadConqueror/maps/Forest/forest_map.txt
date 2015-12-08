@@ -32,28 +32,1238 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,72,72,72,72,73,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,46,46,0,0,0,0,0,0,0,0,0,113,113,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,78,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,98,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,72,72,72,72,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,72,72,72,72,24,24,24,24,24,24,92,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41,0,0,0,0,0,
-42,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,72,72,72,72,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41,0,0,0,0,0,
-42,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,32,0,0,0,0,0,0,0,53,43,43,33,0,24,78,72,72,72,72,72,72,72,72,68,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,72,72,72,72,72,72,72,72,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41,0,0,0,0,0,
-42,42,85,75,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,42,42,0,0,53,43,33,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,72,72,72,68,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41,0,0,0,0,0,
-72,72,72,72,72,72,72,72,72,72,72,72,72,72,68,0,0,53,43,43,33,0,0,53,43,43,33,0,0,0,0,85,75,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,66,0,0,36,0,0,0,0,0,0,53,43,33,0,0,0,0,0,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,24,24,24,48,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,72,72,72,72,72,72,72,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,41,56,46,0,9,0,
-24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,78,72,72,72,72,72,6,72,72,72,72,72,72,72,68,0,0,4,72,72,72,72,72,72,72,72,72,72,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,24,24,24,48,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,78,72,72,72,72,72,72,72,
-24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,24,24,24,48,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,71,71,16,71,71,16,71,71,71,16,71,71,71,16,71,71,58,24,24,24,24,24,24,24,
-24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,24,24,24,48,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,58,24,24,24,24,24,24,24,
-24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,24,24,24,24,24,24,24,24,24,24,24,24,24,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,58,24,24,24,24,24,24,24,24,48,24,24,24,48,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,48,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,58,24,24,24,24,24,24,24
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,98,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+52,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+42,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+42,42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,32,0,0,0,0,0,0,0,0,0,0,0,0,24,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+42,42,85,75,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,42,42,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,46,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,75,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,66,0,0,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,24,24,24,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56,46,0,9,0,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,24,24,24,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,24,24,24,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,71,71,0,71,71,0,71,71,71,0,71,71,71,0,71,71,0,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,24,24,24,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,0,24,24,24,24,24,24,24,
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,24,24,24,24,24,24,24,24,24,24,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,0,24,24,24,24,24,24,24,24,0,24,24,24,0,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,0,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,81,0,24,24,24,24,24,24,24
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=0,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=1,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=2,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=3,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=4,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=5,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=6,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=7,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=8,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=9,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=10,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=11,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=12,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=13,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_BLOCK
+location=14,36,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=14,37,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=14,38,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=14,39,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=14,40,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_HALF_BLOCK
+location=17,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=18,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=19,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_HALF_BLOCK
+location=20,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_HALF_BLOCK
+location=23,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=24,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=25,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_HALF_BLOCK
+location=26,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_BLOCK
+location=29,37,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=29,38,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=29,39,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=29,40,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=30,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=31,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=32,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=33,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=34,37,1,1
+
+[SolidTiles]
+# solidTile
+type=ITEM_BLOCK
+location=35,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=36,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=37,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=38,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=39,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=40,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=41,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=42,37,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_BLOCK
+location=43,37,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=43,38,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=43,39,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=43,40,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_CURVE_BLOCK
+location=46,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=47,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=48,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=49,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=50,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=51,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=52,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=53,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=54,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=55,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=56,37,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_CURVE_BLOCK
+location=57,37,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_HALF_BLOCK
+location=60,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=61,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_HALF_BLOCK
+location=62,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_HALF_BLOCK
+location=65,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=66,35,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_HALF_BLOCK
+location=67,35,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_HALF_BLOCK
+location=70,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=71,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_HALF_BLOCK
+location=72,34,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_HALF_BLOCK
+location=73,34,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,35,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,36,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,37,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,38,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,39,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=76,40,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_BLOCK
+location=76,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=77,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=78,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=79,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=80,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=81,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=82,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=83,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=84,34,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_BLOCK
+location=85,34,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,35,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,36,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,37,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,38,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,39,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=85,40,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=89,36,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=89,37,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=89,38,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=89,39,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=89,40,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_BLOCK
+location=89,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=86,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=87,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=88,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=88,33,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=89,33,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=90,33,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=91,33,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=94,32,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=95,32,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=96,32,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=97,32,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=100,31,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=101,31,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=102,31,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=103,31,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=98,27,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=99,28,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=100,29,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=101,30,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=75,28,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_BLOCK
+location=75,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=76,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=77,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=78,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=79,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=80,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=81,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=82,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=83,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=84,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=85,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=86,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=87,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=88,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=89,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=90,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=91,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=92,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=93,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=94,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=95,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=96,27,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=97,27,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=75,25,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=72,24,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=75,23,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=72,22,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=75,21,1,1
+
+[SolidTiles]
+# solidTile
+type=BLOCK
+location=72,20,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=68,19,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=67,19,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=66,19,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=65,19,1,1
+
+[SolidTiles]
+# solidTile
+type=ITEM_BLOCK
+location=64,19,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=104,31,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=105,32,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=106,33,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=107,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=108,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=109,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=110,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=111,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=112,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=113,34,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=114,34,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=115,34,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=116,35,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=117,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=118,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=119,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=120,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=121,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=122,36,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=123,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=124,36,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_TRI_BLOCK
+location=125,37,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=125,38,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=125,39,1,1
+
+[SolidTiles]
+# solidTile
+type=R_BLOCK
+location=125,40,1,1
+
+[SolidTiles]
+# solidTile
+type=CRATE
+location=128,38,1,1
+
+[SolidTiles]
+# solidTile
+type=CRATE
+location=131,38,1,1
+
+[SolidTiles]
+# solidTile
+type=CRATE
+location=135,38,1,1
+
+[SolidTiles]
+# solidTile
+type=CRATE
+location=139,38,1,1
+
+[SolidTiles]
+# solidTile
+type=TL_BLOCK
+location=142,37,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=142,38,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=142,39,1,1
+
+[SolidTiles]
+# solidTile
+type=L_BLOCK
+location=142,40,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=143,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=144,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=145,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=146,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=147,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=148,37,1,1
+
+[SolidTiles]
+# solidTile
+type=T_BLOCK
+location=149,37,1,1
+
+[SolidTiles]
+# solidTile
+type=GOLDKEY_BLOCK
+location=144,36,1,1
+
+[SolidTiles]
+# solidTile
+type=GOLDKEY_BLOCK
+location=144,35,1,1
+
+[SolidTiles]
+# solidTile
+type=GOLDKEY_BLOCK
+location=144,34,1,1
+
+[SolidTiles]
+# solidTile
+type=GOLDKEY_BLOCK
+location=144,33,1,1
+
+[SolidTiles]
+# solidTile
+type=GOLDKEY_BLOCK
+location=144,32,1,1
+
+[SolidTiles]
+# solidTile
+type=TR_CURVE_BLOCK
+location=69,19,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=126,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=127,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=129,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=130,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=132,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=133,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=134,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=136,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=137,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=138,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=140,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATERTOP
+location=141,38,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=126,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=127,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=128,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=129,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=130,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=131,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=132,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=133,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=134,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=135,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=136,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=137,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=138,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=139,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=140,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=141,39,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=126,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=127,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=128,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=129,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=130,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=131,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=132,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=133,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=134,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=135,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=136,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=137,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=138,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=139,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=140,40,1,1
+
+[SolidTiles]
+# solidTile
+type=WATER
+location=141,40,1,1
 
 [layer]
 type=Items
@@ -191,4 +1401,19 @@ data=
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0
+
+[Enemies]
+# enemy
+type=SPIKES
+location=88,26,1,1
+
+[Enemies]
+# enemy
+type=SPIKES
+location=89,26,1,1
+
+[Enemies]
+# enemy
+type=SPIKES
+location=90,26,1,1
 

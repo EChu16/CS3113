@@ -90,7 +90,6 @@ private:
 	//Ingame vars
 	LEVEL furthestLevel;
 	LEVEL selectedLevel;
-	std::vector<LEVEL> playable;
 
 	//Matrices
 	Matrix gameMatrix;
@@ -114,7 +113,23 @@ private:
 
 	//Sprites
 	SheetSprite pStandingSprite;
-	
+	SheetSprite t_block;
+	SheetSprite tr_block;
+	SheetSprite tl_block;
+	SheetSprite item_block;
+	SheetSprite tl_half_block;
+	SheetSprite t_half_block;
+	SheetSprite tr_half_block;
+	SheetSprite tl_curve_block;
+	SheetSprite tr_curve_block;
+	SheetSprite block;
+	SheetSprite crate;
+	SheetSprite l_block;
+	SheetSprite r_block;
+	SheetSprite tr_tri_block;
+	SheetSprite goldkey_block;
+	SheetSprite watertop;
+	SheetSprite water;
 
 	//Sounds
 	Mix_Music* opening_music;

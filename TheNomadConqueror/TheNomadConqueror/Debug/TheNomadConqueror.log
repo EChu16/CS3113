@@ -1,2 +1,7 @@
-﻿  Entity.cpp
-  TheNomadConqueror.vcxproj -> C:\Users\Erich\Documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe
+﻿  Game.cpp
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(347): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(688): warning C4018: '<' : signed/unsigned mismatch
+  Entity.cpp
+  Generating Code...
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\entity.cpp(49): warning C4715: 'Entity::collidesWith' : not all control paths return a value
+  TheNomadConqueror.vcxproj -> C:\Users\Erich\documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe
