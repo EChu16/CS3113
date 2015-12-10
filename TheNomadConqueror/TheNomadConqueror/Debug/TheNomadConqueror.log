@@ -1,7 +1,6 @@
-﻿  Game.cpp
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(347): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(688): warning C4018: '<' : signed/unsigned mismatch
-  Entity.cpp
-  Generating Code...
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\entity.cpp(49): warning C4715: 'Entity::collidesWith' : not all control paths return a value
-  TheNomadConqueror.vcxproj -> C:\Users\Erich\documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe
+﻿  Entity.cpp
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\entity.cpp(32): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\entity.cpp(40): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\entity.cpp(150): warning C4715: 'Entity::collidedAction' : not all control paths return a value
+MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+  TheNomadConqueror.vcxproj -> C:\Users\Erich\Documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe

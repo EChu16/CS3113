@@ -155,11 +155,10 @@ void Game::LoadMap(std::string filename) {
 		else if (line == "[layer]") {
 			readLayerData(infile);
 		}
-		else if (line == "[Player]" || line == "[SolidTiles]" || line == "[Weapons]" || line == "[Items]" || line == "[Enemies]") {
+		else if (line == "[Player]") {
 			readEntityData(infile);
 		}
 	}
-
 	infile.close();
 }
 
@@ -242,78 +241,9 @@ bool Game::readEntityData(std::ifstream &stream) {
 				std::istringstream lineStream(loc_value);
 				getline(lineStream, xPosition, ',');
 				getline(lineStream, yPosition, ',');
-				float placeX = (float)atoi(xPosition.c_str()) * TILE_SIZE * 2.0f;
-				float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 1.0f;
-				placeEntity(placeX, placeY, 1.0f, PLAYER, pStandingSprite);
-			}
-		}
-		else if (type_value == "T_BLOCK" || type_value == "L_BLOCK" || type_value == "R_BLOCK" || type_value == "TR_BLOCK" || type_value == "TL_BLOCK" ||
-			type_value == "ITEM_BLOCK" || type_value == "TL_HALF_BLOCK" || type_value == "T_HALF_BLOCK" || type_value == "TR_HALF_BLOCK" 
-			|| type_value == "TL_TRI_BLOCK"	|| type_value == "TR_TRI_BLOCK" || type_value == "TL_CURVE_BLOCK" || type_value == "TR_CURVE_BLOCK" ||
-			type_value == "CRATE" || type_value == "GOLDKEY_BLOCK" || type_value == "BLOCK" || type_value == "WATER" || type_value == "WATERTOP") {
-			//Parse next segment
-			getline(stream, line);
-			std::istringstream sStream(line);
-			getline(sStream, type, '=');
-			getline(sStream, loc_value);
-			//Get location of object
-			if (type == "location") {
-				std::istringstream lineStream(loc_value);
-				getline(lineStream, xPosition, ',');
-				getline(lineStream, yPosition, ',');
 				float placeX = (float)atoi(xPosition.c_str()) * TILE_SIZE * 1.0f;
 				float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 1.0f;
-				if (type_value == "T_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, T_BLOCK, t_block);
-				}
-				else if (type_value == "TR_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, TR_BLOCK, tr_block);
-				}
-				else if (type_value == "TL_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, TL_BLOCK, tl_block);
-				}
-				else if (type_value == "ITEM_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, item_block);
-				}
-				else if (type_value == "TL_HALF_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, tl_half_block);
-				}
-				else if (type_value == "T_HALF_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, t_half_block);
-				}
-				else if (type_value == "TR_HALF_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, tr_half_block);
-				}
-				else if (type_value == "TL_CURVE_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, tl_curve_block);
-				}
-				else if (type_value == "TR_CURVE_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, tr_curve_block);
-				}
-				else if (type_value == "BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, block);
-				}
-				else if (type_value == "CRATE") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, crate);
-				}
-				else if (type_value == "TR_TRI_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, tr_tri_block);
-				}
-				else if (type_value == "L_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, l_block);
-				}
-				else if (type_value == "R_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, r_block);
-				}
-				else if (type_value == "GOLDKEY_BLOCK") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, goldkey_block);
-				}
-				else if (type_value == "WATER") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, water);
-				}
-				else if (type_value == "WATERTOP") {
-					placeEntity(placeX, placeY, 1.0f, ITEM_BLOCK, watertop);
-				}
+				placeEntity(placeX, placeY + 0.5f, 1.0f, PLAYER, pStandingSprite);
 			}
 		}
 	}
@@ -339,14 +269,10 @@ void Game::RenderGame() {
 	else if (selectedLevel == SNOW_TUNDRA) {
 		glBindTexture(GL_TEXTURE_2D, snowtundraSprites);
 	}
-	glDrawArrays(GL_TRIANGLES, 0, 6 * 150 * 40);
+	glDrawArrays(GL_TRIANGLES, 0, vertexData.size()/2);
+
 	glDisableVertexAttribArray(program->positionAttribute);
 	glDisableVertexAttribArray(program->texCoordAttribute);
-
-	//Draw Solid Tiles
-	for (int i = 0; i < solidTiles.size(); i++) {
-		solidTiles[i]->Draw(program, gameMatrix, solidTiles[i]->getMainSprite());
-	}
 
 	//Draw Player
 	player->Draw(program, gameMatrix, player->getMainSprite());
@@ -358,30 +284,43 @@ void Game::RenderGame() {
 
 void Game::RenderBackground() {
 	//Draw Map
-	for (int y = 0; y < LEVEL_HEIGHT; y++) {
-		for (int x = 0; x < LEVEL_WIDTH; x++) {
-			//Draw Background 
-			u = (float)(((int)bgLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
-			v = (float)(((int)bgLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
+	for (int y = 0; y < mapHeight; y++) {
+		for (int x = 0; x < mapWidth; x++) {
+			if (bgLevelData[y][x] != 79) {
+				//Draw Background 
+				u = (float)(((int)bgLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
+				v = (float)(((int)bgLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
 
-			spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
-			spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
-			vertexData.insert(vertexData.end(), {
-				TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
-				TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
-				(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
-				TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
-				(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
-				(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
-			});
-			texCoordData.insert(texCoordData.end(), {
-				u, v,	
-				u, v + (spriteHeight),
-				u + spriteWidth, v + (spriteHeight),
-				u, v,
-				u + spriteWidth, v + (spriteHeight),
-				u + spriteWidth, v
-			});
+				spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
+				spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
+				vertexData.insert(vertexData.end(), {
+					TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+					TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+					(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+					TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+					(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
+					(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
+				});
+				texCoordData.insert(texCoordData.end(), {
+					u, v,
+					u, v + (spriteHeight),
+					u + spriteWidth, v + (spriteHeight),
+					u, v,
+					u + spriteWidth, v + (spriteHeight),
+					u + spriteWidth, v
+				});
+				for (int a = 0; a < solids.size(); a++) {
+					if (solids[a] == (int)bgLevelData[y][x]) {
+						if (solids[a] == 32 || solids[a] == 42 || solids[a] == 52) {
+							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
+						}
+						else{
+							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
+						}
+						
+					}
+				}
+			}
 		}
 	}
 }
@@ -394,12 +333,8 @@ void Game::centerMap() {
 
 void Game::placeEntity(float startingXPos, float startingYPos, float startingDir, TYPE eType, SheetSprite& eSprite) {
 	if (eType == PLAYER) {
-		player = new Entity(startingXPos, startingYPos, startingDir, eType, eSprite);
-	}
-	else if (eType == T_BLOCK || eType == TR_BLOCK || eType == TL_BLOCK || eType == ITEM_BLOCK || eType == TL_HALF_BLOCK || eType == T_HALF_BLOCK || eType == TR_HALF_BLOCK
-		|| eType == TL_CURVE_BLOCK || eType == TR_CURVE_BLOCK || eType == BLOCK || eType == TR_TRI_BLOCK || eType == CRATE || eType == L_BLOCK || eType == R_BLOCK
-		|| eType == GOLDKEY_BLOCK || eType == WATER || eType == WATERTOP) {
-		solidTiles.push_back(new Entity(startingXPos, startingYPos, startingDir, eType, eSprite));
+		player = new Entity(startingXPos, startingYPos, startingDir, eType);
+		player->setMainSprite(eSprite);
 	}
 }
 
@@ -408,9 +343,10 @@ void Game::LoadForestMap() {
 	program->setModelMatrix(gameMatrix);
 	projectionMatrix.setOrthoProjection(-4.5f, 4.5f, -6.0f, 6.0f, -1.0f, 1.0f);
 	program->setProjectionMatrix(projectionMatrix);
-	glClearColor(0.54902f, 0.847059f, 1.0f, 1.0f);	//Forest
+	glClearColor(0.54902f, 0.847059f, 1.0f, 1.0f);	
 	glClear(GL_COLOR_BUFFER_BIT);
-	LoadMap("maps/Forest/forest_map.txt");
+	solids = {2, 3, 5, 15, 32, 33, 40, 42, 47, 57, 52, 67, 71, 77, 82};
+	LoadMap("maps/Forest/testmap.txt");
 	RenderBackground();
 }
 
@@ -430,29 +366,39 @@ void Game::ProcessEvents(float elapsed) {
 		if (selectedLevel == FOREST || selectedLevel == CANDYLAND) {
 			//Move left
 			if (keys[SDL_SCANCODE_LEFT]) {
+				player->changeDirection();
 				if (player->getXPos() - (player->getXVel() * elapsed) < 0.335f) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
 				}
-				else {
+				else if (player->isOnSurface()) {
 					player->changeStatic(false);
 					player->changeXVel(-1 * 6.0f);
+				}
+				else {
+					player->changeStatic(false);
+					player->changeXVel(-1 * 3.0f);
 				}
 			}
 			//Move Right
 			else if (keys[SDL_SCANCODE_RIGHT]) {
-				if (player->getXPos() + (player->getXVel() * elapsed) > 148.5f) {
+				player->changeDirection();
+				if (player->getXPos() + (player->getXVel() * elapsed) > 143.5f && !player->hasGoldKey()) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
 				}
-				else {
+				else if (player->getXPos() + (player->getXVel() * elapsed) > 148.5f) {
+					player->changeStatic(true);
+					player->changeXVel(0.0f);
+				}
+				else if (player->isOnSurface()) {
 					player->changeStatic(false);
 					player->changeXVel(6.0f);
 				}
-			}
-			else if (keys[SDL_SCANCODE_SPACE]) {
-				player->changeOnSurface(false);
-				player->changeYVel(10.0f);
+				else {
+					player->changeStatic(false);
+					player->changeXVel(3.0f);
+				}
 			}
 			else {
 				player->changeStatic(true);
@@ -568,6 +514,16 @@ void Game::ProcessEvents(float elapsed) {
 				}
 			}
 		}
+		else if (state == IN_GAME) {
+			if (event.type == SDL_KEYDOWN) {
+				if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+					if (player->isOnSurface()) {
+						player->changeOnSurface(false);
+						player->changeYVel(10.0f);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -610,6 +566,13 @@ void Game::Update(float elapsed) {
 	//UpdateHUD();
 	if (state == IN_GAME) {
 		centerMap();
+		//Check Player Collision
+		for (int i = 0; i < solidTiles.size(); i++) {
+			if (player->collidesWith(solidTiles[i])) {
+				player->collidedAction(solidTiles[i]);
+			}
+		}
+		//Update Player values
 		player->Update(elapsed);
 	}
 	
@@ -630,23 +593,6 @@ void Game::LoadAllTexturesandSound() {
 
 	//Sprites
 	pStandingSprite = SheetSprite(playerSprites, 76.0f / 508.0f, 208.0f / 208.0f, 72.0f / 508.0f, 69.0f / 208.0f, 2.0f);
-	t_block = SheetSprite(forestSprites, 72.0f / 720.0f, 504.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tr_block = SheetSprite(forestSprites, 504.0f / 720.0f, 432.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tl_block = SheetSprite(forestSprites, 504.0f / 720.0f, 504.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	item_block = SheetSprite(forestSprites, 360.0f / 720.0f, 0.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tl_half_block = SheetSprite(forestSprites, 144.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	t_half_block = SheetSprite(forestSprites, 144.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tr_half_block = SheetSprite(forestSprites, 144.0f / 720.0f, 216.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tl_curve_block = SheetSprite(forestSprites, 216.0f / 720.0f, 0.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tr_curve_block = SheetSprite(forestSprites, 144.0f / 720.0f, 576.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	block = SheetSprite(forestSprites, 216.0f / 720.0f, 216.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	crate = SheetSprite(forestSprites, 360.0f / 720.0f, 72.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	l_block = SheetSprite(forestSprites, 504.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	r_block = SheetSprite(forestSprites, 504.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	tr_tri_block = SheetSprite(forestSprites, 144.0f / 720.0f, 0.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	goldkey_block = SheetSprite(forestSprites, 0.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	watertop = SheetSprite(forestSprites, 0.0f / 720.0f, 504.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
-	water = SheetSprite(forestSprites, 0.0f / 720.0f, 576.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.04f);
 
 	//Sounds
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
@@ -683,8 +629,6 @@ GLuint Game::LoadTextureRGBA(const char *image_path) {
 
 void Game::DrawText(int fontTexture, std::string text, float size, float spacing) {
 	float texture_size = 1.0 / 16.0f;
-	std::vector<float> vertexData;
-	std::vector<float> texCoordData;
 	for (int i = 0; i < text.size(); i++) {
 		float texture_x = (float)(((int)text[i]) % 16) / 16.0f;
 		float texture_y = (float)(((int)text[i]) / 16) / 16.0f;

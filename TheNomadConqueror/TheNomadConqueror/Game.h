@@ -15,8 +15,6 @@
 
 #ifdef _WINDOWS
 #define RESOURCE_FOLDER ""
-#define LEVEL_HEIGHT 40
-#define LEVEL_WIDTH 150
 #define TILE_SIZE 1.0f
 #define SPRITE_COUNT_X 10
 #define SPRITE_COUNT_Y 10
@@ -113,23 +111,7 @@ private:
 
 	//Sprites
 	SheetSprite pStandingSprite;
-	SheetSprite t_block;
-	SheetSprite tr_block;
-	SheetSprite tl_block;
-	SheetSprite item_block;
-	SheetSprite tl_half_block;
-	SheetSprite t_half_block;
-	SheetSprite tr_half_block;
-	SheetSprite tl_curve_block;
-	SheetSprite tr_curve_block;
-	SheetSprite block;
-	SheetSprite crate;
-	SheetSprite l_block;
-	SheetSprite r_block;
-	SheetSprite tr_tri_block;
-	SheetSprite goldkey_block;
-	SheetSprite watertop;
-	SheetSprite water;
+	
 
 	//Sounds
 	Mix_Music* opening_music;
@@ -144,6 +126,7 @@ private:
 	Entity* player;
 	Entity* goldkey;
 	Entity* ray_gun;
+	std::vector<int> solids;
 	std::vector<Entity*> solidTiles;
 	std::vector<Entity*> enemies;
 	std::vector<Entity*> coins;

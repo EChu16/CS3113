@@ -9,11 +9,10 @@
 #include <iostream>	
 #include <vector>
 
-enum TYPE { PLAYER, GHOST, SPIDER, FISH, SLIME, T_BLOCK, BLOCK, L_BLOCK, R_BLOCK, TL_BLOCK, TL_TRI_BLOCK, TR_TRI_BLOCK, TR_BLOCK, TL_HALF_BLOCK,
-	T_HALF_BLOCK, TR_HALF_BLOCK, ITEM_BLOCK, TR_CURVE_BLOCK, TL_CURVE_BLOCK, CRATE, GOLDKEY_BLOCK, SPIKES, TINY_RAY_GUN, GOLD_KEY, COIN, WATER, WATERTOP };
+enum TYPE { PLAYER, GHOST, SPIDER, FISH, SLIME, BLOCK, HALF_BLOCK, TL_TRI_BLOCK, TR_TRI_BLOCK, GOLDKEY_BLOCK, SPIKES, TINY_RAY_GUN, GOLD_KEY, COIN, WATER, WATERTOP };
 class Entity {
 public:
-	Entity(float xPos, float yPos, float dir, TYPE entityType, SheetSprite& mainSprite);
+	Entity(float xPos, float yPos, float dir, TYPE entityType);
 	float getXPos() const;
 	float getYPos() const;
 	float getXVel() const;
@@ -27,10 +26,17 @@ public:
 	bool isOnSurface() const;
 	bool checkAlive() const;
 	TYPE getType() const;
+	bool rightCollision(Entity* solid) const;
+	bool leftCollision(Entity* solid) const;
+	bool aboveCollision(Entity* solid) const;
+	bool belowCollision(Entity* solid) const;
 	bool collidesWith(Entity* solid) const;
-	void collidedAction(Entity* solid);
+	bool collidedAction(Entity* solid);
+	bool hasGoldKey() const;
+	bool hasTinyGun() const;
 	SheetSprite& getMainSprite();
 	
+	void setMainSprite(SheetSprite& mainSprite);
 	void changeStatic(bool newStatic);
 	void changeOnSurface(bool newInAir);
 	void changeXVel(float newX);
@@ -51,11 +57,12 @@ private: float x;
 		 float widthFromCenter;
 		 float heightFromCenter;
 		 float dir;
+		 int coins;
 		 TYPE type;
 		 bool pstatic;
 		 bool onSurface;
 		 bool alive;
-
+		 std::vector<Entity> items;
 		 SheetSprite staticSprite;
 		 SheetSprite currentSprite;
 };

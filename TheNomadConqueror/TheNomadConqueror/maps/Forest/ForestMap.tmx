@@ -12,7 +12,7 @@
  <tileset firstgid="122" name="weapons" tilewidth="70" tileheight="70" spacing="2" tilecount="4">
   <image source="../../assets/Weapons/sprites.png" width="144" height="144"/>
  </tileset>
- <layer name="Background" width="150" height="40" visible="0">
+ <layer name="Background" width="150" height="40">
   <data encoding="base64" compression="zlib">
    eJzt2b8KwjAQx/GuvoFuBZ0KOgl21cXBycHNyfd/CFNIoEsrbby7/Pl+4KhZTCK/eqk2DQAAAAAAAAAAABDv4upoNPfecG4AQHmke5plzwSAUvAMAAAAkCfOcQAAxBl66c54fno5UpPD/y69q5MvzLP+nkO9Usue1Xq2QvXW3ASSIpUpslU36VyNs/XR2BCSoJGrUpytF5ARyfyU1hs7V631IjIhmZ/Szl2dr5q0zbp7aUmfqv1MH3L1cvVwdbVdjoq199J2dF16RtI4m4Xs1f677b+y3Lu6jcaHyPebsiRXc2ONbGkaPv+Q442/rl1/jXLIVSq5s8pVjlkuIVdhPXdfU69/jaX2FItc2ebqGVlSe4pFrsrO1Rcb1000
   </data>

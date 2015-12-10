@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="40" tilewidth="70" tileheight="70" nextobjectid="420">
+ <tileset firstgid="1" name="sprites" tilewidth="70" tileheight="70" spacing="2" tilecount="100">
+  <image source="sprites.png" width="720" height="720"/>
+ </tileset>
+ <tileset firstgid="101" name="p1_spritesheet" tilewidth="67" tileheight="94" spacing="7" tilecount="12">
+  <image source="../../assets/Player/p1_spritesheet.png" width="508" height="288"/>
+ </tileset>
+ <tileset firstgid="113" name="items" tilewidth="70" tileheight="70" spacing="2" tilecount="9">
+  <image source="../../assets/Items/sprites.png" width="216" height="216"/>
+ </tileset>
+ <tileset firstgid="122" name="weapons" tilewidth="70" tileheight="70" spacing="2" tilecount="4">
+  <image source="../../assets/Weapons/sprites.png" width="144" height="144"/>
+ </tileset>
+ <layer name="Background" width="150" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt2kFLw0AQhuEFRfDm0d5a9WKl0oNi8aYUFAShiDdP/v8f4QYTCTXZpElmJ7N5HxhqQmim7Zfsuq1zAAAAAAAAAAAAQH8PvlZK575UPDcAID3SY5rmmAkAqeB/AACHOvH1ulcfqh1hCi60G0DyLGaMedw4WcwSbCFjGApZ+h1LZ8rnT3ksJ2M2WfjeZePrNi+Ead/nrHh3/9e6hqqjiK9jTMaWPY1+Hn2dC9WXm262pk4qU2Rr2qRzVc7Wd6TXBH0xcpXKvOtOuwFDJPNjdWy8rtm/9DWP2IdlkvmxOu8K5WoZs5ERmLvma+ne101ei3xf9hm3WWvYOpl51xjXKppy9enrzddTtI707F9LRYYW1Yf/yT7fNmsNayefs9B9Lea6bV2uuq7jbUvPUXVth/YXhsryxtdzafsqcGzbDFU5JFehbelsxbynZbnK3v8ix6f5Y9f+1z16qRtLqn67WZfl44ZjJX7/aSFXbe9pfTXNBzRy1XXdus85h5BCrop+XvI6q/m7aVvquwdyZTtXu55FroZDrtrn6gdPSnos
+  </data>
+ </layer>
+ <layer name="Items" width="150" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKwCAMBVAPXcj1uzrYImKtTd+DgA6CIX8QSwEAAAAAAAAAAADYw/H2BQAAAABggajqyTMAAIzx7mKE3PA1WTObta8eK3r3P0FWs3IdjeK/MmRAlvdjHtyJi3XPHgBoOwGwVhGo
+  </data>
+ </layer>
+ <layer name="Weapons" width="150" height="40" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6D3trwx7iYkIAEAAAAAAAAAAAAAAAAAAAAAAAAA4JtpBwAA4KgFvC8AfA==
+  </data>
+ </layer>
+ <objectgroup name="Player" visible="0">
+  <object id="3" name="start" type="PLAYER" gid="102" x="141" y="2449" width="67" height="94"/>
+ </objectgroup>
+ <layer name="Enemies" width="150" height="40" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2E0KgCAQBlCvUOu6Qffz+q2CiAwDK2neA0FkFi4+/JmUAAAAAAAAAAAAAPq0fL0BQshfb4DfkzFakSWeJmO0Iks8TcbolT4GNYbKNQAAIB7/yv+abtT6I8aRU7nXmQ/jzLibv5UbfY3+6JfTWsRMbW+wKOfZ1d1y11CYX60BAMyNaqCkNj+1dSsiKQlt
+  </data>
+ </layer>
+ <objectgroup name="Enemies">
+  <object id="369" name="enemy" type="SPIKES" gid="113" x="6160" y="1820" width="70" height="70"/>
+  <object id="370" name="enemy" type="SPIKES" gid="113" x="6230" y="1820" width="70" height="70"/>
+  <object id="371" name="enemy" type="SPIKES" gid="113" x="6300" y="1820" width="70" height="70"/>
+ </objectgroup>
+</map>
