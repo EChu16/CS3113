@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="40" tilewidth="70" tileheight="70" nextobjectid="420">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="40" tilewidth="70" tileheight="70" nextobjectid="494">
  <tileset firstgid="1" name="sprites" tilewidth="70" tileheight="70" spacing="2" tilecount="100">
   <image source="sprites.png" width="720" height="720"/>
  </tileset>
@@ -17,27 +17,77 @@
    eJzt2kFLw0AQhuEFRfDm0d5a9WKl0oNi8aYUFAShiDdP/v8f4QYTCTXZpElmJ7N5HxhqQmim7Zfsuq1zAAAAAAAAAAAAQH8PvlZK575UPDcAID3SY5rmmAkAqeB/AACHOvH1ulcfqh1hCi60G0DyLGaMedw4WcwSbCFjGApZ+h1LZ8rnT3ksJ2M2WfjeZePrNi+Ead/nrHh3/9e6hqqjiK9jTMaWPY1+Hn2dC9WXm262pk4qU2Rr2qRzVc7Wd6TXBH0xcpXKvOtOuwFDJPNjdWy8rtm/9DWP2IdlkvmxOu8K5WoZs5ERmLvma+ne101ei3xf9hm3WWvYOpl51xjXKppy9enrzddTtI707F9LRYYW1Yf/yT7fNmsNayefs9B9Lea6bV2uuq7jbUvPUXVth/YXhsryxtdzafsqcGzbDFU5JFehbelsxbynZbnK3v8ix6f5Y9f+1z16qRtLqn67WZfl44ZjJX7/aSFXbe9pfTXNBzRy1XXdus85h5BCrop+XvI6q/m7aVvquwdyZTtXu55FroZDrtrn6gdPSnos
   </data>
  </layer>
- <layer name="Items" width="150" height="40">
-  <data encoding="base64" compression="zlib">
-   eJzt2DEKwCAMBVAPXcj1uzrYImKtTd+DgA6CIX8QSwEAAAAAAAAAAADYw/H2BQAAAABggajqyTMAAIzx7mKE3PA1WTObta8eK3r3P0FWs3IdjeK/MmRAlvdjHtyJi3XPHgBoOwGwVhGo
-  </data>
- </layer>
- <layer name="Weapons" width="150" height="40" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6D3trwx7iYkIAEAAAAAAAAAAAAAAAAAAAAAAAAA4JtpBwAA4KgFvC8AfA==
-  </data>
- </layer>
+ <objectgroup name="Items" visible="0">
+  <object id="423" name="coin" type="COIN" gid="119" x="700" y="2450" width="70" height="70"/>
+  <object id="424" name="coin" type="COIN" gid="119" x="770" y="2450" width="70" height="70"/>
+  <object id="425" name="coin" type="COIN" gid="119" x="840" y="2450" width="70" height="70"/>
+  <object id="426" name="coin" type="COIN" gid="119" x="910" y="2450" width="70" height="70"/>
+  <object id="427" name="coin" type="COIN" gid="119" x="980" y="2450" width="70" height="70"/>
+  <object id="428" name="coin" type="COIN" gid="119" x="1470" y="2310" width="70" height="70"/>
+  <object id="429" name="coin" type="COIN" gid="119" x="1540" y="2310" width="70" height="70"/>
+  <object id="430" name="coin" type="COIN" gid="119" x="2870" y="2520" width="70" height="70"/>
+  <object id="431" name="coin" type="COIN" gid="119" x="2940" y="2520" width="70" height="70"/>
+  <object id="432" name="coin" type="COIN" gid="119" x="3010" y="2520" width="70" height="70"/>
+  <object id="433" name="coin" type="COIN" gid="119" x="5740" y="1820" width="70" height="70"/>
+  <object id="434" name="coin" type="COIN" gid="119" x="5810" y="1820" width="70" height="70"/>
+  <object id="435" name="coin" type="COIN" gid="119" x="5880" y="1820" width="70" height="70"/>
+  <object id="436" name="coin" type="COIN" gid="119" x="5880" y="2310" width="70" height="70"/>
+  <object id="437" name="coin" type="COIN" gid="119" x="5950" y="2310" width="70" height="70"/>
+  <object id="438" name="coin" type="COIN" gid="119" x="6580" y="2170" width="70" height="70"/>
+  <object id="439" name="coin" type="COIN" gid="119" x="6650" y="2170" width="70" height="70"/>
+  <object id="440" name="coin" type="COIN" gid="119" x="6650" y="1820" width="70" height="70"/>
+  <object id="441" name="coin" type="COIN" gid="119" x="6720" y="1820" width="70" height="70"/>
+  <object id="442" name="coin" type="COIN" gid="119" x="6790" y="1820" width="70" height="70"/>
+  <object id="443" name="coin" type="COIN" gid="119" x="7140" y="2100" width="70" height="70"/>
+  <object id="444" name="coin" type="COIN" gid="119" x="7210" y="2100" width="70" height="70"/>
+  <object id="445" name="coin" type="COIN" gid="119" x="7630" y="2310" width="70" height="70"/>
+  <object id="446" name="coin" type="COIN" gid="119" x="7700" y="2310" width="70" height="70"/>
+  <object id="447" name="coin" type="COIN" gid="119" x="7770" y="2310" width="70" height="70"/>
+  <object id="448" name="coin" type="COIN" gid="119" x="8190" y="2240" width="70" height="70"/>
+  <object id="449" name="coin" type="COIN" gid="119" x="8260" y="2240" width="70" height="70"/>
+  <object id="450" name="coin" type="COIN" gid="119" x="8960" y="2590" width="70" height="70"/>
+  <object id="451" name="coin" type="COIN" gid="119" x="9170" y="2590" width="70" height="70"/>
+  <object id="452" name="coin" type="COIN" gid="119" x="9450" y="2590" width="70" height="70"/>
+  <object id="453" name="coin" type="COIN" gid="119" x="9730" y="2590" width="70" height="70"/>
+  <object id="454" name="coin" type="COIN" gid="119" x="9940" y="2380" width="70" height="70"/>
+  <object id="455" name="coin" type="COIN" gid="119" x="10010" y="2380" width="70" height="70"/>
+  <object id="456" name="coin" type="COIN" gid="119" x="10010" y="2450" width="70" height="70"/>
+  <object id="457" name="coin" type="COIN" gid="119" x="9940" y="2450" width="70" height="70"/>
+  <object id="458" name="coin" type="COIN" gid="119" x="9940" y="2520" width="70" height="70"/>
+  <object id="459" name="coin" type="COIN" gid="119" x="10010" y="2520" width="70" height="70"/>
+  <object id="460" name="coin" type="COIN" gid="119" x="10150" y="2520" width="70" height="70"/>
+  <object id="461" name="coin" type="COIN" gid="119" x="10220" y="2520" width="70" height="70"/>
+  <object id="462" name="key" type="GOLD_KEY" gid="116" x="4480" y="1260" width="70" height="70"/>
+  <object id="463" name="tinygun" type="TINY_RAY_GUN" gid="122" x="2450" y="2520" width="70" height="70"/>
+ </objectgroup>
  <objectgroup name="Player" visible="0">
   <object id="3" name="start" type="PLAYER" gid="102" x="141" y="2449" width="67" height="94"/>
  </objectgroup>
- <layer name="Enemies" width="150" height="40" visible="0">
+ <layer name="Enemies" width="150" height="40">
   <data encoding="base64" compression="zlib">
    eJzt2E0KgCAQBlCvUOu6Qffz+q2CiAwDK2neA0FkFi4+/JmUAAAAAAAAAAAAAPq0fL0BQshfb4DfkzFakSWeJmO0Iks8TcbolT4GNYbKNQAAIB7/yv+abtT6I8aRU7nXmQ/jzLibv5UbfY3+6JfTWsRMbW+wKOfZ1d1y11CYX60BAMyNaqCkNj+1dSsiKQlt
   </data>
  </layer>
  <objectgroup name="Enemies">
-  <object id="369" name="enemy" type="SPIKES" gid="113" x="6160" y="1820" width="70" height="70"/>
-  <object id="370" name="enemy" type="SPIKES" gid="113" x="6230" y="1820" width="70" height="70"/>
-  <object id="371" name="enemy" type="SPIKES" gid="113" x="6300" y="1820" width="70" height="70"/>
+  <object id="370" name="enemy" type="SPIKE" gid="113" x="6230" y="1820" width="70" height="70"/>
+  <object id="371" name="enemy" type="SPIKE" gid="113" x="6300" y="1820" width="70" height="70"/>
+  <object id="475" name="enemy" type="GHOST" gid="44" x="4760" y="1260" width="70" height="70"/>
+  <object id="476" name="enemy" type="GHOST" gid="44" x="6440" y="1750" width="70" height="70"/>
+  <object id="477" name="enemy" type="GHOST" gid="44" x="7700" y="2170" width="70" height="70"/>
+  <object id="478" name="enemy" type="GHOST" gid="44" x="8330" y="2450" width="70" height="70"/>
+  <object id="479" name="enemy" type="FISH" gid="5" x="8890" y="2730" width="70" height="70"/>
+  <object id="480" name="enemy" type="FISH" gid="5" x="9100" y="2800" width="70" height="70"/>
+  <object id="481" name="enemy" type="FISH" gid="5" x="9520" y="2730" width="70" height="70"/>
+  <object id="482" name="enemy" type="FISH" gid="5" x="9800" y="2800" width="70" height="70"/>
+  <object id="484" name="enemy" type="SPIDER" gid="57" x="3360" y="2520" width="70" height="70"/>
+  <object id="485" name="enemy" type="SPIDER" gid="57" x="3570" y="2520" width="70" height="70"/>
+  <object id="486" name="enemy" type="SPIDER" gid="57" x="3920" y="2520" width="70" height="70"/>
+  <object id="487" name="enemy" type="SPIDER" gid="57" x="5600" y="1820" width="70" height="70"/>
+  <object id="488" name="enemy" type="SPIDER" gid="57" x="5950" y="1820" width="70" height="70"/>
+  <object id="489" name="enemy" type="SPIDER" gid="57" x="5740" y="2310" width="70" height="70"/>
+  <object id="490" name="enemy" type="SPIDER" gid="57" x="6300" y="2240" width="70" height="70"/>
+  <object id="491" name="enemy" type="SPIDER" gid="57" x="7560" y="2310" width="70" height="70"/>
+  <object id="492" name="enemy" type="SPIDER" gid="57" x="7910" y="2310" width="70" height="70"/>
+  <object id="493" name="enemy" type="SPIDER" gid="57" x="8470" y="2450" width="70" height="70"/>
  </objectgroup>
 </map>

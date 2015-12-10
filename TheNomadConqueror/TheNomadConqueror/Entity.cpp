@@ -8,7 +8,8 @@ Entity::Entity(float xPos, float yPos, float startingDir, TYPE entityType) : x(x
 		yAcc = -20.0f;
 		coins = 0;  
 		widthFromCenter = 0.47f;
-		heightFromCenter = 1.0f;
+		heightFromCenter = 1.00f;
+		goldKey = false;
 	}
 	else if (entityType == BLOCK) {
 		widthFromCenter = 0.5f;
@@ -26,42 +27,30 @@ float Entity::getYVel() const { return yVel; }
 float Entity::getXAcc() const { return xAcc; }
 float Entity::getYAcc() const { return yAcc; }
 float Entity::getDirection() const { return dir; }
-bool Entity::isStatic() const { return pstatic; }
-bool Entity::isOnSurface() const { return onSurface; }
-bool Entity::hasGoldKey() const {
-	for (int i = 0; i < items.size(); i) {
-		if (items[i].getType() == GOLD_KEY) {
-			return true;
-		}
-	}
-	return false;
-}
-bool Entity::hasTinyGun() const {
-	for (int i = 0; i < items.size(); i) {
-		if (items[i].getType() == TINY_RAY_GUN) {
-			return true;
-		}
-	}
-	return false;
-}
-void Entity::changeStatic(bool newStatic) { pstatic = newStatic; }
-void Entity::changeOnSurface(bool newOnSurface) { onSurface = newOnSurface; }
-void Entity::changeXVel(float newX) { xVel = newX; }
-void Entity::changeYVel(float newY) { yVel = newY; }
-void Entity::setMainSprite(SheetSprite& mainSprite) { mainSprite = mainSprite; staticSprite = mainSprite; }
-SheetSprite& Entity::getMainSprite() { return staticSprite; }
-bool Entity::checkAlive() const{ return alive; }
-TYPE Entity::getType() const{ return type; }
 float Entity::getWidthFromCenter() const{ return widthFromCenter; }
 float Entity::getHeightFromCenter() const{ return heightFromCenter; }
+bool Entity::isStatic() const { return pstatic; }
+bool Entity::isOnSurface() const { return onSurface; }
+bool Entity::isAlive() const{ return alive; }
+TYPE Entity::getType() const{ return type; }
+SheetSprite& Entity::getMainSprite() { return staticSprite; }
+bool Entity::hasGoldKey() const { return goldKey; }
+bool Entity::hasTinyGun() const {
+	for (int i = 0; i < items.size(); i++) {
+		if (items[i]->getType() == TINY_RAY_GUN) {
+			return true;
+		}
+	}
+	return false;
+}
 bool Entity::rightCollision(Entity* solid) const {
-	return (this->getXPos() > solid->getXPos() )
+	return (this->getXPos() + this->getWidthFromCenter() > solid->getXPos() - solid->getWidthFromCenter())
 		&& (this->getYPos() + this->getHeightFromCenter() > solid->getYPos() - solid->getHeightFromCenter())
 		&& (this->getYPos() - this->getHeightFromCenter() < solid->getYPos() + solid->getHeightFromCenter())
-		&& (this->dir == 1.0f);
+		&& (this->dir == -1.0f);
 }
 bool Entity::leftCollision(Entity* solid) const {
-	return (this->getXPos() < solid->getXPos())
+	return (this->getXPos() - this->getWidthFromCenter() < solid->getXPos() + solid->getWidthFromCenter())
 		&& (this->getYPos() + this->getHeightFromCenter() > solid->getYPos() - solid->getHeightFromCenter())
 		&& (this->getYPos() - this->getHeightFromCenter() < solid->getYPos() + solid->getHeightFromCenter())
 		&& (this->dir == -1.0f);
@@ -90,23 +79,23 @@ bool Entity::collidesWith(Entity* solid) const {
 }
 
 bool Entity::collidedAction(Entity* solid) {
-	if (solid->getType() == GHOST || solid->getType() == SPIDER || solid->getType() == FISH || solid->getType() == SLIME) {
+	if (solid->getType() == GHOST || solid->getType() == SPIDER || solid->getType() == FISH) {
 
 	}
 	else if (solid->getType() == COIN) {
-
+		solid->dies();
+		this->coins++;
 	}
-	else if (solid->getType() == SPIKES) {
+	else if (solid->getType() == SPIKE) {
 
 	}
 	else if (solid->getType() == TINY_RAY_GUN) {
-
+		solid->dies();
+		this->items.push_back(solid);
 	}
 	else if (solid->getType() == GOLD_KEY) {
-
-	}
-	else if (solid->getType() == GOLDKEY_BLOCK) {
-
+		solid->dies();
+		goldKey = true;
 	}
 	else if (solid->getType() == WATER || solid->getType() == WATERTOP) {
 
@@ -128,7 +117,7 @@ bool Entity::collidedAction(Entity* solid) {
 			}
 			return true;
 		}
- 		else if (aboveCollision(solid)) { 
+		else if (aboveCollision(solid)) {
 			onSurface = false;
 			yVel = 0.0f;
 			y -= ((fabs((y + heightFromCenter) - (solid->getYPos() - solid->getHeightFromCenter()))) + 0.001f);
@@ -147,18 +136,23 @@ bool Entity::collidedAction(Entity* solid) {
 			return false;
 		}
 	}
-}	
+}
 
+void Entity::setMainSprite(SheetSprite& mainSprite) { mainSprite = mainSprite; staticSprite = mainSprite; }
+void Entity::changeStatic(bool newStatic) { pstatic = newStatic; }
+void Entity::changeOnSurface(bool newOnSurface) { onSurface = newOnSurface; }
+void Entity::xTranslate(float shiftX) { x += shiftX; }
+void Entity::yTranslate(float shiftY) { y += shiftY; }
+void Entity::changeXVel(float newX) { xVel = newX; }
+void Entity::changeYVel(float newY) { yVel = newY; }
+void Entity::changeDirection(float newDir) { dir = newDir; }
+void Entity::dies() { alive = false; }
 void Entity::Update(float elapsed)
 {
 	x += xVel * elapsed;
 	y += yVel * elapsed;
 	yVel += yAcc * elapsed;
 }
-void Entity::xTranslate(float shiftX) { x += shiftX; }
-void Entity::yTranslate(float shiftY) { y += shiftY; }
-void Entity::changeDirection() { dir *= -1; }
-void Entity::dies() { alive = false; }
 void Entity::Draw(ShaderProgram* program, Matrix& gameMatrix, SheetSprite& sprite) {
 	sprite.Draw(program, gameMatrix, x, y);
 }

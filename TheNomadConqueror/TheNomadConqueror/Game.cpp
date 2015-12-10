@@ -1,5 +1,5 @@
 /*
-Space Invaders
+The Nomad Conqueror
 Erich Chu
 */
 
@@ -155,7 +155,7 @@ void Game::LoadMap(std::string filename) {
 		else if (line == "[layer]") {
 			readLayerData(infile);
 		}
-		else if (line == "[Player]") {
+		else if (line == "[Player]" || line == "[Items]" || line == "[Weapons]" || line == "[Enemies]") {
 			readEntityData(infile);
 		}
 	}
@@ -230,7 +230,8 @@ bool Game::readEntityData(std::ifstream &stream) {
 		getline(sStream, type, '=');
 		getline(sStream, type_value);
 		//If object is player type
-		if (type_value == "PLAYER") {
+		if (type_value == "PLAYER" || type_value == "GOLD_KEY" || type_value == "COIN" || type_value == "TINY_RAY_GUN" || type_value == "SPIKE" || 
+			type_value == "SPIDER" || type_value == "GHOST" || type_value == "FISH") {
 			//Parse next segment
 			getline(stream, line);
 			std::istringstream sStream(line);
@@ -243,7 +244,38 @@ bool Game::readEntityData(std::ifstream &stream) {
 				getline(lineStream, yPosition, ',');
 				float placeX = (float)atoi(xPosition.c_str()) * TILE_SIZE * 1.0f;
 				float placeY = (float)atoi(yPosition.c_str()) * -TILE_SIZE * 1.0f;
-				placeEntity(placeX, placeY + 0.5f, 1.0f, PLAYER, pStandingSprite);
+				if (type_value == "PLAYER") {
+					player = new Entity(placeX, placeY, 1.0f, PLAYER);
+					player->setMainSprite(pStandingSprite);
+				}
+				else if (type_value == "GOLD_KEY") {
+					goldkey = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, GOLD_KEY);
+					goldkey->setMainSprite(goldkeySprite);
+				}
+				else if (type_value == "COIN") {
+					coins.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, COIN));
+					coins.back()->setMainSprite(coinSprite);
+				}
+				else if (type_value == "TINY_RAY_GUN") {
+					tiny_ray_gun = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, TINY_RAY_GUN);
+					tiny_ray_gun->setMainSprite(tRayGunSprite);
+				}
+				else if (type_value == "SPIKE") {
+					spikes.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, SPIKE));
+					spikes.back()->setMainSprite(spikeSprite);
+				}
+				else if (type_value == "SPIDER") {
+					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, SPIDER));
+					enemies.back()->setMainSprite(spiderSprite);
+				}
+				else if (type_value == "GHOST") {
+					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, GHOST));
+					enemies.back()->setMainSprite(ghostSprite);
+				}
+				else if (type_value == "FISH") {
+					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, FISH));
+					enemies.back()->setMainSprite(fishSprite);
+				}
 			}
 		}
 	}
@@ -277,7 +309,28 @@ void Game::RenderGame() {
 	//Draw Player
 	player->Draw(program, gameMatrix, player->getMainSprite());
 
-	//Draw Items
+	//Draw Key
+	if (goldkey->isAlive()) { goldkey->Draw(program, gameMatrix, goldkey->getMainSprite()); }
+	
+	//Draw Ray Gun
+	if (tiny_ray_gun->isAlive()) { tiny_ray_gun->Draw(program, gameMatrix, tiny_ray_gun->getMainSprite()); }
+
+	//Draw Coins
+	for (int i = 0; i < coins.size(); i++) {
+		if (coins[i]->isAlive()) {
+			coins[i]->Draw(program, gameMatrix, coins[i]->getMainSprite());
+		}
+	}
+
+	//Draw Spikes
+	for (int i = 0; i < spikes.size(); i++) {
+		spikes[i]->Draw(program, gameMatrix, spikes[i]->getMainSprite());
+	}
+
+	//Draw Enemies
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->Draw(program, gameMatrix, enemies[i]->getMainSprite());
+	}
 
 	SDL_GL_SwapWindow(displayWindow);
 }
@@ -331,13 +384,6 @@ void Game::centerMap() {
 	program->setViewMatrix(viewMatrix);
 }
 
-void Game::placeEntity(float startingXPos, float startingYPos, float startingDir, TYPE eType, SheetSprite& eSprite) {
-	if (eType == PLAYER) {
-		player = new Entity(startingXPos, startingYPos, startingDir, eType);
-		player->setMainSprite(eSprite);
-	}
-}
-
 void Game::LoadForestMap() {
 	gameMatrix.identity();
 	program->setModelMatrix(gameMatrix);
@@ -345,7 +391,7 @@ void Game::LoadForestMap() {
 	program->setProjectionMatrix(projectionMatrix);
 	glClearColor(0.54902f, 0.847059f, 1.0f, 1.0f);	
 	glClear(GL_COLOR_BUFFER_BIT);
-	solids = {2, 3, 5, 15, 32, 33, 40, 42, 47, 57, 52, 67, 71, 77, 82};
+	solids = {2, 3, 5, 15, 32, 33, 42, 47, 57, 52, 67, 71, 77, 82};
 	LoadMap("maps/Forest/testmap.txt");
 	RenderBackground();
 }
@@ -366,7 +412,7 @@ void Game::ProcessEvents(float elapsed) {
 		if (selectedLevel == FOREST || selectedLevel == CANDYLAND) {
 			//Move left
 			if (keys[SDL_SCANCODE_LEFT]) {
-				player->changeDirection();
+				player->changeDirection(-1.0f);
 				if (player->getXPos() - (player->getXVel() * elapsed) < 0.335f) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
@@ -377,12 +423,12 @@ void Game::ProcessEvents(float elapsed) {
 				}
 				else {
 					player->changeStatic(false);
-					player->changeXVel(-1 * 3.0f);
+					player->changeXVel(-1 * 4.0f);
 				}
 			}
 			//Move Right
 			else if (keys[SDL_SCANCODE_RIGHT]) {
-				player->changeDirection();
+				player->changeDirection(1.0f);
 				if (player->getXPos() + (player->getXVel() * elapsed) > 143.5f && !player->hasGoldKey()) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
@@ -397,7 +443,7 @@ void Game::ProcessEvents(float elapsed) {
 				}
 				else {
 					player->changeStatic(false);
-					player->changeXVel(3.0f);
+					player->changeXVel(4.0f);
 				}
 			}
 			else {
@@ -567,9 +613,32 @@ void Game::Update(float elapsed) {
 	if (state == IN_GAME) {
 		centerMap();
 		//Check Player Collision
+		//Tiles
 		for (int i = 0; i < solidTiles.size(); i++) {
 			if (player->collidesWith(solidTiles[i])) {
 				player->collidedAction(solidTiles[i]);
+			}
+		}
+		//Items
+		for (int i = 0; i < coins.size(); i++) {
+			if (player->collidesWith(coins[i])) {
+				player->collidedAction(coins[i]);
+			}
+		}
+		//Keys
+		if (player->collidesWith(goldkey)) { player->collidedAction(goldkey); }
+		//Weapons
+		if (player->collidesWith(tiny_ray_gun)) { player->collidedAction(tiny_ray_gun); }
+		//Enemies
+		for (int i = 0; i < enemies.size(); i++) {
+			if (player->collidesWith(enemies[i])) {
+				player->collidedAction(enemies[i]);
+			}
+		}
+		//Spikes
+		for (int i = 0; i < spikes.size(); i++) {
+			if (player->collidesWith(spikes[i])) {
+				player->collidedAction(spikes[i]);
 			}
 		}
 		//Update Player values
@@ -590,9 +659,20 @@ void Game::LoadAllTexturesandSound() {
 	candylandSprites = LoadTextureRGBA("maps/Forest/sprites.png");
 	snowtundraSprites = LoadTextureRGBA("maps/Forest/sprites.png");
 	playerSprites = LoadTextureRGBA("assets/Player/p1_spritesheet.png");
+	itemSprites = LoadTextureRGBA("assets/Items/sprites.png");
+	weaponSprites = LoadTextureRGBA("assets/Weapons/sprites.png");
+	hudSprites = LoadTextureRGBA("assets/HUD/sprites.png");
 
 	//Sprites
 	pStandingSprite = SheetSprite(playerSprites, 76.0f / 508.0f, 208.0f / 208.0f, 72.0f / 508.0f, 69.0f / 208.0f, 2.0f);
+	coinSprite = SheetSprite(itemSprites, 0.0f / 216.0f, 144.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
+	goldkeySprite = SheetSprite(itemSprites, 0.0f / 216.0f, 72.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
+	spikeSprite = SheetSprite(itemSprites, 0.0f / 216.0f, 0.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
+	tRayGunSprite = SheetSprite(weaponSprites, 0.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.2f);
+	spiderSprite = SheetSprite(forestSprites, 432.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.2f);
+	ghostSprite = SheetSprite(forestSprites, 216.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.2f);
+	fishSprite = SheetSprite(forestSprites, 576.0f / 720.0f, 174.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0);
+
 
 	//Sounds
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);

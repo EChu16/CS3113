@@ -54,7 +54,6 @@ public:
 	bool readEntityData(std::ifstream &stream);
 	void RenderBackground();
 	void centerMap();
-	void placeEntity(float startingXPos, float startingYPos, float startingDir, TYPE eType, SheetSprite& eSprite);
 
 	//Load Levels Functions
 	void LoadForestMap();
@@ -101,6 +100,9 @@ private:
 	int candylandSprites;
 	int snowtundraSprites;
 	int playerSprites;
+	int itemSprites;
+	int weaponSprites;
+	int hudSprites;
 
 	//Images
 	int bgID;
@@ -111,7 +113,13 @@ private:
 
 	//Sprites
 	SheetSprite pStandingSprite;
-	
+	SheetSprite coinSprite;
+	SheetSprite goldkeySprite;
+	SheetSprite spikeSprite;
+	SheetSprite tRayGunSprite;
+	SheetSprite spiderSprite;
+	SheetSprite ghostSprite;
+	SheetSprite fishSprite;
 
 	//Sounds
 	Mix_Music* opening_music;
@@ -125,9 +133,10 @@ private:
 	//Entities
 	Entity* player;
 	Entity* goldkey;
-	Entity* ray_gun;
+	Entity* tiny_ray_gun;
 	std::vector<int> solids;
 	std::vector<Entity*> solidTiles;
 	std::vector<Entity*> enemies;
 	std::vector<Entity*> coins;
+	std::vector<Entity*> spikes;
 };
