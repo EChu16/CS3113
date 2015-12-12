@@ -9,7 +9,8 @@ public:
 	SheetSprite();
 	SheetSprite(unsigned int textureID, float u, float v, float width, float height, float size);
 	SheetSprite& operator= (const SheetSprite& spriteSource);
-	void Draw(ShaderProgram* program, Matrix& gameMatrix, const float shiftX, const float shiftY);
+	bool operator!= (const SheetSprite& spriteSource);
+	void Draw(ShaderProgram* program, Matrix& gameMatrix, const float shiftX, const float shiftY, const float theDir);
 
 	float size;
 	unsigned int textureID;

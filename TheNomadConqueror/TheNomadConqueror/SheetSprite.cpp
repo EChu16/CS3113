@@ -21,7 +21,12 @@ SheetSprite& SheetSprite::operator= (const SheetSprite& spriteSource) {
 	return *this;
 }
 
-void SheetSprite::Draw(ShaderProgram* program, Matrix& gameMatrix, const float shiftX, const float shiftY){
+bool SheetSprite::operator!= (const SheetSprite& spriteSource) {
+	return (this->size != spriteSource.size || this->u != spriteSource.u || this->v != spriteSource.v || this->width != spriteSource.width
+		|| this->height != spriteSource.height || this->textureID != spriteSource.textureID);
+}
+
+void SheetSprite::Draw(ShaderProgram* program, Matrix& gameMatrix, const float shiftX, const float shiftY, const float theDir){
 	GLfloat texCoords[] = {
 		u, v + height,
 		u + width, v,
@@ -41,6 +46,7 @@ void SheetSprite::Draw(ShaderProgram* program, Matrix& gameMatrix, const float s
 
 	gameMatrix.identity();
 	gameMatrix.Translate(shiftX, shiftY, 0.0);
+	gameMatrix.Scale(theDir, 1.0f, 1.0f);
 	program->setModelMatrix(gameMatrix);
 
 	glUseProgram(program->programID);

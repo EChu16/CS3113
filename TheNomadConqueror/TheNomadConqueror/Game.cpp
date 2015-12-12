@@ -247,6 +247,7 @@ bool Game::readEntityData(std::ifstream &stream) {
 				if (type_value == "PLAYER") {
 					player = new Entity(placeX, placeY, 1.0f, PLAYER);
 					player->setMainSprite(pStandingSprite);
+					player->setCurrentSprite(pStandingSprite, 0);
 				}
 				else if (type_value == "GOLD_KEY") {
 					goldkey = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, GOLD_KEY);
@@ -255,26 +256,32 @@ bool Game::readEntityData(std::ifstream &stream) {
 				else if (type_value == "COIN") {
 					coins.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, COIN));
 					coins.back()->setMainSprite(coinSprite);
+					coins.back()->setCurrentSprite(coinSprite, 0);
 				}
 				else if (type_value == "TINY_RAY_GUN") {
 					tiny_ray_gun = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, TINY_RAY_GUN);
 					tiny_ray_gun->setMainSprite(tRayGunSprite);
+					tiny_ray_gun->setCurrentSprite(tRayGunSprite, 0);
 				}
 				else if (type_value == "SPIKE") {
 					spikes.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, SPIKE));
 					spikes.back()->setMainSprite(spikeSprite);
+					spikes.back()->setCurrentSprite(spikeSprite, 0);
 				}
 				else if (type_value == "SPIDER") {
 					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, SPIDER));
 					enemies.back()->setMainSprite(spiderSprite);
+					enemies.back()->setCurrentSprite(spiderSprite, 0);
 				}
 				else if (type_value == "GHOST") {
 					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, GHOST));
 					enemies.back()->setMainSprite(ghostSprite);
+					enemies.back()->setCurrentSprite(ghostSprite, 0);
 				}
 				else if (type_value == "FISH") {
 					enemies.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, FISH));
 					enemies.back()->setMainSprite(fishSprite);
+					enemies.back()->setCurrentSprite(fishSprite, 0);
 				}
 			}
 		}
@@ -307,29 +314,35 @@ void Game::RenderGame() {
 	glDisableVertexAttribArray(program->texCoordAttribute);
 
 	//Draw Player
-	player->Draw(program, gameMatrix, player->getMainSprite());
+	player->Draw(program, gameMatrix);
 
 	//Draw Key
-	if (goldkey->isAlive()) { goldkey->Draw(program, gameMatrix, goldkey->getMainSprite()); }
+	if (goldkey->isAlive()) { goldkey->Draw(program, gameMatrix); }
 	
 	//Draw Ray Gun
-	if (tiny_ray_gun->isAlive()) { tiny_ray_gun->Draw(program, gameMatrix, tiny_ray_gun->getMainSprite()); }
+	tiny_ray_gun->Draw(program, gameMatrix);
 
 	//Draw Coins
 	for (int i = 0; i < coins.size(); i++) {
 		if (coins[i]->isAlive()) {
-			coins[i]->Draw(program, gameMatrix, coins[i]->getMainSprite());
+			coins[i]->Draw(program, gameMatrix);
 		}
 	}
 
 	//Draw Spikes
 	for (int i = 0; i < spikes.size(); i++) {
-		spikes[i]->Draw(program, gameMatrix, spikes[i]->getMainSprite());
+		spikes[i]->Draw(program, gameMatrix);
 	}
 
+	//Draw Bullets 
+	for (int i = 0; i < bullets.size(); i++) {
+		if (bullets[i]->isAlive()) {
+			bullets[i]->Draw(program, gameMatrix);
+		}
+	}
 	//Draw Enemies
 	for (int i = 0; i < enemies.size(); i++) {
-		enemies[i]->Draw(program, gameMatrix, enemies[i]->getMainSprite());
+		if (enemies[i]->isAlive()) { enemies[i]->Draw(program, gameMatrix); }
 	}
 
 	SDL_GL_SwapWindow(displayWindow);
@@ -367,10 +380,12 @@ void Game::RenderBackground() {
 						if (solids[a] == 32 || solids[a] == 42 || solids[a] == 52) {
 							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
 						}
-						else{
+						else if (solids[a] == 70 || solids[a] == 80) {
+							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, WATER));
+						}
+						else {
 							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
 						}
-						
 					}
 				}
 			}
@@ -391,7 +406,7 @@ void Game::LoadForestMap() {
 	program->setProjectionMatrix(projectionMatrix);
 	glClearColor(0.54902f, 0.847059f, 1.0f, 1.0f);	
 	glClear(GL_COLOR_BUFFER_BIT);
-	solids = {2, 3, 5, 15, 32, 33, 42, 47, 57, 52, 67, 71, 77, 82};
+	solids = {2, 3, 5, 15, 32, 33, 42, 47, 57, 52, 67, 70, 71, 77, 80, 82};
 	LoadMap("maps/Forest/testmap.txt");
 	RenderBackground();
 }
@@ -413,42 +428,67 @@ void Game::ProcessEvents(float elapsed) {
 			//Move left
 			if (keys[SDL_SCANCODE_LEFT]) {
 				player->changeDirection(-1.0f);
+				if (player->hasTinyGun()) { tiny_ray_gun->changeDirection(-1.0f); }
 				if (player->getXPos() - (player->getXVel() * elapsed) < 0.335f) {
 					player->changeStatic(true);
-					player->changeXVel(0.0f);
+					player->changeXVel(0.0f); 
+					if (player->hasTinyGun()) {	tiny_ray_gun->changeXVel(0.0f);	}
 				}
 				else if (player->isOnSurface()) {
 					player->changeStatic(false);
 					player->changeXVel(-1 * 6.0f);
+					if (player->hasTinyGun()) {
+						tiny_ray_gun->changeXVel(-6.0f);
+					}
 				}
 				else {
 					player->changeStatic(false);
 					player->changeXVel(-1 * 4.0f);
+					if (player->hasTinyGun()) {
+						tiny_ray_gun->changeXVel(-4.0f);
+					}
 				}
 			}
 			//Move Right
 			else if (keys[SDL_SCANCODE_RIGHT]) {
 				player->changeDirection(1.0f);
-				if (player->getXPos() + (player->getXVel() * elapsed) > 143.5f && !player->hasGoldKey()) {
+				if (player->hasTinyGun()) { tiny_ray_gun->changeDirection(1.0f); }
+				if (player->getXPos() + (player->getXVel() * elapsed) > 143.5f && !player->hasGoldKey() && selectedLevel == FOREST) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
+					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(0.0f); }
 				}
 				else if (player->getXPos() + (player->getXVel() * elapsed) > 148.5f) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
+					if (player->hasTinyGun()) {	tiny_ray_gun->changeXVel(0.0f);	}
+					state = VICTORY;
 				}
 				else if (player->isOnSurface()) {
 					player->changeStatic(false);
 					player->changeXVel(6.0f);
+					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(6.0f);	}
 				}
 				else {
 					player->changeStatic(false);
 					player->changeXVel(4.0f);
+					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(4.0f);	}
 				}
 			}
 			else {
 				player->changeStatic(true);
 				player->changeXVel(0.0f);
+				if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(0.0f);	}
+			}
+			if (player->hasTinyGun()) {
+				if (keys[SDL_SCANCODE_X]) {
+					if (player->getLastBulletTime() >= player->getStallShootTime()) {
+						player->resetLastBulletTime();
+						bullets.push_back(new Entity(tiny_ray_gun->getXPos() + (player->getDirection() * 0.2f), tiny_ray_gun->getYPos(), player->getDirection(), REG_BULLET));
+						bullets.back()->setMainSprite(pTinyRaySprite);
+						bullets.back()->setCurrentSprite(pTinyRaySprite, 0);
+					}
+				}
 			}
 		}
 		else if (selectedLevel == SNOW_TUNDRA) {
@@ -563,9 +603,12 @@ void Game::ProcessEvents(float elapsed) {
 		else if (state == IN_GAME) {
 			if (event.type == SDL_KEYDOWN) {
 				if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-					if (player->isOnSurface()) {
+					if (player->isOnSurface() || player->canDoubleJump()) {
 						player->changeOnSurface(false);
 						player->changeYVel(10.0f);
+						if (player->hasTinyGun()) {
+							tiny_ray_gun->changeYVel(10.0f);
+						}
 					}
 				}
 			}
@@ -605,6 +648,9 @@ void Game::Render() {
 		case PAUSE: {
 			break;
 		}
+		case LOSE: {
+			break;
+		}
 	}
 }
 
@@ -613,6 +659,10 @@ void Game::Update(float elapsed) {
 	if (state == IN_GAME) {
 		centerMap();
 		//Check Player Collision
+		//Weapons
+		if (player->collidesWith(tiny_ray_gun)) { 
+			player->collidedAction(tiny_ray_gun); 
+		}
 		//Tiles
 		for (int i = 0; i < solidTiles.size(); i++) {
 			if (player->collidesWith(solidTiles[i])) {
@@ -627,22 +677,72 @@ void Game::Update(float elapsed) {
 		}
 		//Keys
 		if (player->collidesWith(goldkey)) { player->collidedAction(goldkey); }
-		//Weapons
-		if (player->collidesWith(tiny_ray_gun)) { player->collidedAction(tiny_ray_gun); }
+		//Animate Enemies (AI)
+		for (int i = 0; i < enemies.size(); i++) {
+			for (int a = 0; a < solidTiles.size(); a++) {
+				if (enemies[i]->collidesWith(solidTiles[a])) {
+					enemies[i]->collidedAction(solidTiles[a]);
+				}
+			}
+			enemies[i]->animate(elapsed);
+		}
 		//Enemies
 		for (int i = 0; i < enemies.size(); i++) {
 			if (player->collidesWith(enemies[i])) {
 				player->collidedAction(enemies[i]);
+				if (enemies[i]->isAlive()) { player->setCurrentSprite(pHurtSprite, 0.3f); }
 			}
 		}
 		//Spikes
 		for (int i = 0; i < spikes.size(); i++) {
 			if (player->collidesWith(spikes[i])) {
 				player->collidedAction(spikes[i]);
+				player->setCurrentSprite(pHurtSprite, 0.3f);
 			}
+		}
+		//If player falls down
+		if (player->getYPos() < -mapHeight - 5.0f) {
+			player->respawn();
+			tiny_ray_gun->respawn();
+			player->decreaseHP(1.0f);
+			player->setCurrentSprite(pHurtSprite, 0.3f);
 		}
 		//Update Player values
 		player->Update(elapsed);
+		//If player has ray gun
+		if (player->hasTinyGun()) {
+			tiny_ray_gun->Update(elapsed);
+			tiny_ray_gun->setImmX(player->getXPos() + 0.2000008f);
+			tiny_ray_gun->setImmY(player->getYPos() - 0.5024986f);
+		}
+		if (!player->isOnSurface() && player->normExp()) {
+			player->setCurrentSprite(pJumpSprite, 0);
+		}
+		else if (player->normExp()) {
+			player->setCurrentSprite(player->getMainSprite(), 0);
+		}
+		//Update all Bullet movement
+		for (int i = 0; i < bullets.size(); i++) {
+			if (bullets[i]->isAlive()) {
+				bullets[i]->Update(elapsed);
+				if (bullets[i]->getType() == REG_BULLET || bullets[i]->getType() == BIG_BULLET) {
+					for (int a = 0; a < enemies.size(); a++) {
+						if (bullets[i]->collidesWith(enemies[a])) {
+							bullets[i]->collidedAction(enemies[a]);
+							break;
+						}
+					}
+				}
+				else if (bullets[i]->getType() == ENEMY_BULLET) {
+					if (bullets[i]->collidesWith(player)) {
+						bullets[i]->collidedAction(player);
+					}
+				}
+			}	
+		}
+		if (!player->isAlive()) {
+			state = LOSE;
+		}
 	}
 	
 }
@@ -662,17 +762,23 @@ void Game::LoadAllTexturesandSound() {
 	itemSprites = LoadTextureRGBA("assets/Items/sprites.png");
 	weaponSprites = LoadTextureRGBA("assets/Weapons/sprites.png");
 	hudSprites = LoadTextureRGBA("assets/HUD/sprites.png");
+	bulletSprites = LoadTextureRGBA("assets/Effects/sprites.png");
 
 	//Sprites
 	pStandingSprite = SheetSprite(playerSprites, 76.0f / 508.0f, 208.0f / 208.0f, 72.0f / 508.0f, 69.0f / 208.0f, 2.0f);
+	pHurtSprite = SheetSprite(playerSprites, 438.0f / 508.0f, 0.0f / 208.0f, 72.0f / 508.0f, 69.0f / 208.0f, 2.0f);
+	pJumpSprite = SheetSprite(playerSprites, 438.0f / 508.0f, 69.0f / 208.0f, 72.0f / 508.0f, 69.0f / 208.0f, 2.0f);
 	coinSprite = SheetSprite(itemSprites, 0.0f / 216.0f, 144.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
 	goldkeySprite = SheetSprite(itemSprites, 0.0f / 216.0f, 72.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
 	spikeSprite = SheetSprite(itemSprites, 0.0f / 216.0f, 0.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
-	tRayGunSprite = SheetSprite(weaponSprites, 0.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.2f);
-	spiderSprite = SheetSprite(forestSprites, 432.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.2f);
-	ghostSprite = SheetSprite(forestSprites, 216.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.2f);
+	tRayGunSprite = SheetSprite(weaponSprites, 0.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0f);
+	spiderSprite = SheetSprite(forestSprites, 432.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0f);
+	ghostSprite = SheetSprite(forestSprites, 216.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0f);
 	fishSprite = SheetSprite(forestSprites, 576.0f / 720.0f, 174.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0);
-
+	enemyBulletSprite = SheetSprite(bulletSprites, 72.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0);
+	pTinyRaySprite = SheetSprite(bulletSprites, 0.0f / 144.0f, 72.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 0.8);
+	pBigRaySprite = SheetSprite(bulletSprites, 72.0f / 144.0f, 72.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0);
+	pRayExplodeSprite = SheetSprite(bulletSprites, 0.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0);
 
 	//Sounds
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);

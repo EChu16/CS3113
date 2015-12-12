@@ -34,7 +34,7 @@ public:
 	void Update(float elapsed);
 
 	//Game States
-	enum GAME_STATE { TITLESCREEN, ALL_MAP_LEVELS, ABOUT, IN_GAME, VICTORY, PAUSE };
+	enum GAME_STATE { TITLESCREEN, ALL_MAP_LEVELS, ABOUT, IN_GAME, VICTORY, PAUSE, LOSE};
 	enum LEVEL { NONE, FOREST, CANDYLAND, SNOW_TUNDRA, LAVALAND, CASTLE };
 	enum TITLE_OPTIONS { PLAY, OPTIONS };
 	GAME_STATE state;
@@ -103,6 +103,7 @@ private:
 	int itemSprites;
 	int weaponSprites;
 	int hudSprites;
+	int bulletSprites;
 
 	//Images
 	int bgID;
@@ -113,6 +114,8 @@ private:
 
 	//Sprites
 	SheetSprite pStandingSprite;
+	SheetSprite pHurtSprite;
+	SheetSprite pJumpSprite;
 	SheetSprite coinSprite;
 	SheetSprite goldkeySprite;
 	SheetSprite spikeSprite;
@@ -120,6 +123,10 @@ private:
 	SheetSprite spiderSprite;
 	SheetSprite ghostSprite;
 	SheetSprite fishSprite;
+	SheetSprite enemyBulletSprite;
+	SheetSprite pTinyRaySprite;
+	SheetSprite pBigRaySprite;
+	SheetSprite pRayExplodeSprite; //maybe if time permits
 
 	//Sounds
 	Mix_Music* opening_music;
@@ -139,4 +146,5 @@ private:
 	std::vector<Entity*> enemies;
 	std::vector<Entity*> coins;
 	std::vector<Entity*> spikes;
+	std::vector<Entity*> bullets;
 };
