@@ -45,6 +45,7 @@ public:
 	void LoadTitleScreen();
 	void LoadStageMap();
 	void RenderGame();
+	void RenderScreen(GAME_STATE state);
 	void GameOver();
 
 	//Load and Render Map Functions
@@ -76,7 +77,9 @@ private:
 	//Map variables
 	int mapWidth;
 	int mapHeight;
-	unsigned char** bgLevelData;
+	unsigned char** bgForestLevelData;
+	unsigned char** bgCandyLevelData;
+	unsigned char** bgSnowLevelData;
 	std::vector<float> vertexData;
 	std::vector<float> texCoordData;
 
@@ -107,7 +110,11 @@ private:
 
 	//Images
 	int bgID;
+	int screenID;
 	int playID;
+	int victoryID;
+	int loseID;
+	int pauseID;
 	int aboutID;
 	int exitID;
 	int mapLevelsID;
@@ -120,18 +127,20 @@ private:
 	SheetSprite goldkeySprite;
 	SheetSprite spikeSprite;
 	SheetSprite tRayGunSprite;
+	SheetSprite bRayGunSprite;
 	SheetSprite spiderSprite;
 	SheetSprite ghostSprite;
 	SheetSprite fishSprite;
 	SheetSprite enemyBulletSprite;
 	SheetSprite pTinyRaySprite;
 	SheetSprite pBigRaySprite;
-	SheetSprite pRayExplodeSprite; //maybe if time permits
+	SheetSprite pRayExplodeSprite; 
 
 	//Sounds
 	Mix_Music* opening_music;
 	Mix_Chunk* select_sound;
 	Mix_Chunk* error_sound;
+	Mix_Chunk* jump_sound;
 
 	//Mouse coordinates
 	float unitX;
@@ -141,6 +150,7 @@ private:
 	Entity* player;
 	Entity* goldkey;
 	Entity* tiny_ray_gun;
+	Entity* big_ray_gun;
 	std::vector<int> solids;
 	std::vector<Entity*> solidTiles;
 	std::vector<Entity*> enemies;

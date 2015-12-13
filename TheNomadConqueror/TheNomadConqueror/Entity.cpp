@@ -4,10 +4,15 @@ Entity::Entity(float xPos, float yPos, float startingDir, TYPE entityType) : x(x
 alive(true), originalX(xPos), originalY(yPos), originalDir(startingDir), doubleJump(false), changedExp(false),randNum(0) {
 	if (entityType == PLAYER) {
 		hp = 3.0f;
+		originalHp = 3.0f;
 		xVel = 0.0f;
+		origXVel = 0.0f;
 		yVel = 0.0f;
+		origYVel = 0.0f;
 		xAcc = 0;
+		origXAcc = 0.0;
 		yAcc = -20.0f;
+		origYAcc = -20.0f;
 		coins = 0;  
 		widthFromCenter = 0.47f;
 		heightFromCenter = 1.00f;
@@ -40,25 +45,46 @@ alive(true), originalX(xPos), originalY(yPos), originalDir(startingDir), doubleJ
 	}
 	else if (entityType == SPIDER) {
 		hp = 3.0f;
+		originalHp = 3.0f;
 		xVel = 0.0f;
 		yVel = 0.0f;
 		xAcc = 0;
 		yAcc = -25.0f;
+		origXVel = 0.0f;
+		origYVel = 0.0f;
+		origXAcc = 0.0f;
+		origYAcc = -25.0f;
 		widthFromCenter = 0.45f;
 		heightFromCenter = 0.3f;
+		onSurface = false;
 	}
 	else if (entityType == GHOST) {
 		hp = 4.0f;
-		xVel = 0.0f;
-		yVel = 0.0f;
-		xAcc = 0;
+		originalHp = 4.0f;
+		xVel = 1.5f;
+		yVel = 1.5f;
+		xAcc = 0.0f;
 		yAcc = 0.0f;
+		origXVel = 1.5f;
+		origYVel = 1.5f;
+		origXAcc = 0.0f;
+		origYAcc = 0.0f;
 		widthFromCenter = 0.30f;
 		heightFromCenter = 0.4f;
+		perimeter = 5.0f;
+		ghostState = PASSIVE;
 	}
 	else if (entityType == FISH) {
 		hp = 1.0f;
+		originalHp = 1.0f;
 		xVel = 0.75f;
+		yVel = 0.0f;
+		xAcc = 0.0f;
+		yAcc = 0.0f;
+		origXVel = 0.75f;
+		origYVel = 0.0f;
+		origXAcc = 0.0f;
+		origYAcc = 0.0f;
 		widthFromCenter = 0.8f;
 		heightFromCenter = 0.2f;
 	}
@@ -189,8 +215,8 @@ bool Entity::collidedAction(Entity* solid) {
 				}
 			}
 			xVel = 0.0f;
-			x += ((fabs((x - widthFromCenter) - (solid->getXPos() + solid->getWidthFromCenter()))) + 0.15f);
-			y -= ((fabs((y - heightFromCenter) - (solid->getYPos() + solid->getHeightFromCenter()))) + 0.15f);
+			x += ((fabs((x - widthFromCenter) - (solid->getXPos() + solid->getWidthFromCenter()))) + 0.6f);
+			y -= ((fabs((y - heightFromCenter) - (solid->getYPos() + solid->getHeightFromCenter()))) + 0.6f);
 		}
 		else if (this->getXPos() + this->getWidthFromCenter() >= solid->getXPos() - solid->getWidthFromCenter() && dir == 1.0f) {
 			doubleJump = false;
@@ -203,8 +229,8 @@ bool Entity::collidedAction(Entity* solid) {
 				}
 			}
 			xVel = 0.0f;
-			x -= ((fabs((x + widthFromCenter) - (solid->getXPos() - solid->getWidthFromCenter()))) + 0.15f);
-			y -= ((fabs((y - heightFromCenter) - (solid->getYPos() + solid->getHeightFromCenter()))) + 0.15f);
+			x -= ((fabs((x + widthFromCenter) - (solid->getXPos() - solid->getWidthFromCenter()))) + 0.6f);
+			y -= ((fabs((y - heightFromCenter) - (solid->getYPos() + solid->getHeightFromCenter()))) + 0.6f);
 		}
 		hp -= 0.5f;
 		return true;
@@ -231,7 +257,7 @@ bool Entity::collidedAction(Entity* solid) {
 			dir *= -1;
 			return true;
 		}
-		else if (belowCollision(solid) && type == PLAYER) {
+		else if (belowCollision(solid) && (type == PLAYER || type == SPIDER)) {
 			if (hasTinyGun()) {
 				for (int i = 0; i < items.size(); i++) {
 					if (items[i]->getType() == TINY_RAY_GUN) {
@@ -285,6 +311,28 @@ bool Entity::collidedAction(Entity* solid) {
 	doubleJump = false;
 	return false;
 }
+void Entity::isNear(Entity* solid) {
+	if (sqrt((pow((x - solid->getXPos()), 2)) + (pow((y - solid->getYPos()), 2))) <= perimeter || ghostState == CHASE) {
+		ghostState = CHASE;
+		if (hp <= 3.0) {
+			xVel = 1.5f;
+		}
+		if (x > solid->getXPos()) {
+			xVel = -1 * fabs(dir);
+			dir = -1;
+		}
+		else if (x < solid->getXPos()) {
+			xVel = fabs(dir);
+			dir = 1;
+		}
+		if (y > solid->getYPos()) {
+			yVel = -1 * fabs(yVel);
+		}
+		else if(y < solid->getYPos()){
+			yVel = fabs(yVel);
+		}
+	}
+}
 
 void Entity::setMainSprite(SheetSprite& mainSprite) { mainSprite = mainSprite; staticSprite = mainSprite; }
 void Entity::setCurrentSprite(SheetSprite& currSprite, float theExpTime) { 
@@ -303,9 +351,9 @@ bool Entity::decreaseHP(float damageTaken) {
 void Entity::setImmX(float immX) { x = immX; }
 void Entity::setImmY(float immY) { y = immY; }
 void Entity::respawn() {
-	x = originalX; y = originalY; dir = originalDir; currentSprite = staticSprite; alive = true;
+	x = originalX; y = originalY; dir = originalDir; currentSprite = staticSprite; alive = true; goldKey = false;
 	for (int i = 0; i < items.size(); i++) {
-		if (items[i]->getType() == TINY_RAY_GUN) {
+		if (items[i]->getType() == TINY_RAY_GUN && type == PLAYER) {
 			items[i] = items[items.size() - 1];
 			items.pop_back();
 		}
@@ -317,6 +365,22 @@ void Entity::respawn() {
 		yAcc = -20.0f;
 	}
 }
+void Entity::resetOriginalValues() {
+	if (type == PLAYER || type == SPIDER || type == FISH || type == GHOST) {
+		hp = originalHp;
+		xVel = origXVel;
+		yVel = origYVel;
+		xAcc = origXAcc;
+		yAcc = origYAcc;
+		coins = 0;
+		if (type == SPIDER) {
+			onSurface = false;
+		}
+		if (type == GHOST) {
+			ghostState = PASSIVE;
+		}
+	}
+}
 void Entity::changeStatic(bool newStatic) { pstatic = newStatic; }
 void Entity::changeOnSurface(bool newOnSurface) { onSurface = newOnSurface; }
 void Entity::resetLastBulletTime() { sinceLastBullet = 0; }
@@ -325,13 +389,23 @@ void Entity::yTranslate(float shiftY) { y += shiftY; }
 void Entity::changeXVel(float newX) { xVel = newX; }
 void Entity::changeYVel(float newY) { yVel = newY; }
 void Entity::changeDirection(float newDir) { dir = newDir; }
+void Entity::revive() { alive = true; }
 void Entity::dies() { alive = false; }
 void Entity::animate(float elapsed) {	
 	if (type == SPIDER) {
-		
+		if (onSurface == true) {
+			randNum = rand() % 5 + 7;
+			yVel = float(randNum);
+			dir *= -1;
+			onSurface = false;
+		}
+		Update(elapsed);
 	}
 	else if (type == GHOST) {
-
+		if (ghostState == CHASE) {
+			x += xVel * elapsed;
+			y += yVel * elapsed;
+		}
 	}
 	else if (type == FISH) {
 		x += xVel * elapsed * dir;

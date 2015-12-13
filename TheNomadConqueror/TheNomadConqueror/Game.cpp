@@ -40,6 +40,8 @@ void Game::Setup() {
 	furthestLevel = FOREST;
 	selectedLevel = NONE;
 	
+	mapWidth = -1;
+	mapHeight = -1;
 	//glClearColor(0.64902f, 0.747059f, 0.847059f, 1.0f);	//Snow Tundra
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -155,7 +157,7 @@ void Game::LoadMap(std::string filename) {
 		else if (line == "[layer]") {
 			readLayerData(infile);
 		}
-		else if (line == "[Player]" || line == "[Items]" || line == "[Weapons]" || line == "[Enemies]") {
+		else if (line == "[Player]" || line == "[Items]" || line == "[Enemies]") {
 			readEntityData(infile);
 		}
 	}
@@ -181,10 +183,24 @@ bool Game::readHeader(std::ifstream &stream) {
 	if (mapWidth == -1 || mapHeight == -1) {
 		return false;
 	}
-	else {
-		bgLevelData = new unsigned char*[mapHeight];
+	else if(selectedLevel == FOREST){
+		bgForestLevelData = new unsigned char*[mapHeight];
 		for (int i = 0; i < mapHeight; ++i) {
-			bgLevelData[i] = new unsigned char[mapWidth];
+			bgForestLevelData[i] = new unsigned char[mapWidth];
+		}
+		return true;
+	}
+	else if (selectedLevel == CANDYLAND){
+		bgCandyLevelData = new unsigned char*[mapHeight];
+		for (int i = 0; i < mapHeight; ++i) {
+			bgCandyLevelData[i] = new unsigned char[mapWidth];
+		}
+		return true;
+	}
+	else if (selectedLevel == SNOW_TUNDRA){
+		bgSnowLevelData = new unsigned char*[mapHeight];
+		for (int i = 0; i < mapHeight; ++i) {
+			bgSnowLevelData[i] = new unsigned char[mapWidth];
 		}
 		return true;
 	}
@@ -210,10 +226,27 @@ bool Game::readLayerData(std::ifstream &stream) {
 					getline(lineStream, tile, ',');
 					unsigned char val = (unsigned char)atoi(tile.c_str());
 					if (val > 0) {
-						bgLevelData[y][x] = val - 1;
+						if (selectedLevel == FOREST) {
+							bgForestLevelData[y][x] = val - 1;
+						}
+						else if (selectedLevel == CANDYLAND) {
+							bgCandyLevelData[y][x] = val - 1;
+						}
+						else if (selectedLevel == SNOW_TUNDRA) {
+							bgSnowLevelData[y][x] = val - 1;
+						}
 					}
 					else {
-						bgLevelData[y][x] = 79;
+						if (selectedLevel == FOREST) {
+							bgForestLevelData[y][x] = 79;
+						}
+						else if (selectedLevel == CANDYLAND) {
+							bgCandyLevelData[y][x] = 79;
+						}
+						else if (selectedLevel == SNOW_TUNDRA) {
+							bgSnowLevelData[y][x] =79;
+						}
+						
 					}
 				}
 			}
@@ -231,7 +264,7 @@ bool Game::readEntityData(std::ifstream &stream) {
 		getline(sStream, type_value);
 		//If object is player type
 		if (type_value == "PLAYER" || type_value == "GOLD_KEY" || type_value == "COIN" || type_value == "TINY_RAY_GUN" || type_value == "SPIKE" || 
-			type_value == "SPIDER" || type_value == "GHOST" || type_value == "FISH") {
+			type_value == "SPIDER" || type_value == "GHOST" || type_value == "FISH" || type_value == "BIG_RAY_GUN") {
 			//Parse next segment
 			getline(stream, line);
 			std::istringstream sStream(line);
@@ -252,6 +285,7 @@ bool Game::readEntityData(std::ifstream &stream) {
 				else if (type_value == "GOLD_KEY") {
 					goldkey = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, GOLD_KEY);
 					goldkey->setMainSprite(goldkeySprite);
+					goldkey->setCurrentSprite(goldkeySprite, 0);
 				}
 				else if (type_value == "COIN") {
 					coins.push_back(new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, COIN));
@@ -259,6 +293,14 @@ bool Game::readEntityData(std::ifstream &stream) {
 					coins.back()->setCurrentSprite(coinSprite, 0);
 				}
 				else if (type_value == "TINY_RAY_GUN") {
+					tiny_ray_gun = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, TINY_RAY_GUN);
+					tiny_ray_gun->setMainSprite(tRayGunSprite);
+					tiny_ray_gun->setCurrentSprite(tRayGunSprite, 0);
+				}
+				else if (type_value == "BIG_RAY_GUN") {
+					/*big_ray_gun = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, BIG_RAY_GUN);
+					big_ray_gun->setMainSprite(bRayGunSprite);
+					big_ray_gun->setCurrentSprite(bRayGunSprite, 0);*/ //Ran out of time before implementing this
 					tiny_ray_gun = new Entity(placeX + 0.5f, placeY + 0.5f, 1.0f, TINY_RAY_GUN);
 					tiny_ray_gun->setMainSprite(tRayGunSprite);
 					tiny_ray_gun->setCurrentSprite(tRayGunSprite, 0);
@@ -352,39 +394,120 @@ void Game::RenderBackground() {
 	//Draw Map
 	for (int y = 0; y < mapHeight; y++) {
 		for (int x = 0; x < mapWidth; x++) {
-			if (bgLevelData[y][x] != 79) {
-				//Draw Background 
-				u = (float)(((int)bgLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
-				v = (float)(((int)bgLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
+			if (selectedLevel == FOREST) {
+				if (bgForestLevelData[y][x] != 79) {
+					//Draw Background 
+					u = (float)(((int)bgForestLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
+					v = (float)(((int)bgForestLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
 
-				spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
-				spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
-				vertexData.insert(vertexData.end(), {
-					TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
-					TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
-					(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
-					TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
-					(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
-					(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
-				});
-				texCoordData.insert(texCoordData.end(), {
-					u, v,
-					u, v + (spriteHeight),
-					u + spriteWidth, v + (spriteHeight),
-					u, v,
-					u + spriteWidth, v + (spriteHeight),
-					u + spriteWidth, v
-				});
-				for (int a = 0; a < solids.size(); a++) {
-					if (solids[a] == (int)bgLevelData[y][x]) {
-						if (solids[a] == 32 || solids[a] == 42 || solids[a] == 52) {
-							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
+					spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
+					spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
+					vertexData.insert(vertexData.end(), {
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
+					});
+					texCoordData.insert(texCoordData.end(), {
+						u, v,
+						u, v + (spriteHeight),
+						u + spriteWidth, v + (spriteHeight),
+						u, v,
+						u + spriteWidth, v + (spriteHeight),
+						u + spriteWidth, v
+					});
+					for (int a = 0; a < solids.size(); a++) {
+						if (solids[a] == (int)bgForestLevelData[y][x]) {
+							if (solids[a] == 32 || solids[a] == 42 || solids[a] == 52) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
+							}
+							else if (solids[a] == 70 || solids[a] == 80) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, WATER));
+							}
+							else {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
+							}
 						}
-						else if (solids[a] == 70 || solids[a] == 80) {
-							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, WATER));
+					}
+				}
+			}
+			else if (selectedLevel == CANDYLAND) {
+				if (bgCandyLevelData[y][x] != 79) {
+					//Draw Background 
+					u = (float)(((int)bgCandyLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
+					v = (float)(((int)bgCandyLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
+
+					spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
+					spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
+					vertexData.insert(vertexData.end(), {
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
+					});
+					texCoordData.insert(texCoordData.end(), {
+						u, v,
+						u, v + (spriteHeight),
+						u + spriteWidth, v + (spriteHeight),
+						u, v,
+						u + spriteWidth, v + (spriteHeight),
+						u + spriteWidth, v
+					});
+					for (int a = 0; a < solids.size(); a++) {
+						if (solids[a] == (int)bgCandyLevelData[y][x]) {
+							if (solids[a] == 56 || solids[a] == 66 || solids[a] == 76 || solids[a] == 0 || solids[a] == 10 || solids[a] == 20 
+								|| solids[a] == 26 || solids[a] == 36 || solids[a] == 46 || solids[a] == 54) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
+							}
+							else if (solids[a] == 3 || solids[a] == 13) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, WATER));
+							}
+							else {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
+							}
 						}
-						else {
-							solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
+					}
+				}
+			}
+			else if (selectedLevel == SNOW_TUNDRA) {
+				if (bgSnowLevelData[y][x] != 79) {
+					//Draw Background 
+					u = (float)(((int)bgSnowLevelData[y][x]) % SPRITE_COUNT_X) / (float)SPRITE_COUNT_X;
+					v = (float)(((int)bgSnowLevelData[y][x]) / SPRITE_COUNT_X) / (float)SPRITE_COUNT_Y;
+
+					spriteWidth = 1.0f / (float)SPRITE_COUNT_X;
+					spriteHeight = 1.0f / (float)SPRITE_COUNT_Y;
+					vertexData.insert(vertexData.end(), {
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						TILE_SIZE * x - 0.0325f, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						(TILE_SIZE * x) + 0.0325f + TILE_SIZE, (-TILE_SIZE * y) - TILE_SIZE - 0.0325f,
+						TILE_SIZE * x - 0.0325f, -TILE_SIZE * y + 0.0325f,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, (-TILE_SIZE * y) - 0.0325f - TILE_SIZE,
+						(TILE_SIZE * x + 0.0325f) + TILE_SIZE, -TILE_SIZE * y + 0.0325f
+					});
+					texCoordData.insert(texCoordData.end(), {
+						u, v,
+						u, v + (spriteHeight),
+						u + spriteWidth, v + (spriteHeight),
+						u, v,
+						u + spriteWidth, v + (spriteHeight),
+						u + spriteWidth, v
+					});
+					for (int a = 0; a < solids.size(); a++) {
+						if (solids[a] == (int)bgSnowLevelData[y][x]) {
+							if (solids[a] == 56 || solids[a] == 66 || solids[a] == 76 || solids[a] == 0 || solids[a] == 10 || solids[a] == 20 || solids[a] == 36) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 4.0f), 1.0f, HALF_BLOCK));
+							}
+							else if (solids[a] == 3 || solids[a] == 13) {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, WATER));
+							}
+							else {
+								solidTiles.push_back(new Entity(TILE_SIZE * x, -TILE_SIZE * y - (TILE_SIZE / 2.0f), 1.0f, BLOCK));
+							}
 						}
 					}
 				}
@@ -393,6 +516,59 @@ void Game::RenderBackground() {
 	}
 }
 
+void Game::RenderScreen(GAME_STATE state) {
+	//Reset projection matrix
+	projectionMatrix.setOrthoProjection(-20.0f, 20.0f, -30.0f, 30.0f, -1.0f, 1.0f);
+	program->setProjectionMatrix(projectionMatrix);
+	//Reset view matrix
+	viewMatrix.identity();
+	program->setViewMatrix(viewMatrix);
+
+	gameMatrix.identity();
+	program->setModelMatrix(gameMatrix);
+
+	//Texture Coords
+	float texCoords[] = { 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f };
+
+	//Standard Background Image for Screens
+	float bg_vertices[] = { -20.0f, -30.0f, 20.0f, 30.0f, -20.0f, 30.0f, 20.0f, 30.0f, -20.0f, -30.0f, 20.0f, -30.0f };
+	glVertexAttribPointer(program->positionAttribute, 2, GL_FLOAT, false, 0, bg_vertices);
+	glEnableVertexAttribArray(program->positionAttribute);
+
+	glVertexAttribPointer(program->texCoordAttribute, 2, GL_FLOAT, false, 0, texCoords);
+	glEnableVertexAttribArray(program->texCoordAttribute);
+	glBindTexture(GL_TEXTURE_2D, screenID);
+
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(program->positionAttribute);
+	glDisableVertexAttribArray(program->texCoordAttribute);
+	
+	//Title of Screen
+	gameMatrix.identity();
+	gameMatrix.Translate(0.0f, 18.0f, 0.0f);
+	program->setModelMatrix(gameMatrix);
+
+	float title_vertices[] = { -10.0f, -5.8f, 10.0f, 7.8f, -10.0f, 7.8f, 10.0f, 7.8f, -10.0f, -5.8f, 10.0f, -5.8f };
+	glVertexAttribPointer(program->positionAttribute, 2, GL_FLOAT, false, 0, title_vertices);
+	glEnableVertexAttribArray(program->positionAttribute);
+
+	glVertexAttribPointer(program->texCoordAttribute, 2, GL_FLOAT, false, 0, texCoords);
+	glEnableVertexAttribArray(program->texCoordAttribute);
+	if (state == PAUSE) {
+		glBindTexture(GL_TEXTURE_2D, pauseID);
+	}
+	else if (state == VICTORY) {
+		glBindTexture(GL_TEXTURE_2D, victoryID);
+	}
+	else if (state == LOSE) {
+		glBindTexture(GL_TEXTURE_2D, loseID);
+	}
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(program->positionAttribute);
+	glDisableVertexAttribArray(program->texCoordAttribute);
+
+	SDL_GL_SwapWindow(displayWindow);
+}
 void Game::centerMap() {
 	viewMatrix.identity();
 	viewMatrix.Translate(-1 * player->getXPos(), -1 * player->getYPos() - 1.5f, 0.0f);
@@ -407,13 +583,20 @@ void Game::LoadForestMap() {
 	glClearColor(0.54902f, 0.847059f, 1.0f, 1.0f);	
 	glClear(GL_COLOR_BUFFER_BIT);
 	solids = {2, 3, 5, 15, 32, 33, 42, 47, 57, 52, 67, 70, 71, 77, 80, 82};
-	LoadMap("maps/Forest/testmap.txt");
+	LoadMap("maps/Forest/forest_map.txt");
 	RenderBackground();
 }
 
 void Game::LoadCandylandMap() {
 	gameMatrix.identity();
 	program->setModelMatrix(gameMatrix);
+	projectionMatrix.setOrthoProjection(-4.5f, 4.5f, -6.0f, 6.0f, -1.0f, 1.0f);
+	program->setProjectionMatrix(projectionMatrix);
+	glClearColor(0.737255, 0.560784, 0.560784, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+	solids = { 0, 10, 16, 18, 20, 28, 30, 36, 38, 40, 54, 55, 56, 58, 65, 66, 70, 75, 76, 78, 86, 95, 96 };
+	LoadMap("maps/Candyland/candyland_map.txt");
+	RenderBackground();
 
 }
 void Game::LoadSnowTundraMap() {
@@ -424,7 +607,10 @@ void Game::LoadSnowTundraMap() {
 void Game::ProcessEvents(float elapsed) {
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 	if (state == IN_GAME) {
-		if (selectedLevel == FOREST || selectedLevel == CANDYLAND) {
+		if (keys[SDL_SCANCODE_ESCAPE]) {
+			state = PAUSE;
+		}
+		if (selectedLevel == FOREST || selectedLevel == CANDYLAND || selectedLevel == SNOW_TUNDRA) {
 			//Move left
 			if (keys[SDL_SCANCODE_LEFT]) {
 				player->changeDirection(-1.0f);
@@ -458,10 +644,23 @@ void Game::ProcessEvents(float elapsed) {
 					player->changeXVel(0.0f);
 					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(0.0f); }
 				}
-				else if (player->getXPos() + (player->getXVel() * elapsed) > 148.5f) {
+				else if (player->getXPos() + (player->getXVel() * elapsed) > 148.5f && selectedLevel == FOREST) {
 					player->changeStatic(true);
 					player->changeXVel(0.0f);
 					if (player->hasTinyGun()) {	tiny_ray_gun->changeXVel(0.0f);	}
+					furthestLevel = CANDYLAND;
+					state = VICTORY;
+				}
+				else if (player->getYPos() > -11.0f && player->getXPos() + (player->getXVel() * elapsed) > 46.5f && !player->hasGoldKey() && selectedLevel == CANDYLAND) {
+					player->changeStatic(true);
+					player->changeXVel(0.0f);
+					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(0.0f); }
+				}
+				else if (player->getYPos() > -11.0f && player->getXPos() + (player->getXVel() * elapsed) > 51.5f && selectedLevel == CANDYLAND) {
+					player->changeStatic(true);
+					player->changeXVel(0.0f);
+					if (player->hasTinyGun()) { tiny_ray_gun->changeXVel(0.0f); }
+					furthestLevel = SNOW_TUNDRA;
 					state = VICTORY;
 				}
 				else if (player->isOnSurface()) {
@@ -490,27 +689,15 @@ void Game::ProcessEvents(float elapsed) {
 					}
 				}
 			}
-		}
-		else if (selectedLevel == SNOW_TUNDRA) {
-			//Slippery effect
-			if (keys[SDL_SCANCODE_LEFT]) {
-				/*if (player->getDirection() > 0) {
-				player->changeXAcc(0);
-				}
-				player->changeXAcc(-3.0F);
-				player->updateVals(elapsed);
-				}
-				else if (keys[SDL_SCANCODE_RIGHT]) {
-				if (player->getDirection() < 0) {
-				player->changeXAcc(0);
-				}
-				player->changeXAcc(3.0F);
-				player->updateVals(elapsed);
-				}
-				else {
-				player->changeXAcc(0);
-				player->updateVals(elapsed);
-				}*/
+			if (keys[SDL_SCANCODE_SPACE]) {
+				//if (player->isOnSurface() || player->canDoubleJump()) {
+					player->changeOnSurface(false);
+					player->changeYVel(10.0f);
+					if (player->hasTinyGun()) {
+						tiny_ray_gun->changeYVel(10.0f);
+					}
+					Mix_PlayChannel(-1, jump_sound, 0);
+				//}
 			}
 		}
 	}
@@ -547,10 +734,28 @@ void Game::ProcessEvents(float elapsed) {
 			}
 		}
 		else if (state == ALL_MAP_LEVELS) {
-			//Hover effect hopefully
-			if (event.type == SDL_MOUSEMOTION) {
-
+			vertexData.clear();
+			texCoordData.clear();
+			for (int i = 0; i < solidTiles.size(); i++) {
+				delete solidTiles[i];
 			}
+			solidTiles.clear();
+			for (int i = 0; i < enemies.size(); i++) {
+				delete enemies[i];
+			}
+			enemies.clear();
+			for (int i = 0; i < coins.size(); i++) {
+				delete coins[i];
+			}
+			coins.clear();
+			for (int i = 0; i < spikes.size(); i++) {
+				delete spikes[i];
+			}
+			spikes.clear();
+			for (int i = 0; i < bullets.size(); i++) {
+				delete bullets[i];
+			}
+			bullets.clear();
 			//Select level
 			if (event.type == SDL_MOUSEBUTTONDOWN) {
 				//Keep track of mouse coordinates and convert to game pixels	
@@ -562,10 +767,22 @@ void Game::ProcessEvents(float elapsed) {
 					//Forest Map
 					if (unitX > -2.0f && unitX < -1.0f && unitY > -1.0f && unitY < -0.6f) {
 						Mix_PlayChannel(-1, select_sound, 0);
+						if (selectedLevel != FOREST && selectedLevel != NONE) {
+							player->respawn();
+							player->resetOriginalValues();
+							tiny_ray_gun->respawn();
+							goldkey->respawn();
+							for (int i = 0; i < coins.size(); i++) {
+								coins[i]->respawn();
+							}
+							for (int i = 0; i < enemies.size(); i++) {
+								enemies[i]->respawn();
+								enemies[i]->resetOriginalValues();
+							}
+						}
 						selectedLevel = FOREST;
 						state = IN_GAME;
 						LoadForestMap();
-
 					}
 					//Candyland Map
 					else if (unitX > -1.7f && unitX < -0.6f && unitY > 0.3f && unitY < 1.0f) {
@@ -574,8 +791,22 @@ void Game::ProcessEvents(float elapsed) {
 						}
 						else {
 							Mix_PlayChannel(-1, select_sound, 0);
+							if (selectedLevel != CANDYLAND) {
+								player->respawn();
+								player->resetOriginalValues();
+								tiny_ray_gun->respawn();
+								goldkey->respawn();
+								for (int i = 0; i < coins.size(); i++) {
+									coins[i]->respawn();
+								}
+								for (int i = 0; i < enemies.size(); i++) {
+									enemies[i]->respawn();
+									enemies[i]->resetOriginalValues();
+								}
+							}
 							selectedLevel = CANDYLAND;
-							//LoadCandylandMap();
+							state = IN_GAME;
+							LoadCandylandMap();	
 						}
 					}
 					//Snow Tundra Map
@@ -586,6 +817,7 @@ void Game::ProcessEvents(float elapsed) {
 						else {
 							Mix_PlayChannel(-1, error_sound, 2);
 							selectedLevel = SNOW_TUNDRA;
+							//state = IN_GAME;
 							//LoadSnowTundraMap();
 						}
 					}
@@ -600,15 +832,46 @@ void Game::ProcessEvents(float elapsed) {
 				}
 			}
 		}
-		else if (state == IN_GAME) {
-			if (event.type == SDL_KEYDOWN) {
-				if (event.key.keysym.scancode == SDL_SCANCODE_SPACE) {
-					if (player->isOnSurface() || player->canDoubleJump()) {
-						player->changeOnSurface(false);
-						player->changeYVel(10.0f);
-						if (player->hasTinyGun()) {
-							tiny_ray_gun->changeYVel(10.0f);
+		else if (state == PAUSE || state == VICTORY || state == LOSE) {
+			//Select Option
+			if (event.type == SDL_MOUSEBUTTONDOWN) {
+				//Keep track of mouse coordinates and convert to game pixels	
+				unitX = (((float)event.motion.x / 640.0f) * 3.554f) - 1.777f;
+				unitY = (((float)(360 - event.motion.y) / 360.0f) * 2.0f) - 1.0f;
+
+				//If left click
+				if (event.button.button == 1) {
+					//Retry Button
+					if (unitX > -0.60f && unitX < 0.60 && unitY > 0.05f && unitY < 0.35f) {
+						gameMatrix.identity();
+						program->setModelMatrix(gameMatrix);
+						projectionMatrix.setOrthoProjection(-4.5f, 4.5f, -6.0f, 6.0f, -1.0f, 1.0f);
+						program->setProjectionMatrix(projectionMatrix);
+
+						Mix_PlayChannel(-1, select_sound, 0);
+						state = IN_GAME; 
+						player->respawn();
+						player->resetOriginalValues();
+						tiny_ray_gun->respawn();
+						goldkey->respawn();
+						for (int i = 0; i < coins.size(); i++) {
+							coins[i]->respawn();
 						}
+						for (int i = 0; i < enemies.size(); i++) {
+							enemies[i]->respawn();
+							enemies[i]->resetOriginalValues();
+						}
+					}
+					//Map Button
+					if (unitX > -0.60f && unitX < 0.60f && unitY > -0.30f && unitY < 0.0) {
+						Mix_PlayChannel(-1, select_sound, 0);
+						
+						state = ALL_MAP_LEVELS;
+					}
+					//Exit Button
+					if (unitX > -0.60f && unitX < 0.60f && unitY > -0.70f && unitY < -0.40f) {
+						Mix_PlayChannel(-1, select_sound, 0);
+						done = true;
 					}
 				}
 			}
@@ -646,9 +909,15 @@ void Game::Render() {
 			break;
 		}
 		case PAUSE: {
+			RenderScreen(PAUSE);
+			break;
+		}
+		case VICTORY: {
+			RenderScreen(VICTORY);
 			break;
 		}
 		case LOSE: {
+			RenderScreen(LOSE);
 			break;
 		}
 	}
@@ -680,9 +949,12 @@ void Game::Update(float elapsed) {
 		//Animate Enemies (AI)
 		for (int i = 0; i < enemies.size(); i++) {
 			for (int a = 0; a < solidTiles.size(); a++) {
-				if (enemies[i]->collidesWith(solidTiles[a])) {
+				if (((enemies[i]->getType() == SPIDER) || (enemies[i]->getType() == FISH)) && enemies[i]->collidesWith(solidTiles[a])) {
 					enemies[i]->collidedAction(solidTiles[a]);
 				}
+			}
+			if (enemies[i]->getType() == GHOST) {
+				enemies[i]->isNear(player);
 			}
 			enemies[i]->animate(elapsed);
 		}
@@ -701,7 +973,7 @@ void Game::Update(float elapsed) {
 			}
 		}
 		//If player falls down
-		if (player->getYPos() < -mapHeight - 5.0f) {
+		if (player->getYPos() < -mapHeight - 5.0f && selectedLevel == FOREST) {
 			player->respawn();
 			tiny_ray_gun->respawn();
 			player->decreaseHP(1.0f);
@@ -751,12 +1023,16 @@ void Game::LoadAllTexturesandSound() {
 	//Images
 	fontSprites = LoadTextureRGBA("images/font1.png");
 	bgID = LoadTextureRGBA("images/titlescreenbg.png");
+	screenID = LoadTextureRGBA("images/screens.png");
+	victoryID = LoadTextureRGBA("images/victory.png");
+	loseID = LoadTextureRGBA("images/lose.png");
+	pauseID = LoadTextureRGBA("images/pause.png");
 	playID = LoadTextureRGBA("images/conquerbutton.png");
 	aboutID = LoadTextureRGBA("images/aboutbutton.png");
 	exitID = LoadTextureRGBA("images/exitbutton.png");
 	mapLevelsID = LoadTextureRGBA("images/maplevels.png");
 	forestSprites = LoadTextureRGBA("maps/Forest/sprites.png");
-	candylandSprites = LoadTextureRGBA("maps/Forest/sprites.png");
+	candylandSprites = LoadTextureRGBA("maps/Candyland/sprites.png");
 	snowtundraSprites = LoadTextureRGBA("maps/Forest/sprites.png");
 	playerSprites = LoadTextureRGBA("assets/Player/p1_spritesheet.png");
 	itemSprites = LoadTextureRGBA("assets/Items/sprites.png");
@@ -772,6 +1048,7 @@ void Game::LoadAllTexturesandSound() {
 	goldkeySprite = SheetSprite(itemSprites, 0.0f / 216.0f, 72.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
 	spikeSprite = SheetSprite(itemSprites, 0.0f / 216.0f, 0.0f / 216.0f, 70.0f / 216.0f, 70.0f / 216.0f, 1.0f);
 	tRayGunSprite = SheetSprite(weaponSprites, 0.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0f);
+	bRayGunSprite = SheetSprite(weaponSprites, 72.0f / 144.0f, 0.0f / 144.0f, 70.0f / 144.0f, 70.0f / 144.0f, 1.0f);
 	spiderSprite = SheetSprite(forestSprites, 432.0f / 720.0f, 360.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0f);
 	ghostSprite = SheetSprite(forestSprites, 216.0f / 720.0f, 288.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0f);
 	fishSprite = SheetSprite(forestSprites, 576.0f / 720.0f, 174.0f / 720.0f, 70.0f / 720.0f, 70.0f / 720.0f, 1.0);
@@ -785,6 +1062,7 @@ void Game::LoadAllTexturesandSound() {
 	opening_music = Mix_LoadMUS("sounds/opening_music.mp3");
 	select_sound = Mix_LoadWAV("sounds/select.wav");
 	error_sound = Mix_LoadWAV("sounds/error.wav");
+	jump_sound = Mix_LoadWAV("sounds/jump.wav");
 }
 
 //Load JPG files

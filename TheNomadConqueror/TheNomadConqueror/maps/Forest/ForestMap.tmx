@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="40" tilewidth="70" tileheight="70" nextobjectid="420">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="40" tilewidth="70" tileheight="70" nextobjectid="504">
  <tileset firstgid="1" name="sprites" tilewidth="70" tileheight="70" spacing="2" tilecount="100">
   <image source="sprites.png" width="720" height="720"/>
  </tileset>
@@ -14,274 +14,85 @@
  </tileset>
  <layer name="Background" width="150" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt2b8KwjAQx/GuvoFuBZ0KOgl21cXBycHNyfd/CFNIoEsrbby7/Pl+4KhZTCK/eqk2DQAAAAAAAAAAABDv4upoNPfecG4AQHmke5plzwSAUvAMAAAAkCfOcQAAxBl66c54fno5UpPD/y69q5MvzLP+nkO9Usue1Xq2QvXW3ASSIpUpslU36VyNs/XR2BCSoJGrUpytF5ARyfyU1hs7V631IjIhmZ/Szl2dr5q0zbp7aUmfqv1MH3L1cvVwdbVdjoq199J2dF16RtI4m4Xs1f677b+y3Lu6jcaHyPebsiRXc2ONbGkaPv+Q442/rl1/jXLIVSq5s8pVjlkuIVdhPXdfU69/jaX2FItc2ebqGVlSe4pFrsrO1Rcb1000
+   eJzt2kFLw0AQhuEFRfDm0d5a9WKl0oNi8aYUFAShiDdP/v8f4QYTCTXZpElmJ7N5HxhqQmim7Zfsuq1zAAAAAAAAAAAAQH8PvlZK575UPDcAID3SY5rmmAkAqeB/AACHOvH1ulcfqh1hCi60G0DyLGaMedw4WcwSbCFjGApZ+h1LZ8rnT3ksJ2M2WfjeZePrNi+Ead/nrHh3/9e6hqqjiK9jTMaWPY1+Hn2dC9WXm262pk4qU2Rr2qRzVc7Wd6TXBH0xcpXKvOtOuwFDJPNjdWy8rtm/9DWP2IdlkvmxOu8K5WoZs5ERmLvma+ne101ei3xf9hm3WWvYOpl51xjXKppy9enrzddTtI707F9LRYYW1Yf/yT7fNmsNayefs9B9Lea6bV2uuq7jbUvPUXVth/YXhsryxtdzafsqcGzbDFU5JFehbelsxbynZbnK3v8ix6f5Y9f+1z16qRtLqn67WZfl44ZjJX7/aSFXbe9pfTXNBzRy1XXdus85h5BCrop+XvI6q/m7aVvquwdyZTtXu55FroZDrtrn6gdPSnos
   </data>
  </layer>
- <objectgroup name="SolidTiles">
-  <object id="61" name="solidTile" type="T_BLOCK" gid="72" x="0" y="2520" width="70" height="70"/>
-  <object id="69" name="solidTile" type="T_BLOCK" gid="72" x="70" y="2520" width="70" height="70"/>
-  <object id="70" name="solidTile" type="T_BLOCK" gid="72" x="140" y="2520" width="70" height="70"/>
-  <object id="71" name="solidTile" type="T_BLOCK" gid="72" x="210" y="2520" width="70" height="70"/>
-  <object id="72" name="solidTile" type="T_BLOCK" gid="72" x="280" y="2520" width="70" height="70"/>
-  <object id="73" name="solidTile" type="T_BLOCK" gid="72" x="350" y="2520" width="70" height="70"/>
-  <object id="74" name="solidTile" type="T_BLOCK" gid="72" x="420" y="2520" width="70" height="70"/>
-  <object id="75" name="solidTile" type="T_BLOCK" gid="72" x="490" y="2520" width="70" height="70"/>
-  <object id="76" name="solidTile" type="T_BLOCK" gid="72" x="560" y="2520" width="70" height="70"/>
-  <object id="77" name="solidTile" type="T_BLOCK" gid="72" x="630" y="2520" width="70" height="70"/>
-  <object id="78" name="solidTile" type="T_BLOCK" gid="72" x="700" y="2520" width="70" height="70"/>
-  <object id="79" name="solidTile" type="T_BLOCK" gid="72" x="770" y="2520" width="70" height="70"/>
-  <object id="80" name="solidTile" type="T_BLOCK" gid="72" x="840" y="2520" width="70" height="70"/>
-  <object id="81" name="solidTile" type="T_BLOCK" gid="72" x="910" y="2520" width="70" height="70"/>
-  <object id="82" name="solidTile" type="TR_BLOCK" gid="68" x="980" y="2520" width="70" height="70"/>
-  <object id="84" name="solidTile" type="R_BLOCK" gid="48" x="980" y="2590" width="70" height="70"/>
-  <object id="86" name="solidTile" type="R_BLOCK" gid="48" x="980" y="2660" width="70" height="70"/>
-  <object id="87" name="solidTile" type="R_BLOCK" gid="48" x="980" y="2730" width="70" height="70"/>
-  <object id="91" name="solidTile" type="R_BLOCK" gid="48" x="980" y="2800" width="70" height="70"/>
-  <object id="92" name="solidTile" type="TL_HALF_BLOCK" gid="53" x="1190" y="2520" width="70" height="70"/>
-  <object id="93" name="solidTile" type="T_HALF_BLOCK" gid="43" x="1260" y="2520" width="70" height="70"/>
-  <object id="95" name="solidTile" type="T_HALF_BLOCK" gid="43" x="1330" y="2520" width="70" height="70"/>
-  <object id="96" name="solidTile" type="TR_HALF_BLOCK" gid="33" x="1400" y="2520" width="70" height="70"/>
-  <object id="101" name="solidTile" type="TL_HALF_BLOCK" gid="53" x="1610" y="2520" width="70" height="70"/>
-  <object id="102" name="solidTile" type="T_HALF_BLOCK" gid="43" x="1680" y="2520" width="70" height="70"/>
-  <object id="103" name="solidTile" type="T_HALF_BLOCK" gid="43" x="1750" y="2520" width="70" height="70"/>
-  <object id="104" name="solidTile" type="TR_HALF_BLOCK" gid="33" x="1820" y="2520" width="70" height="70"/>
-  <object id="105" name="solidTile" type="TL_BLOCK" gid="78" x="2030" y="2590" width="70" height="70"/>
-  <object id="106" name="solidTile" type="L_BLOCK" gid="58" x="2030" y="2660" width="70" height="70"/>
-  <object id="113" name="solidTile" type="L_BLOCK" gid="58" x="2030" y="2730" width="70" height="70"/>
-  <object id="114" name="solidTile" type="L_BLOCK" gid="58" x="2030" y="2800" width="70" height="70"/>
-  <object id="120" name="solidTile" type="T_BLOCK" gid="72" x="2100" y="2590" width="70" height="70"/>
-  <object id="121" name="solidTile" type="T_BLOCK" gid="72" x="2170" y="2590" width="70" height="70"/>
-  <object id="122" name="solidTile" type="T_BLOCK" gid="72" x="2240" y="2590" width="70" height="70"/>
-  <object id="123" name="solidTile" type="T_BLOCK" gid="72" x="2310" y="2590" width="70" height="70"/>
-  <object id="124" name="solidTile" type="T_BLOCK" gid="72" x="2380" y="2590" width="70" height="70"/>
-  <object id="126" name="solidTile" type="ITEM_BLOCK" gid="6" x="2450" y="2590" width="70" height="70"/>
-  <object id="127" name="solidTile" type="T_BLOCK" gid="72" x="2520" y="2590" width="70" height="70"/>
-  <object id="128" name="solidTile" type="T_BLOCK" gid="72" x="2590" y="2590" width="70" height="70"/>
-  <object id="129" name="solidTile" type="T_BLOCK" gid="72" x="2660" y="2590" width="70" height="70"/>
-  <object id="130" name="solidTile" type="T_BLOCK" gid="72" x="2730" y="2590" width="70" height="70"/>
-  <object id="131" name="solidTile" type="T_BLOCK" gid="72" x="2800" y="2590" width="70" height="70"/>
-  <object id="132" name="solidTile" type="T_BLOCK" gid="72" x="2870" y="2590" width="70" height="70"/>
-  <object id="133" name="solidTile" type="T_BLOCK" gid="72" x="2940" y="2590" width="70" height="70"/>
-  <object id="134" name="solidTile" type="TR_BLOCK" gid="68" x="3010" y="2590" width="70" height="70"/>
-  <object id="168" name="solidTile" type="R_BLOCK" gid="48" x="3010" y="2660" width="70" height="70"/>
-  <object id="169" name="solidTile" type="R_BLOCK" gid="48" x="3010" y="2730" width="70" height="70"/>
-  <object id="170" name="solidTile" type="R_BLOCK" gid="48" x="3010" y="2800" width="70" height="70"/>
-  <object id="171" name="solidTile" type="TL_CURVE_BLOCK" gid="4" x="3220" y="2590" width="70" height="70"/>
-  <object id="207" name="solidTile" type="T_BLOCK" gid="72" x="3290" y="2590" width="70" height="70"/>
-  <object id="208" name="solidTile" type="T_BLOCK" gid="72" x="3360" y="2590" width="70" height="70"/>
-  <object id="209" name="solidTile" type="T_BLOCK" gid="72" x="3430" y="2590" width="70" height="70"/>
-  <object id="210" name="solidTile" type="T_BLOCK" gid="72" x="3500" y="2590" width="70" height="70"/>
-  <object id="211" name="solidTile" type="T_BLOCK" gid="72" x="3570" y="2590" width="70" height="70"/>
-  <object id="212" name="solidTile" type="T_BLOCK" gid="72" x="3640" y="2590" width="70" height="70"/>
-  <object id="213" name="solidTile" type="T_BLOCK" gid="72" x="3710" y="2590" width="70" height="70"/>
-  <object id="217" name="solidTile" type="T_BLOCK" gid="72" x="3780" y="2590" width="70" height="70"/>
-  <object id="218" name="solidTile" type="T_BLOCK" gid="72" x="3850" y="2590" width="70" height="70"/>
-  <object id="219" name="solidTile" type="T_BLOCK" gid="72" x="3920" y="2590" width="70" height="70"/>
-  <object id="220" name="solidTile" type="TR_CURVE_BLOCK" gid="83" x="3990" y="2590" width="70" height="70"/>
-  <object id="221" name="solidTile" type="TL_HALF_BLOCK" gid="53" x="4200" y="2520" width="70" height="70"/>
-  <object id="222" name="solidTile" type="T_HALF_BLOCK" gid="43" x="4270" y="2520" width="70" height="70"/>
-  <object id="223" name="solidTile" type="TR_HALF_BLOCK" gid="33" x="4340" y="2520" width="70" height="70"/>
-  <object id="224" name="solidTile" type="TL_HALF_BLOCK" gid="53" x="4550" y="2450" width="70" height="70"/>
-  <object id="225" name="solidTile" type="T_HALF_BLOCK" gid="43" x="4620" y="2450" width="70" height="70"/>
-  <object id="226" name="solidTile" type="TR_HALF_BLOCK" gid="33" x="4690" y="2450" width="70" height="70"/>
-  <object id="227" name="solidTile" type="TL_HALF_BLOCK" gid="53" x="4900" y="2380" width="70" height="70"/>
-  <object id="228" name="solidTile" type="T_HALF_BLOCK" gid="43" x="4970" y="2380" width="70" height="70"/>
-  <object id="229" name="solidTile" type="T_HALF_BLOCK" gid="43" x="5040" y="2380" width="70" height="70"/>
-  <object id="230" name="solidTile" type="TR_HALF_BLOCK" gid="33" x="5110" y="2380" width="70" height="70"/>
-  <object id="232" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2450" width="70" height="70"/>
-  <object id="233" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2520" width="70" height="70"/>
-  <object id="234" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2590" width="70" height="70"/>
-  <object id="235" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2660" width="70" height="70"/>
-  <object id="236" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2730" width="70" height="70"/>
-  <object id="237" name="solidTile" type="L_BLOCK" gid="58" x="5320" y="2800" width="70" height="70"/>
-  <object id="238" name="solidTile" type="TL_BLOCK" gid="78" x="5320" y="2380" width="70" height="70"/>
-  <object id="239" name="solidTile" type="T_BLOCK" gid="72" x="5390" y="2380" width="70" height="70"/>
-  <object id="240" name="solidTile" type="T_BLOCK" gid="72" x="5460" y="2380" width="70" height="70"/>
-  <object id="241" name="solidTile" type="T_BLOCK" gid="72" x="5530" y="2380" width="70" height="70"/>
-  <object id="242" name="solidTile" type="T_BLOCK" gid="72" x="5600" y="2380" width="70" height="70"/>
-  <object id="243" name="solidTile" type="T_BLOCK" gid="72" x="5670" y="2380" width="70" height="70"/>
-  <object id="244" name="solidTile" type="T_BLOCK" gid="72" x="5740" y="2380" width="70" height="70"/>
-  <object id="245" name="solidTile" type="T_BLOCK" gid="72" x="5810" y="2380" width="70" height="70"/>
-  <object id="246" name="solidTile" type="T_BLOCK" gid="72" x="5880" y="2380" width="70" height="70"/>
-  <object id="247" name="solidTile" type="TR_BLOCK" gid="68" x="5950" y="2380" width="70" height="70"/>
-  <object id="248" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2450" width="70" height="70"/>
-  <object id="249" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2520" width="70" height="70"/>
-  <object id="250" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2590" width="70" height="70"/>
-  <object id="251" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2660" width="70" height="70"/>
-  <object id="252" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2730" width="70" height="70"/>
-  <object id="253" name="solidTile" type="R_BLOCK" gid="48" x="5950" y="2800" width="70" height="70"/>
-  <object id="255" name="solidTile" type="R_BLOCK" gid="48" x="6230" y="2520" width="70" height="70"/>
-  <object id="256" name="solidTile" type="R_BLOCK" gid="48" x="6230" y="2590" width="70" height="70"/>
-  <object id="257" name="solidTile" type="R_BLOCK" gid="48" x="6230" y="2660" width="70" height="70"/>
-  <object id="258" name="solidTile" type="R_BLOCK" gid="48" x="6230" y="2730" width="70" height="70"/>
-  <object id="259" name="solidTile" type="R_BLOCK" gid="48" x="6230" y="2800" width="70" height="70"/>
-  <object id="260" name="solidTile" type="TR_BLOCK" gid="68" x="6230" y="2450" width="70" height="70"/>
-  <object id="261" name="solidTile" type="T_BLOCK" gid="72" x="6020" y="2450" width="70" height="70"/>
-  <object id="262" name="solidTile" type="T_BLOCK" gid="72" x="6090" y="2450" width="70" height="70"/>
-  <object id="263" name="solidTile" type="T_BLOCK" gid="72" x="6160" y="2450" width="70" height="70"/>
-  <object id="264" name="solidTile" type="T_BLOCK" gid="72" x="6160" y="2310" width="70" height="70"/>
-  <object id="265" name="solidTile" type="T_BLOCK" gid="72" x="6230" y="2310" width="70" height="70"/>
-  <object id="266" name="solidTile" type="T_BLOCK" gid="72" x="6300" y="2310" width="70" height="70"/>
-  <object id="267" name="solidTile" type="T_BLOCK" gid="72" x="6370" y="2310" width="70" height="70"/>
-  <object id="268" name="solidTile" type="T_BLOCK" gid="72" x="6580" y="2240" width="70" height="70"/>
-  <object id="269" name="solidTile" type="T_BLOCK" gid="72" x="6650" y="2240" width="70" height="70"/>
-  <object id="270" name="solidTile" type="T_BLOCK" gid="72" x="6720" y="2240" width="70" height="70"/>
-  <object id="271" name="solidTile" type="T_BLOCK" gid="72" x="6790" y="2240" width="70" height="70"/>
-  <object id="272" name="solidTile" type="T_BLOCK" gid="72" x="7000" y="2170" width="70" height="70"/>
-  <object id="273" name="solidTile" type="T_BLOCK" gid="72" x="7070" y="2170" width="70" height="70"/>
-  <object id="274" name="solidTile" type="T_BLOCK" gid="72" x="7140" y="2170" width="70" height="70"/>
-  <object id="275" name="solidTile" type="T_BLOCK" gid="72" x="7210" y="2170" width="70" height="70"/>
-  <object id="276" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="6860" y="1890" width="70" height="70"/>
-  <object id="277" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="6930" y="1960" width="70" height="70"/>
-  <object id="278" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="7000" y="2030" width="70" height="70"/>
-  <object id="279" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="7070" y="2100" width="70" height="70"/>
-  <object id="280" name="solidTile" type="L_BLOCK" gid="58" x="5250" y="1960" width="70" height="70"/>
-  <object id="281" name="solidTile" type="TL_BLOCK" gid="78" x="5250" y="1890" width="70" height="70"/>
-  <object id="282" name="solidTile" type="T_BLOCK" gid="72" x="5320" y="1890" width="70" height="70"/>
-  <object id="283" name="solidTile" type="T_BLOCK" gid="72" x="5390" y="1890" width="70" height="70"/>
-  <object id="284" name="solidTile" type="T_BLOCK" gid="72" x="5460" y="1890" width="70" height="70"/>
-  <object id="285" name="solidTile" type="T_BLOCK" gid="72" x="5530" y="1890" width="70" height="70"/>
-  <object id="286" name="solidTile" type="T_BLOCK" gid="72" x="5600" y="1890" width="70" height="70"/>
-  <object id="287" name="solidTile" type="T_BLOCK" gid="72" x="5670" y="1890" width="70" height="70"/>
-  <object id="288" name="solidTile" type="T_BLOCK" gid="72" x="5740" y="1890" width="70" height="70"/>
-  <object id="289" name="solidTile" type="T_BLOCK" gid="72" x="5810" y="1890" width="70" height="70"/>
-  <object id="290" name="solidTile" type="T_BLOCK" gid="72" x="5880" y="1890" width="70" height="70"/>
-  <object id="291" name="solidTile" type="T_BLOCK" gid="72" x="5950" y="1890" width="70" height="70"/>
-  <object id="292" name="solidTile" type="T_BLOCK" gid="72" x="6020" y="1890" width="70" height="70"/>
-  <object id="293" name="solidTile" type="T_BLOCK" gid="72" x="6090" y="1890" width="70" height="70"/>
-  <object id="294" name="solidTile" type="T_BLOCK" gid="72" x="6160" y="1890" width="70" height="70"/>
-  <object id="295" name="solidTile" type="T_BLOCK" gid="72" x="6230" y="1890" width="70" height="70"/>
-  <object id="296" name="solidTile" type="T_BLOCK" gid="72" x="6300" y="1890" width="70" height="70"/>
-  <object id="299" name="solidTile" type="T_BLOCK" gid="72" x="6370" y="1890" width="70" height="70"/>
-  <object id="300" name="solidTile" type="T_BLOCK" gid="72" x="6440" y="1890" width="70" height="70"/>
-  <object id="301" name="solidTile" type="T_BLOCK" gid="72" x="6510" y="1890" width="70" height="70"/>
-  <object id="302" name="solidTile" type="T_BLOCK" gid="72" x="6580" y="1890" width="70" height="70"/>
-  <object id="303" name="solidTile" type="T_BLOCK" gid="72" x="6650" y="1890" width="70" height="70"/>
-  <object id="304" name="solidTile" type="T_BLOCK" gid="72" x="6720" y="1890" width="70" height="70"/>
-  <object id="305" name="solidTile" type="T_BLOCK" gid="72" x="6790" y="1890" width="70" height="70"/>
-  <object id="306" name="solidTile" type="BLOCK" gid="34" x="5250" y="1750" width="70" height="70"/>
-  <object id="307" name="solidTile" type="BLOCK" gid="34" x="5040" y="1680" width="70" height="70"/>
-  <object id="308" name="solidTile" type="BLOCK" gid="34" x="5250" y="1610" width="70" height="70"/>
-  <object id="309" name="solidTile" type="BLOCK" gid="34" x="5040" y="1540" width="70" height="70"/>
-  <object id="310" name="solidTile" type="BLOCK" gid="34" x="5250" y="1470" width="70" height="70"/>
-  <object id="311" name="solidTile" type="BLOCK" gid="34" x="5040" y="1400" width="70" height="70"/>
-  <object id="313" name="solidTile" type="T_BLOCK" gid="72" x="4760" y="1330" width="70" height="70"/>
-  <object id="314" name="solidTile" type="T_BLOCK" gid="72" x="4690" y="1330" width="70" height="70"/>
-  <object id="315" name="solidTile" type="T_BLOCK" gid="72" x="4620" y="1330" width="70" height="70"/>
-  <object id="317" name="solidTile" type="T_BLOCK" gid="72" x="4550" y="1330" width="70" height="70"/>
-  <object id="318" name="solidTile" type="ITEM_BLOCK" gid="6" x="4480" y="1330" width="70" height="70"/>
-  <object id="320" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="7280" y="2170" width="70" height="70"/>
-  <object id="321" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="7350" y="2240" width="70" height="70"/>
-  <object id="322" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="7420" y="2310" width="70" height="70"/>
-  <object id="324" name="solidTile" type="T_BLOCK" gid="72" x="7490" y="2380" width="70" height="70"/>
-  <object id="325" name="solidTile" type="T_BLOCK" gid="72" x="7560" y="2380" width="70" height="70"/>
-  <object id="326" name="solidTile" type="T_BLOCK" gid="72" x="7630" y="2380" width="70" height="70"/>
-  <object id="327" name="solidTile" type="T_BLOCK" gid="72" x="7700" y="2380" width="70" height="70"/>
-  <object id="328" name="solidTile" type="T_BLOCK" gid="72" x="7770" y="2380" width="70" height="70"/>
-  <object id="329" name="solidTile" type="T_BLOCK" gid="72" x="7840" y="2380" width="70" height="70"/>
-  <object id="330" name="solidTile" type="T_BLOCK" gid="72" x="7910" y="2380" width="70" height="70"/>
-  <object id="331" name="solidTile" type="T_BLOCK" gid="72" x="7980" y="2380" width="70" height="70"/>
-  <object id="332" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="8050" y="2380" width="70" height="70"/>
-  <object id="333" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="8120" y="2450" width="70" height="70"/>
-  <object id="334" name="solidTile" type="T_BLOCK" gid="72" x="8190" y="2520" width="70" height="70"/>
-  <object id="335" name="solidTile" type="T_BLOCK" gid="72" x="8260" y="2520" width="70" height="70"/>
-  <object id="336" name="solidTile" type="T_BLOCK" gid="72" x="8330" y="2520" width="70" height="70"/>
-  <object id="337" name="solidTile" type="T_BLOCK" gid="72" x="8400" y="2520" width="70" height="70"/>
-  <object id="338" name="solidTile" type="T_BLOCK" gid="72" x="8470" y="2520" width="70" height="70"/>
-  <object id="339" name="solidTile" type="T_BLOCK" gid="72" x="8540" y="2520" width="70" height="70"/>
-  <object id="340" name="solidTile" type="T_BLOCK" gid="72" x="8610" y="2520" width="70" height="70"/>
-  <object id="341" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="8680" y="2520" width="70" height="70"/>
-  <object id="342" name="solidTile" type="TR_TRI_BLOCK" gid="3" x="8750" y="2590" width="70" height="70"/>
-  <object id="343" name="solidTile" type="R_BLOCK" gid="48" x="8750" y="2660" width="70" height="70"/>
-  <object id="344" name="solidTile" type="R_BLOCK" gid="48" x="8750" y="2730" width="70" height="70"/>
-  <object id="345" name="solidTile" type="R_BLOCK" gid="48" x="8750" y="2800" width="70" height="70"/>
-  <object id="346" name="solidTile" type="CRATE" gid="16" x="8960" y="2660" width="70" height="70"/>
-  <object id="347" name="solidTile" type="CRATE" gid="16" x="9170" y="2660" width="70" height="70"/>
-  <object id="348" name="solidTile" type="CRATE" gid="16" x="9450" y="2660" width="70" height="70"/>
-  <object id="349" name="solidTile" type="CRATE" gid="16" x="9730" y="2660" width="70" height="70"/>
-  <object id="350" name="solidTile" type="TL_BLOCK" gid="78" x="9940" y="2590" width="70" height="70"/>
-  <object id="351" name="solidTile" type="L_BLOCK" gid="58" x="9940" y="2660" width="70" height="70"/>
-  <object id="352" name="solidTile" type="L_BLOCK" gid="58" x="9940" y="2730" width="70" height="70"/>
-  <object id="353" name="solidTile" type="L_BLOCK" gid="58" x="9940" y="2800" width="70" height="70"/>
-  <object id="354" name="solidTile" type="T_BLOCK" gid="72" x="10010" y="2590" width="70" height="70"/>
-  <object id="355" name="solidTile" type="T_BLOCK" gid="72" x="10080" y="2590" width="70" height="70"/>
-  <object id="356" name="solidTile" type="T_BLOCK" gid="72" x="10150" y="2590" width="70" height="70"/>
-  <object id="357" name="solidTile" type="T_BLOCK" gid="72" x="10220" y="2590" width="70" height="70"/>
-  <object id="358" name="solidTile" type="T_BLOCK" gid="72" x="10290" y="2590" width="70" height="70"/>
-  <object id="359" name="solidTile" type="T_BLOCK" gid="72" x="10360" y="2590" width="70" height="70"/>
-  <object id="360" name="solidTile" type="T_BLOCK" gid="72" x="10430" y="2590" width="70" height="70"/>
-  <object id="361" name="solidTile" type="GOLDKEY_BLOCK" gid="41" x="10080" y="2520" width="70" height="70"/>
-  <object id="362" name="solidTile" type="GOLDKEY_BLOCK" gid="41" x="10080" y="2450" width="70" height="70"/>
-  <object id="363" name="solidTile" type="GOLDKEY_BLOCK" gid="41" x="10080" y="2380" width="70" height="70"/>
-  <object id="365" name="solidTile" type="GOLDKEY_BLOCK" gid="41" x="10080" y="2310" width="70" height="70"/>
-  <object id="366" name="solidTile" type="GOLDKEY_BLOCK" gid="41" x="10080" y="2240" width="70" height="70"/>
-  <object id="368" name="solidTile" type="TR_CURVE_BLOCK" gid="83" x="4830" y="1330" width="70" height="70"/>
-  <object id="372" name="solidTile" type="WATERTOP" gid="71" x="8820" y="2660" width="70" height="70"/>
-  <object id="373" name="solidTile" type="WATERTOP" gid="71" x="8890" y="2660" width="70" height="70"/>
-  <object id="374" name="solidTile" type="WATERTOP" gid="71" x="9030" y="2660" width="70" height="70"/>
-  <object id="375" name="solidTile" type="WATERTOP" gid="71" x="9100" y="2660" width="70" height="70"/>
-  <object id="376" name="solidTile" type="WATERTOP" gid="71" x="9240" y="2660" width="70" height="70"/>
-  <object id="377" name="solidTile" type="WATERTOP" gid="71" x="9310" y="2660" width="70" height="70"/>
-  <object id="378" name="solidTile" type="WATERTOP" gid="71" x="9380" y="2660" width="70" height="70"/>
-  <object id="379" name="solidTile" type="WATERTOP" gid="71" x="9520" y="2660" width="70" height="70"/>
-  <object id="380" name="solidTile" type="WATERTOP" gid="71" x="9590" y="2660" width="70" height="70"/>
-  <object id="381" name="solidTile" type="WATERTOP" gid="71" x="9660" y="2660" width="70" height="70"/>
-  <object id="382" name="solidTile" type="WATERTOP" gid="71" x="9800" y="2660" width="70" height="70"/>
-  <object id="383" name="solidTile" type="WATERTOP" gid="71" x="9870" y="2660" width="70" height="70"/>
-  <object id="385" name="solidTile" type="WATER" gid="81" x="8820" y="2730" width="70" height="70"/>
-  <object id="386" name="solidTile" type="WATER" gid="81" x="8890" y="2730" width="70" height="70"/>
-  <object id="387" name="solidTile" type="WATER" gid="81" x="8960" y="2730" width="70" height="70"/>
-  <object id="388" name="solidTile" type="WATER" gid="81" x="9030" y="2730" width="70" height="70"/>
-  <object id="389" name="solidTile" type="WATER" gid="81" x="9100" y="2730" width="70" height="70"/>
-  <object id="391" name="solidTile" type="WATER" gid="81" x="9170" y="2730" width="70" height="70"/>
-  <object id="392" name="solidTile" type="WATER" gid="81" x="9240" y="2730" width="70" height="70"/>
-  <object id="393" name="solidTile" type="WATER" gid="81" x="9310" y="2730" width="70" height="70"/>
-  <object id="394" name="solidTile" type="WATER" gid="81" x="9380" y="2730" width="70" height="70"/>
-  <object id="395" name="solidTile" type="WATER" gid="81" x="9450" y="2730" width="70" height="70"/>
-  <object id="396" name="solidTile" type="WATER" gid="81" x="9520" y="2730" width="70" height="70"/>
-  <object id="397" name="solidTile" type="WATER" gid="81" x="9590" y="2730" width="70" height="70"/>
-  <object id="399" name="solidTile" type="WATER" gid="81" x="9660" y="2730" width="70" height="70"/>
-  <object id="400" name="solidTile" type="WATER" gid="81" x="9730" y="2730" width="70" height="70"/>
-  <object id="401" name="solidTile" type="WATER" gid="81" x="9800" y="2730" width="70" height="70"/>
-  <object id="402" name="solidTile" type="WATER" gid="81" x="9870" y="2730" width="70" height="70"/>
-  <object id="403" name="solidTile" type="WATER" gid="81" x="8820" y="2800" width="70" height="70"/>
-  <object id="404" name="solidTile" type="WATER" gid="81" x="8890" y="2800" width="70" height="70"/>
-  <object id="405" name="solidTile" type="WATER" gid="81" x="8960" y="2800" width="70" height="70"/>
-  <object id="406" name="solidTile" type="WATER" gid="81" x="9030" y="2800" width="70" height="70"/>
-  <object id="407" name="solidTile" type="WATER" gid="81" x="9100" y="2800" width="70" height="70"/>
-  <object id="408" name="solidTile" type="WATER" gid="81" x="9170" y="2800" width="70" height="70"/>
-  <object id="409" name="solidTile" type="WATER" gid="81" x="9240" y="2800" width="70" height="70"/>
-  <object id="410" name="solidTile" type="WATER" gid="81" x="9310" y="2800" width="70" height="70"/>
-  <object id="411" name="solidTile" type="WATER" gid="81" x="9380" y="2800" width="70" height="70"/>
-  <object id="412" name="solidTile" type="WATER" gid="81" x="9450" y="2800" width="70" height="70"/>
-  <object id="413" name="solidTile" type="WATER" gid="81" x="9520" y="2800" width="70" height="70"/>
-  <object id="414" name="solidTile" type="WATER" gid="81" x="9590" y="2800" width="70" height="70"/>
-  <object id="415" name="solidTile" type="WATER" gid="81" x="9660" y="2800" width="70" height="70"/>
-  <object id="416" name="solidTile" type="WATER" gid="81" x="9730" y="2800" width="70" height="70"/>
-  <object id="418" name="solidTile" type="WATER" gid="81" x="9800" y="2800" width="70" height="70"/>
-  <object id="419" name="solidTile" type="WATER" gid="81" x="9870" y="2800" width="70" height="70"/>
+ <objectgroup name="Items">
+  <object id="423" name="coin" type="COIN" gid="119" x="700" y="2450" width="70" height="70"/>
+  <object id="424" name="coin" type="COIN" gid="119" x="770" y="2450" width="70" height="70"/>
+  <object id="425" name="coin" type="COIN" gid="119" x="840" y="2450" width="70" height="70"/>
+  <object id="426" name="coin" type="COIN" gid="119" x="910" y="2450" width="70" height="70"/>
+  <object id="427" name="coin" type="COIN" gid="119" x="980" y="2450" width="70" height="70"/>
+  <object id="428" name="coin" type="COIN" gid="119" x="1470" y="2310" width="70" height="70"/>
+  <object id="429" name="coin" type="COIN" gid="119" x="1540" y="2310" width="70" height="70"/>
+  <object id="430" name="coin" type="COIN" gid="119" x="2870" y="2520" width="70" height="70"/>
+  <object id="431" name="coin" type="COIN" gid="119" x="2940" y="2520" width="70" height="70"/>
+  <object id="432" name="coin" type="COIN" gid="119" x="3010" y="2520" width="70" height="70"/>
+  <object id="433" name="coin" type="COIN" gid="119" x="5740" y="1820" width="70" height="70"/>
+  <object id="434" name="coin" type="COIN" gid="119" x="5810" y="1820" width="70" height="70"/>
+  <object id="435" name="coin" type="COIN" gid="119" x="5880" y="1820" width="70" height="70"/>
+  <object id="436" name="coin" type="COIN" gid="119" x="5880" y="2310" width="70" height="70"/>
+  <object id="437" name="coin" type="COIN" gid="119" x="5950" y="2310" width="70" height="70"/>
+  <object id="438" name="coin" type="COIN" gid="119" x="6580" y="2170" width="70" height="70"/>
+  <object id="439" name="coin" type="COIN" gid="119" x="6650" y="2170" width="70" height="70"/>
+  <object id="440" name="coin" type="COIN" gid="119" x="6650" y="1820" width="70" height="70"/>
+  <object id="441" name="coin" type="COIN" gid="119" x="6720" y="1820" width="70" height="70"/>
+  <object id="442" name="coin" type="COIN" gid="119" x="6790" y="1820" width="70" height="70"/>
+  <object id="443" name="coin" type="COIN" gid="119" x="7140" y="2100" width="70" height="70"/>
+  <object id="444" name="coin" type="COIN" gid="119" x="7210" y="2100" width="70" height="70"/>
+  <object id="445" name="coin" type="COIN" gid="119" x="7630" y="2310" width="70" height="70"/>
+  <object id="446" name="coin" type="COIN" gid="119" x="7700" y="2310" width="70" height="70"/>
+  <object id="447" name="coin" type="COIN" gid="119" x="7770" y="2310" width="70" height="70"/>
+  <object id="448" name="coin" type="COIN" gid="119" x="8190" y="2240" width="70" height="70"/>
+  <object id="449" name="coin" type="COIN" gid="119" x="8260" y="2240" width="70" height="70"/>
+  <object id="450" name="coin" type="COIN" gid="119" x="8960" y="2590" width="70" height="70"/>
+  <object id="451" name="coin" type="COIN" gid="119" x="9170" y="2590" width="70" height="70"/>
+  <object id="452" name="coin" type="COIN" gid="119" x="9450" y="2590" width="70" height="70"/>
+  <object id="453" name="coin" type="COIN" gid="119" x="9730" y="2590" width="70" height="70"/>
+  <object id="454" name="coin" type="COIN" gid="119" x="9940" y="2380" width="70" height="70"/>
+  <object id="455" name="coin" type="COIN" gid="119" x="10010" y="2380" width="70" height="70"/>
+  <object id="456" name="coin" type="COIN" gid="119" x="10010" y="2450" width="70" height="70"/>
+  <object id="457" name="coin" type="COIN" gid="119" x="9940" y="2450" width="70" height="70"/>
+  <object id="458" name="coin" type="COIN" gid="119" x="9940" y="2520" width="70" height="70"/>
+  <object id="459" name="coin" type="COIN" gid="119" x="10010" y="2520" width="70" height="70"/>
+  <object id="460" name="coin" type="COIN" gid="119" x="10150" y="2520" width="70" height="70"/>
+  <object id="461" name="coin" type="COIN" gid="119" x="10220" y="2520" width="70" height="70"/>
+  <object id="462" name="key" type="GOLD_KEY" gid="116" x="4480" y="1260" width="70" height="70"/>
+  <object id="463" name="tinygun" type="TINY_RAY_GUN" gid="122" x="2450" y="2520" width="70" height="70"/>
+  <object id="494" name="coin" type="COIN" gid="119" x="2030" y="2520" width="70" height="70"/>
+  <object id="495" name="coin" type="COIN" gid="119" x="2100" y="2520" width="70" height="70"/>
+  <object id="496" name="coin" type="COIN" gid="119" x="4060" y="2450" width="70" height="70"/>
+  <object id="497" name="coin" type="COIN" gid="119" x="4130" y="2380" width="70" height="70"/>
+  <object id="498" name="coin" type="COIN" gid="119" x="4410" y="2310" width="70" height="70"/>
+  <object id="499" name="coin" type="COIN" gid="119" x="4480" y="2310" width="70" height="70"/>
+  <object id="500" name="coin" type="COIN" gid="119" x="4900" y="2310" width="70" height="70"/>
+  <object id="501" name="coin" type="COIN" gid="119" x="4970" y="2310" width="70" height="70"/>
+  <object id="502" name="coin" type="COIN" gid="119" x="5040" y="2310" width="70" height="70"/>
+  <object id="503" name="coin" type="COIN" gid="119" x="5110" y="2310" width="70" height="70"/>
  </objectgroup>
- <layer name="Items" width="150" height="40" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJzt2DEKwCAMBVAPXcj1uzrYImKtTd+DgA6CIX8QSwEAAAAAAAAAAADYw/H2BQAAAABggajqyTMAAIzx7mKE3PA1WTObta8eK3r3P0FWs3IdjeK/MmRAlvdjHtyJi3XPHgBoOwGwVhGo
-  </data>
- </layer>
- <layer name="Weapons" width="150" height="40" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6D3trwx7iYkIAEAAAAAAAAAAAAAAAAAAAAAAAAA4JtpBwAA4KgFvC8AfA==
-  </data>
- </layer>
- <objectgroup name="Player" visible="0">
+ <objectgroup name="Player">
   <object id="3" name="start" type="PLAYER" gid="102" x="141" y="2449" width="67" height="94"/>
  </objectgroup>
- <layer name="Enemies" width="150" height="40" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJzt2E0KgCAQBlCvUOu6Qffz+q2CiAwDK2neA0FkFi4+/JmUAAAAAAAAAAAAAPq0fL0BQshfb4DfkzFakSWeJmO0Iks8TcbolT4GNYbKNQAAIB7/yv+abtT6I8aRU7nXmQ/jzLibv5UbfY3+6JfTWsRMbW+wKOfZ1d1y11CYX60BAMyNaqCkNj+1dSsiKQlt
-  </data>
- </layer>
- <objectgroup name="Enemies" visible="0">
-  <object id="369" name="enemy" type="SPIKES" gid="113" x="6160" y="1820" width="70" height="70"/>
-  <object id="370" name="enemy" type="SPIKES" gid="113" x="6230" y="1820" width="70" height="70"/>
-  <object id="371" name="enemy" type="SPIKES" gid="113" x="6300" y="1820" width="70" height="70"/>
+ <objectgroup name="Enemies">
+  <object id="370" name="enemy" type="SPIKE" gid="113" x="6230" y="1820" width="70" height="70"/>
+  <object id="371" name="enemy" type="SPIKE" gid="113" x="6300" y="1820" width="70" height="70"/>
+  <object id="475" name="enemy" type="GHOST" gid="44" x="4760" y="1260" width="70" height="70"/>
+  <object id="476" name="enemy" type="GHOST" gid="44" x="6440" y="1750" width="70" height="70"/>
+  <object id="477" name="enemy" type="GHOST" gid="44" x="7700" y="2170" width="70" height="70"/>
+  <object id="478" name="enemy" type="GHOST" gid="44" x="8330" y="2450" width="70" height="70"/>
+  <object id="479" name="enemy" type="FISH" gid="5" x="8890" y="2730" width="70" height="70"/>
+  <object id="480" name="enemy" type="FISH" gid="5" x="9100" y="2800" width="70" height="70"/>
+  <object id="481" name="enemy" type="FISH" gid="5" x="9520" y="2730" width="70" height="70"/>
+  <object id="482" name="enemy" type="FISH" gid="5" x="9800" y="2800" width="70" height="70"/>
+  <object id="484" name="enemy" type="SPIDER" gid="57" x="3360" y="2520" width="70" height="70"/>
+  <object id="485" name="enemy" type="SPIDER" gid="57" x="3570" y="2520" width="70" height="70"/>
+  <object id="486" name="enemy" type="SPIDER" gid="57" x="3920" y="2520" width="70" height="70"/>
+  <object id="487" name="enemy" type="SPIDER" gid="57" x="5600" y="1820" width="70" height="70"/>
+  <object id="488" name="enemy" type="SPIDER" gid="57" x="5950" y="1820" width="70" height="70"/>
+  <object id="489" name="enemy" type="SPIDER" gid="57" x="5740" y="2310" width="70" height="70"/>
+  <object id="490" name="enemy" type="SPIDER" gid="57" x="6300" y="2240" width="70" height="70"/>
+  <object id="491" name="enemy" type="SPIDER" gid="57" x="7560" y="2310" width="70" height="70"/>
+  <object id="492" name="enemy" type="SPIDER" gid="57" x="7910" y="2310" width="70" height="70"/>
+  <object id="493" name="enemy" type="SPIDER" gid="57" x="8470" y="2450" width="70" height="70"/>
  </objectgroup>
 </map>
