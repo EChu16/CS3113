@@ -1,0 +1,8 @@
+.laserPurple{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -72px;}
+.laserPurpleDot{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -0px;}
+.laserRedBurst{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -72px;}
+.laserRedHorizontal{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -0px;}
