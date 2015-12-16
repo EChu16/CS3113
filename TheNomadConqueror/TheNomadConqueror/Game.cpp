@@ -28,7 +28,7 @@ void Game::Setup() {
 	glViewport(0, 0, 640, 360);
 	projectionMatrix.setOrthoProjection(-20.0f,20.0f,-30.0f,30.0f, -1.0f, 1.0f);
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA	, GL_ONE_MINUS_SRC_ALPHA);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -712,18 +712,19 @@ void Game::ProcessEvents(float elapsed) {
 						bullets.push_back(new Entity(tiny_ray_gun->getXPos() + (player->getDirection() * 0.2f), tiny_ray_gun->getYPos(), player->getDirection(), REG_BULLET));
 						bullets.back()->setMainSprite(pTinyRaySprite);
 						bullets.back()->setCurrentSprite(pTinyRaySprite, 0);
+						Mix_PlayChannel(-1, laser_sound, 0);
 					}
 				}
 			}
 			if (keys[SDL_SCANCODE_SPACE]) {
-				//if (player->isOnSurface() || player->canDoubleJump()) {
+				if (player->isOnSurface() || player->canDoubleJump()) {
 					player->changeOnSurface(false);
 					player->changeYVel(10.0f);
 					if (player->hasTinyGun()) {
 						tiny_ray_gun->changeYVel(10.0f);
 					}
 					Mix_PlayChannel(-1, jump_sound, 0);
-				//}
+				}
 			}
 		}
 	}
@@ -830,10 +831,9 @@ void Game::ProcessEvents(float elapsed) {
 									enemies[i]->resetOriginalValues();
 								}
 							}
-							selectedLevel = SNOW_TUNDRA;
+							selectedLevel = CANDYLAND;
 							state = IN_GAME;
-							//LoadCandylandMap();	
-							LoadSnowTundraMap();
+							LoadCandylandMap();	
 						}
 					}
 					//Snow Tundra Map
@@ -1103,6 +1103,7 @@ void Game::LoadAllTexturesandSound() {
 	select_sound = Mix_LoadWAV("sounds/select.wav");
 	error_sound = Mix_LoadWAV("sounds/error.wav");
 	jump_sound = Mix_LoadWAV("sounds/jump.wav");
+	laser_sound = Mix_LoadWAV("sounds/laser.wav");
 }
 
 //Load JPG files

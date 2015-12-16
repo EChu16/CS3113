@@ -141,6 +141,7 @@ private:
 	Mix_Chunk* select_sound;
 	Mix_Chunk* error_sound;
 	Mix_Chunk* jump_sound;
+	Mix_Chunk* laser_sound;
 
 	//Mouse coordinates
 	float unitX;

@@ -7,15 +7,15 @@ c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadc
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(459): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(499): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(594): warning C4305: 'argument' : truncation from 'double' to 'GLclampf'
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(765): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(769): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(773): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(777): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(781): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(801): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(804): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(825): warning C4018: '<' : signed/unsigned mismatch
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(828): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(766): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(770): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(774): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(778): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(782): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(802): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(805): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(826): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(829): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(851): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(854): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(897): warning C4018: '<' : signed/unsigned mismatch
@@ -29,6 +29,7 @@ c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadc
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(1037): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(1041): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(1096): warning C4305: 'argument' : truncation from 'double' to 'float'
-c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(1136): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(1137): warning C4018: '<' : signed/unsigned mismatch
 c:\users\erich\documents\visual studio 2013\projects\thenomadconqueror\thenomadconqueror\game.cpp(206): warning C4715: 'Game::readHeader' : not all control paths return a value
+MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   TheNomadConqueror.vcxproj -> C:\Users\Erich\documents\visual studio 2013\Projects\TheNomadConqueror\Debug\TheNomadConqueror.exe
