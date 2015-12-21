@@ -1,0 +1,6 @@
+.raygunPurple{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -0px;}
+.raygunPurpleBig{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -0px;}
+.swordSilver{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -72px;}

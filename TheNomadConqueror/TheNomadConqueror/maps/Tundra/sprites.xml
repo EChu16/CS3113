@@ -1,0 +1,170 @@
+.boxItem{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -216px;}
+.caneGreen{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -144px;}
+.caneGreenSmall{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -72px;}
+.caneGreenTop{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -0px;}
+.caneGreenTopAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -648px;}
+.caneRed{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -576px;}
+.caneRedSmall{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -504px;}
+.caneRedTop{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -432px;}
+.caneRedTopAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -360px;}
+.cloud1{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -288px;}
+.cloud1_right{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -216px;}
+.cloud2{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -576px -288px;}
+.cloud2_right{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -72px;}
+.fishGreen{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -0px;}
+.fishGreen_dead{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -648px;}
+.fishGreen_hit{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -576px;}
+.fishGreen_swim{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -504px;}
+.ghost{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -432px;}
+.ghost_dead{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -360px;}
+.ghost_hit{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -288px;}
+.ghost_normal{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -216px;}
+.iceBlock{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -144px;}
+.iceWaterAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -648px;}
+.iceWaterDeepAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -576px;}
+.iceWaterDeepStars{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -504px;}
+.iceWaterMidAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -432px;}
+.iceleft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -72px;}
+.iceright{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -216px -0px;}
+.igloo{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -360px;}
+.iglooDoor{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -288px;}
+.iglooRoof{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -216px;}
+.iglooRoofLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -144px;}
+.iglooRoofRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -72px;}
+.lock_yellow{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -144px -0px;}
+.pineSapling{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -648px;}
+.pineSaplingAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -576px;}
+.plant{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -504px;}
+.plantAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -432px;}
+.rock{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -360px;}
+.rockAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -288px;}
+.signExit{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -216px;}
+.signLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -144px;}
+.signRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -72px;}
+.slice19_19{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -72px -0px;}
+.slice20_20{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -648px;}
+.slice23_23{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -576px;}
+.slice24_24{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -504px;}
+.slice25_25{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -432px;}
+.slice26_26{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -360px;}
+.slice36_36{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -288px;}
+.snowBall{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -216px;}
+.snowBallBig{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -144px;}
+.snowGroundLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -72px;}
+.snowGroundRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -0px -0px;}
+.snowHill{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -288px -144px;}
+.snowHillLow{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -576px -216px;}
+.snowWave{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -576px -144px;}
+.spider{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -576px -72px;}
+.spider_dead{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -576px -0px;}
+.spider_hit{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -648px;}
+.spider_walk1{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -576px;}
+.spikesBottom{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -504px;}
+.spikesTopAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -432px;}
+.tree{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -360px;}
+.treeBranchesLeftAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -288px;}
+.treeBranchesSnowLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -216px;}
+.treeBranchesSnowRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -144px;}
+.treeBranchesSnowRightAlt{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -72px;}
+.treeTop{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -504px -0px;}
+.treeTrunkBottom{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -648px;}
+.tundra{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -576px;}
+.tundraCenter{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -504px;}
+.tundraCliffLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -432px;}
+.tundraCliffRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -360px;}
+.tundraHalf{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -288px;}
+.tundraHalfLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -216px;}
+.tundraHalfMid{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -144px;}
+.tundraHalfRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -72px;}
+.tundraHillLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -432px -0px;}
+.tundraHillLeft2{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -648px;}
+.tundraHillRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -576px;}
+.tundraHillRight2{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -504px;}
+.tundraLeft{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -432px;}
+.tundraMid{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -360px;}
+.tundraRight{top:0px;left:0px;
+width:70px;height:70px;background: url("sprites.png") no-repeat -360px -288px;}

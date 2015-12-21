@@ -1,0 +1,10 @@
+﻿  Entity.cpp
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(119): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(164): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(178): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(211): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(225): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(264): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(288): warning C4018: '<' : signed/unsigned mismatch
+c:\users\erich\documents\gameprogramming\hw\cs3113\thenomadconqueror\thenomadconqueror\entity.cpp(357): warning C4018: '<' : signed/unsigned mismatch
+  TheNomadConqueror.vcxproj -> C:\Users\Erich\Documents\GameProgramming\HW\CS3113\TheNomadConqueror\Debug\TheNomadConqueror.exe
